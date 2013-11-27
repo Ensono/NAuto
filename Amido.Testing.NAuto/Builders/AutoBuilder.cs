@@ -88,20 +88,32 @@ namespace Amido.Testing.NAuto.Builders
             Expression<Func<TModel, string>> expression,
             int length,
             CharacterSetType characterSetType,
-            Casing casing)
+            Spaces spaces)
         {
-            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, casing), expression);
+            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces), expression);
             return this;
         }
 
         public IAutoBuilderOverrides<TModel> With(
-            Expression<Func<TModel, string>> expression,
-            int length,
-            CharacterSetType characterSetType,
-            Casing casing,
-            Spaces spaces)
+            Expression<Func<TModel, string>> expression, 
+            int length, 
+            CharacterSetType characterSetType, 
+            Spaces spaces, 
+            Casing casing)
         {
-            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, casing, spaces), expression);
+            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces, casing), expression);
+            return this;
+        }
+
+        public IAutoBuilderOverrides<TModel> With(
+            Expression<Func<TModel, string>> expression, 
+            int minLength, 
+            int maxLength, 
+            CharacterSetType characterSetType, 
+            Spaces spaces, 
+            Casing casing)
+        {
+            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces, casing), expression);
             return this;
         }
 
@@ -110,21 +122,9 @@ namespace Amido.Testing.NAuto.Builders
             int minLength,
             int maxLength,
             CharacterSetType characterSetType,
-            Casing casing,
             Spaces spaces)
         {
-            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, casing, spaces), expression);
-            return this;
-        }
-
-        public IAutoBuilderOverrides<TModel> With(
-            Expression<Func<TModel, string>> expression,
-            int minLength,
-            int maxLength,
-            CharacterSetType characterSetType,
-            Casing casing)
-        {
-            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, casing), expression);
+            SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces), expression);
             return this;
         }
 

@@ -232,9 +232,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             return NAuto.GetRandomString(
                 configuration.StringMinLength,
                 configuration.StringMaxLength,
-                configuration.StringStringCharacterSetType,
-                configuration.StringStringCasing,
-                configuration.StringStringSpaces);
+                configuration.StringStringCharacterSetType, configuration.StringStringSpaces, configuration.StringStringCasing);
         }
 
         private int GetIntValue(string propertyName)

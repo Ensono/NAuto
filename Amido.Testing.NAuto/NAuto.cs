@@ -32,32 +32,32 @@ namespace Amido.Testing.NAuto
 
         public static string GetRandomString(int length)
         {
-            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Casing.Any, Spaces.Any);
+            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any);
         }
 
         public static string GetRandomString(int length, CharacterSetType characterSetType)
         {
-            return RandomStringGenerator.Get(length, characterSetType, Casing.Any, Spaces.Any);
+            return RandomStringGenerator.Get(length, characterSetType, Spaces.Any, Casing.Any);
         }
 
-        public static string GetRandomString(int length, CharacterSetType characterSetType, Casing casing)
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces)
         {
-            return RandomStringGenerator.Get(length, characterSetType, casing, Spaces.Any);
+            return RandomStringGenerator.Get(length, characterSetType, spaces, Casing.Any);
         }
 
-        public static string GetRandomString(int length, CharacterSetType characterSetType, Casing casing, Spaces spaces)
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing)
         {
-            return RandomStringGenerator.Get(length, characterSetType, casing, spaces);
+            return RandomStringGenerator.Get(length, characterSetType, spaces, casing);
         }
 
-        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Casing casing)
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, casing, Spaces.Any);
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, Casing.Any);
         }
 
-        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Casing casing, Spaces spaces)
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, casing, spaces);
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, casing);
         }
 
         public static int GetRandomInteger(int max)

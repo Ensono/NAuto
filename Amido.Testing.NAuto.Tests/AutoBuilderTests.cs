@@ -62,7 +62,7 @@ namespace Amido.Testing.NAuto.Tests
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
-                .With(x => x.FirstName, 9, CharacterSetType.Anything, Casing.Lowered, Spaces.Middle)
+                .With(x => x.FirstName, 9, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .Build();
 
             // Assert
@@ -75,7 +75,7 @@ namespace Amido.Testing.NAuto.Tests
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
-                .With(x => x.SubTestModel.SubString, 7, CharacterSetType.Anything, Casing.Lowered, Spaces.Middle)
+                .With(x => x.SubTestModel.SubString, 7, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .Build();
 
             // Assert
@@ -88,7 +88,7 @@ namespace Amido.Testing.NAuto.Tests
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
-                .With(x => x.SubTestModel.SubSubTestModel.SubSubString, 5, CharacterSetType.Anything, Casing.Lowered, Spaces.Middle)
+                .With(x => x.SubTestModel.SubSubTestModel.SubSubString, 5, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .With(x => x.SubTestModel.SubString, 12)
                 .Build();
 

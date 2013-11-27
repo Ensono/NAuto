@@ -18,7 +18,7 @@ namespace Amido.Testing.NAuto.Randomizers
             return Random.Next(1, maxNumber);
         }
 
-        public static string Get(int length, CharacterSetType characterSetType, Casing casing, Spaces spaces)
+        public static string Get(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing)
         {
             var characters = GetCharacterSet(characterSetType, casing);
 
@@ -27,7 +27,7 @@ namespace Amido.Testing.NAuto.Randomizers
             return ConvertToProperCaseIfRequired(sb.ToString(), casing);
         }
 
-        public static string Get(int minLength, int maxLength, CharacterSetType characterSetType, Casing casing, Spaces spaces)
+        public static string Get(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing)
         {
             var characters = GetCharacterSet(characterSetType, casing);
 

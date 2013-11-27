@@ -25,29 +25,29 @@ namespace Amido.Testing.NAuto.Builders
             Expression<Func<TModel, string>> expression,
             int length,
             CharacterSetType characterSetType,
+            Spaces spaces);
+
+        IAutoBuilderOverrides<TModel> With(
+            Expression<Func<TModel, string>> expression, 
+            int length, 
+            CharacterSetType characterSetType, 
+            Spaces spaces, 
             Casing casing);
 
         IAutoBuilderOverrides<TModel> With(
-            Expression<Func<TModel, string>> expression,
-            int length,
-            CharacterSetType characterSetType,
-            Casing casing,
-            Spaces spaces);
+            Expression<Func<TModel, string>> expression, 
+            int minLength, 
+            int maxLength, 
+            CharacterSetType characterSetType, 
+            Spaces spaces, 
+            Casing casing);
 
         IAutoBuilderOverrides<TModel> With(
             Expression<Func<TModel, string>> expression,
             int minLength,
             int maxLength,
             CharacterSetType characterSetType,
-            Casing casing,
             Spaces spaces);
-
-        IAutoBuilderOverrides<TModel> With(
-            Expression<Func<TModel, string>> expression,
-            int minLength,
-            int maxLength,
-            CharacterSetType characterSetType,
-            Casing casing);
 
         IAutoBuilderOverrides<TModel> With(
             Expression<Func<TModel, int>> expression,

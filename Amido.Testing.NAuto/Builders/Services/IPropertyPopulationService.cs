@@ -7,6 +7,6 @@ namespace Amido.Testing.NAuto.Builders.Services
     {
         void PopulateProperties(object objectToPopulate, int depth);
         List<object> BuildConstructorParameters(ConstructorInfo[] constructors, int depth);
-        void AddConfiguration(AutoBuilderConfiguration configuration);
+        void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration);
     }
 }

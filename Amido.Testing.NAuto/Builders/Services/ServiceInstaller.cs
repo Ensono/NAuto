@@ -5,6 +5,7 @@
         public static void Install(Nject.NAutoContainer container)
         {
             container.Register<IPropertyPopulationService, PropertyPopulationService>();
+            container.Register<PopulateProperty<string>, PopulateStringService>();
         }
     }
 }

@@ -8,11 +8,18 @@ namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PropertyPopulationService : IPropertyPopulationService
     {
+        private readonly PopulateProperty<string> populateStringService;
         private AutoBuilderConfiguration configuration;
 
-        public void AddConfiguration(AutoBuilderConfiguration configuration)
+        public PropertyPopulationService(PopulateProperty<string> populateStringService)
         {
-            this.configuration = configuration;
+            this.populateStringService = populateStringService;
+        }
+
+        public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
+        {
+            configuration = autoBuilderConfiguration;
+            populateStringService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
         public void PopulateProperties(object objectToPopulate, int depth)
@@ -56,9 +63,9 @@ namespace Amido.Testing.NAuto.Builders.Services
                 }
             }
 
-            if (propertyType == typeof(string) && value != null)
+            if (propertyType == typeof (string))
             {
-                return value;
+                return populateStringService.Populate(propertyName, (string)value);
             }
 
             if (propertyType == typeof(int) && value != null && (int)value != 0)
@@ -115,10 +122,10 @@ namespace Amido.Testing.NAuto.Builders.Services
                 }
             }
 
-            if (propertyType == typeof(string))
-            {
-               return GetStringValue(propertyName);
-            }
+            //if (propertyType == typeof(string))
+            //{
+            //   return GetStringValue(propertyName);
+            //}
             if (propertyType == typeof(int)
                 || propertyType == typeof(int?))
             {
@@ -221,18 +228,6 @@ namespace Amido.Testing.NAuto.Builders.Services
                 newList.Add(Populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null));
             }
             return newList;
-        }
-
-        private string GetStringValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(string)))
-            {
-                return (string)configuration.Conventions.GetConventionResult(propertyName, typeof(string));
-            }
-            return NAuto.GetRandomString(
-                configuration.StringMinLength,
-                configuration.StringMaxLength,
-                configuration.DefaultStringCharacterSetType, configuration.DefaultStringSpaces, configuration.DefaultStringCasing);
         }
 
         private int GetIntValue(string propertyName)

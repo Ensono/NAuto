@@ -19,7 +19,6 @@ namespace Amido.Testing.NAuto.Builders
         {
             this.propertyPopulationService = propertyPopulationService;
             this.configuration = configuration;
-            this.propertyPopulationService.AddConfiguration(configuration);
         }
 
         public IAutoBuilder<TModel> ClearConventions()
@@ -58,6 +57,8 @@ namespace Amido.Testing.NAuto.Builders
                 throw new ArgumentException("Can't instantiate abstract classes");
             }
 
+            propertyPopulationService.AddConfiguration(configuration);
+
             var constructors = typeof (TModel).GetConstructors();
             if (constructors.All(x => x.GetParameters().Count() != 0))
             {
@@ -74,6 +75,7 @@ namespace Amido.Testing.NAuto.Builders
 
         public IAutoBuilderOverrides<TModel> ConstructWithSpecificParameters(params object[] constructorArguments)
         {
+            propertyPopulationService.AddConfiguration(configuration);
             entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorArguments);
             propertyPopulationService.PopulateProperties(entity, 1);
             return this;

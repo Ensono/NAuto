@@ -47,7 +47,9 @@
     <Compile Include="Builders\IAutoBuilder.cs" />
     <Compile Include="Builders\IAutoBuilderOverrides.cs" />
     <Compile Include="Builders\PropertyType.cs" />
+    <Compile Include="Builders\Services\PopulateProperty.cs" />
     <Compile Include="Builders\Services\IPropertyPopulationService.cs" />
+    <Compile Include="Builders\Services\PopulateStringService.cs" />
     <Compile Include="Builders\Services\PropertyPopulationService.cs" />
     <Compile Include="Builders\Services\ServiceInstaller.cs" />
     <Compile Include="NAuto.cs" />

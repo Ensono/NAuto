@@ -7,9 +7,9 @@ namespace Amido.Testing.NAuto.Builders
     {
         public int StringMinLength { get; set; }
         public int StringMaxLength { get; set; }
-        public CharacterSetType StringStringCharacterSetType { get; set; }
-        public Casing StringStringCasing { get; set; }
-        public Spaces StringStringSpaces { get; set; }
+        public CharacterSetType DefaultStringCharacterSetType { get; set; }
+        public Casing DefaultStringCasing { get; set; }
+        public Spaces DefaultStringSpaces { get; set; }
         public int IntMinimum { get; set; }
         public int IntMaximum { get; set; }
         public double DoubleMinimum { get; set; }
@@ -52,9 +52,9 @@ namespace Amido.Testing.NAuto.Builders
 
         public AutoBuilderConfiguration(
             DateTime defaultDateTime,
-            CharacterSetType stringCharacterSetType = CharacterSetType.Anything,
-            Casing stringCasing = Casing.Any,
-            Spaces stringSpaces = Spaces.Any,
+            CharacterSetType defaultStringCharacterSetType = CharacterSetType.Anything,
+            Casing defaultStringCasing = Casing.Any,
+            Spaces defaultStringSpaces = Spaces.Any,
             int intMinimum = 1,
             int intMaximum = 10000,
             double doubleMinimum = 100,
@@ -67,9 +67,9 @@ namespace Amido.Testing.NAuto.Builders
             )
         {
             DefaultDateTime = defaultDateTime;
-            StringStringCharacterSetType = stringCharacterSetType;
-            StringStringCasing = stringCasing;
-            StringStringSpaces = stringSpaces;
+            DefaultStringCharacterSetType = defaultStringCharacterSetType;
+            DefaultStringCasing = defaultStringCasing;
+            DefaultStringSpaces = defaultStringSpaces;
             IntMinimum = intMinimum;
             IntMaximum = intMaximum;
             DoubleMinimum = doubleMinimum;

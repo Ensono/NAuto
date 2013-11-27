@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Amido.Testing.NAuto.Builders;
 using Amido.Testing.NAuto.Randomizers;
 using Amido.Testing.NAuto.Tests.Helpers;
@@ -13,6 +14,16 @@ namespace Amido.Testing.NAuto.Tests
         [Test]
         public void Should_Return_New_Model_Automatically_Populated()
         {
+            var testm = NAuto.AutoBuild<TestModel>()
+                .Configure(x => x.DefaultStringCasing = Casing.Lowered)
+                .Configure(x => x.DefaultBoolean = true)
+                .AddConvention("date", typeof(string), () => "b;ah")
+                .AddConventions(new List<ConventionMap>().ToArray())
+                .ClearConventions()
+                .Construct()
+                .Build();
+                
+
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()

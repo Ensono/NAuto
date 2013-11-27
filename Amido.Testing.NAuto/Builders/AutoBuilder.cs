@@ -10,6 +10,7 @@ namespace Amido.Testing.NAuto.Builders
     public class AutoBuilder<TModel> : IAutoBuilder<TModel>, IAutoBuilderOverrides<TModel> where TModel : class
     {
         private readonly IPropertyPopulationService propertyPopulationService;
+        private readonly AutoBuilderConfiguration configuration;
         private TModel entity;
 
         public AutoBuilder(IPropertyPopulationService propertyPopulationService) : this(propertyPopulationService, new AutoBuilderConfiguration()){}
@@ -17,7 +18,32 @@ namespace Amido.Testing.NAuto.Builders
         public AutoBuilder(IPropertyPopulationService propertyPopulationService, AutoBuilderConfiguration configuration)
         {
             this.propertyPopulationService = propertyPopulationService;
+            this.configuration = configuration;
             this.propertyPopulationService.AddConfiguration(configuration);
+        }
+
+        public IAutoBuilder<TModel> ClearConventions()
+        {
+            configuration.Conventions.Clear();
+            return this;
+        }
+
+        public IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<Object> result)
+        {
+            configuration.Conventions.Add(new ConventionMap(nameContains, type, result));
+            return this;
+        }
+
+        public IAutoBuilder<TModel> AddConventions(params ConventionMap[] conventionMaps)
+        {
+            configuration.Conventions.AddRange(conventionMaps);
+            return this;
+        }
+
+        public IAutoBuilder<TModel> Configure(Action<AutoBuilderConfiguration> configure)
+        {
+            configure.Invoke(configuration);
+            return this;
         }
 
         public IAutoBuilderOverrides<TModel> Construct()

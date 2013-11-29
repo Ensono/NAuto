@@ -18,6 +18,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             container.Register<PopulateProperty<DateTime?>, PopulateNullableDateTimeService>();
             container.Register<PopulateProperty<Uri>, PopulateUriService>();
             container.Register<IPopulateEnumService, PopulateEnumService>();
+            container.Register<IBuildConstructorParametersService, BuildConstructorParametersService>();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly PopulateProperty<DateTime?> populateNullableDateTimeService;
         private readonly PopulateProperty<Uri> populateUriService;
         private readonly IPopulateEnumService populateEnumService;
+        private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private AutoBuilderConfiguration configuration;
 
         public PropertyPopulationService(
@@ -32,7 +33,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             PopulateProperty<DateTime> populateDateTimeService,
             PopulateProperty<DateTime?> populateNullableDateTimeService,
             PopulateProperty<Uri> populateUriService,
-            IPopulateEnumService populateEnumService)
+            IPopulateEnumService populateEnumService,
+            IBuildConstructorParametersService buildConstructorParametersService)
         {
             this.populateStringService = populateStringService;
             this.populateIntService = populateIntService;
@@ -45,6 +47,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.populateNullableDateTimeService = populateNullableDateTimeService;
             this.populateUriService = populateUriService;
             this.populateEnumService = populateEnumService;
+            this.buildConstructorParametersService = buildConstructorParametersService;
         }
 
         public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
@@ -78,16 +81,9 @@ namespace Amido.Testing.NAuto.Builders.Services
             }
         }
 
-        public List<object> BuildConstructorParameters(ConstructorInfo[] constructors, int depth)
+        public object[] BuildConstructorParameters(ConstructorInfo[] constructors, int depth)
         {
-            var constructorParameters = new List<object>();
-
-            foreach (var parameter in constructors.First().GetParameters())
-            {
-                constructorParameters.Add(Populate(depth + 1, parameter.Name, parameter.ParameterType, null));
-            }
-
-            return constructorParameters;
+            return buildConstructorParametersService.Build(constructors, depth, Populate);
         }
 
         private object Populate(int depth, string propertyName, Type propertyType, object value)
@@ -170,9 +166,9 @@ namespace Amido.Testing.NAuto.Builders.Services
                     var constructorParameters = BuildConstructorParameters(propertyType.GetConstructors(), depth + 1);
 
                     object complexType;
-                    if (constructorParameters.Count > 0)
+                    if (constructorParameters.Length > 0)
                     {
-                        complexType = Activator.CreateInstance(propertyType, constructorParameters.ToArray());
+                        complexType = Activator.CreateInstance(propertyType, constructorParameters);
                     }
                     else
                     {

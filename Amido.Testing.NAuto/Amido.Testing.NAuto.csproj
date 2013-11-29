@@ -47,7 +47,10 @@
     <Compile Include="Builders\IAutoBuilder.cs" />
     <Compile Include="Builders\IAutoBuilderOverrides.cs" />
     <Compile Include="Builders\PropertyType.cs" />
+    <Compile Include="Builders\Services\BuildConstructorParametersService.cs" />
+    <Compile Include="Builders\Services\IBuildConstructorParametersService.cs" />
     <Compile Include="Builders\Services\IPopulateEnumService.cs" />
+    <Compile Include="Builders\Services\PopulateComplexObjectService.cs" />
     <Compile Include="Builders\Services\PopulateEnumService.cs" />
     <Compile Include="Builders\Services\PopulateUriService.cs" />
     <Compile Include="Builders\Services\PopulateNullableBoolService.cs" />

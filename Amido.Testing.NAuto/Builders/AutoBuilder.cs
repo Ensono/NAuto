@@ -63,7 +63,7 @@ namespace Amido.Testing.NAuto.Builders
             if (constructors.All(x => x.GetParameters().Count() != 0))
             {
                 var constructorParameters = propertyPopulationService.BuildConstructorParameters(constructors, 1);
-                entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters.ToArray()); 
+                entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters); 
             }
             else
             {

@@ -51,6 +51,16 @@ namespace Amido.Testing.NAuto.Builders.Services
         {
             configuration = autoBuilderConfiguration;
             populateStringService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateIntService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableIntProperty.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateDoubleService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableDoubleService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateBoolService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableBoolService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateDateTimeService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableDateTimeService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
         public void PopulateProperties(object objectToPopulate, int depth)

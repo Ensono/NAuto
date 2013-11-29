@@ -13,6 +13,8 @@ namespace Amido.Testing.NAuto.Builders.Services
                 return (Enum)currentValue;
             }
 
+            //TODO: Add convention check
+
             if (values.Length <= 1)
             {
                 return null;

@@ -6,6 +6,7 @@
         {
             container.Register<IPropertyPopulationService, PropertyPopulationService>();
             container.Register<PopulateProperty<string>, PopulateStringService>();
+            container.Register<IPopulateEnumService, PopulateEnumService>();
         }
     }
 }

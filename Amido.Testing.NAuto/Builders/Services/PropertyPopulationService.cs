@@ -9,11 +9,42 @@ namespace Amido.Testing.NAuto.Builders.Services
     public class PropertyPopulationService : IPropertyPopulationService
     {
         private readonly PopulateProperty<string> populateStringService;
+        private readonly PopulateProperty<int> populateIntService;
+        private readonly PopulateProperty<int?> populateNullableIntProperty;
+        private readonly PopulateProperty<double> populateDoubleService;
+        private readonly PopulateProperty<double?> populateNullableDoubleService;
+        private readonly PopulateProperty<bool> populateBoolService;
+        private readonly PopulateProperty<bool?> populateNullableBoolService;
+        private readonly PopulateProperty<DateTime> populateDateTimeService;
+        private readonly PopulateProperty<DateTime?> populateNullableDateTimeService;
+        private readonly PopulateProperty<Uri> populateUriService;
+        private readonly IPopulateEnumService populateEnumService;
         private AutoBuilderConfiguration configuration;
 
-        public PropertyPopulationService(PopulateProperty<string> populateStringService)
+        public PropertyPopulationService(
+            PopulateProperty<string> populateStringService, 
+            PopulateProperty<int> populateIntService,
+            PopulateProperty<int?> populateNullableIntProperty,
+            PopulateProperty<double> populateDoubleService,
+            PopulateProperty<double?> populateNullableDoubleService,
+            PopulateProperty<bool> populateBoolService,
+            PopulateProperty<bool?> populateNullableBoolService,
+            PopulateProperty<DateTime> populateDateTimeService,
+            PopulateProperty<DateTime?> populateNullableDateTimeService,
+            PopulateProperty<Uri> populateUriService,
+            IPopulateEnumService populateEnumService)
         {
             this.populateStringService = populateStringService;
+            this.populateIntService = populateIntService;
+            this.populateNullableIntProperty = populateNullableIntProperty;
+            this.populateDoubleService = populateDoubleService;
+            this.populateNullableDoubleService = populateNullableDoubleService;
+            this.populateBoolService = populateBoolService;
+            this.populateNullableBoolService = populateNullableBoolService;
+            this.populateDateTimeService = populateDateTimeService;
+            this.populateNullableDateTimeService = populateNullableDateTimeService;
+            this.populateUriService = populateUriService;
+            this.populateEnumService = populateEnumService;
         }
 
         public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
@@ -68,105 +99,60 @@ namespace Amido.Testing.NAuto.Builders.Services
                 return populateStringService.Populate(propertyName, (string)value);
             }
 
-            if (propertyType == typeof(int) && value != null && (int)value != 0)
+            if (propertyType == typeof(int))
             {
-                return value;
+                var intValue = value == null ? 0 : (int) value;
+                return populateIntService.Populate(propertyName, intValue);
             }
 
-            if (propertyType == typeof(int?) && value != null)
+            if (propertyType == typeof(int?))
             {
-                return value;
+                return populateNullableIntProperty.Populate(propertyName, (int?)value);
             }
 
-            if (propertyType == typeof(double) && value != null && Math.Abs((double)value) > 0)
+            if (propertyType == typeof(double))
             {
-                return value;
+                var doubleValue = value == null ? 0 : (double) value;
+                return populateDoubleService.Populate(propertyName, doubleValue);
             }
 
-            if (propertyType == typeof(double?) && value != null)
+            if (propertyType == typeof(double?))
             {
-                return value;
+                return populateNullableDoubleService.Populate(propertyName, (double?)value);
             }
 
-            if (propertyType == typeof(bool) && value != null && (bool)value != default(bool))
+            if (propertyType == typeof(bool))
             {
-                return value;
+                var boolValue = value != null && (bool) value;
+                return populateBoolService.Populate(propertyName, boolValue);
             }
 
             if (propertyType == typeof(bool?) && value != null)
             {
-                return value;
+                return populateNullableBoolService.Populate(propertyName, (bool?) value);
             }
 
-            if (propertyType == typeof(DateTime) && value != null && (DateTime)value != default(DateTime))
+            if (propertyType == typeof(DateTime))
             {
-                return value;
+                var dateTimeValue = value == null ? default(DateTime) : (DateTime) value;
+                return populateDateTimeService.Populate(propertyName, dateTimeValue);
             }
 
-            if (propertyType == typeof(DateTime?) && value != null)
+            if (propertyType == typeof(DateTime?))
             {
-                return value;
-            }
-
-            if (propertyType == typeof(Uri) && value != null)
-            {
-                return value;
-            }
-
-            if (propertyType.BaseType == typeof(Enum) && value != null)
-            {
-                var values = Enum.GetValues(propertyType);
-                if (values.GetValue(0) != value)
-                {
-                    return value;    
-                }
-            }
-
-            //if (propertyType == typeof(string))
-            //{
-            //   return GetStringValue(propertyName);
-            //}
-            if (propertyType == typeof(int)
-                || propertyType == typeof(int?))
-            {
-                return GetIntValue(propertyName);
-            }
-
-            if (propertyType == typeof(double) ||
-                propertyType == typeof(double?))
-            {
-                return GetDoubleValue(propertyName);
-            }
-
-            if (propertyType == typeof(DateTime) ||
-                propertyType == typeof(DateTime?))
-            {
-                return GetDateTimeValue(propertyName);
-            }
-
-            if (propertyType == typeof(bool) ||
-                propertyType == typeof(bool?))
-            {
-                return GetBooleanValue(propertyName);
+                return populateNullableDateTimeService.Populate(propertyName, (DateTime?) value);
             }
 
             if (propertyType == typeof(Uri))
             {
-                return GetUriValue(propertyName);
+                return populateUriService.Populate(propertyName, (Uri)value);
             }
 
-            if (propertyType.BaseType == typeof (Enum))
+            if (propertyType.BaseType == typeof(Enum) && value != null)
             {
-                var values = Enum.GetValues(propertyType);
-
-                if (values.Length <= 1)
-                {
-                    return null;
-                }
-                var randomValue = NAuto.GetRandomInteger(0, values.Length - 1);
-                return values.GetValue(randomValue);
+                return populateEnumService.Populate(propertyName, propertyType, value);
             }
-
+            
             if (IsPotentialComplexType(propertyType))
             {
                 try
@@ -228,67 +214,6 @@ namespace Amido.Testing.NAuto.Builders.Services
                 newList.Add(Populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null));
             }
             return newList;
-        }
-
-        private int GetIntValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(int)))
-            {
-                return (int)configuration.Conventions.GetConventionResult(propertyName, typeof(int));
-            }
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(int?)))
-            {
-                return (int)configuration.Conventions.GetConventionResult(propertyName, typeof(int?));
-            }
-            return NAuto.GetRandomInteger(configuration.IntMinimum, configuration.IntMaximum);
-        }
-
-        private double GetDoubleValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(double)))
-            {
-                return (double)configuration.Conventions.GetConventionResult(propertyName, typeof(double));
-            }
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(double?)))
-            {
-                return (double)configuration.Conventions.GetConventionResult(propertyName, typeof(double?));
-            }
-            return NAuto.GetRandomDouble(configuration.DoubleMinimum, configuration.DoubleMaximum);
-        }
-
-        private DateTime GetDateTimeValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(DateTime)))
-            {
-                return (DateTime)configuration.Conventions.GetConventionResult(propertyName, typeof(DateTime));
-            }
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(DateTime?)))
-            {
-                return (DateTime)configuration.Conventions.GetConventionResult(propertyName, typeof(DateTime?));
-            }
-            return configuration.DefaultDateTime;
-        }
-
-        private bool GetBooleanValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(bool)))
-            {
-                return (bool)configuration.Conventions.GetConventionResult(propertyName, typeof(bool));
-            }
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(bool?)))
-            {
-                return (bool)configuration.Conventions.GetConventionResult(propertyName, typeof(bool?));
-            }
-            return configuration.DefaultBoolean;
-        }
-
-        private Uri GetUriValue(string propertyName)
-        {
-            if (configuration.Conventions.MatchesConvention(propertyName, typeof(Uri)))
-            {
-                return (Uri)configuration.Conventions.GetConventionResult(propertyName, typeof(Uri));
-            }
-            return new Uri(NAuto.GetRandomPropertyType(PropertyType.Url));
         }
     }
 }

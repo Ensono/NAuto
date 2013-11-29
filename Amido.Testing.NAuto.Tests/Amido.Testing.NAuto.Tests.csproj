@@ -48,6 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoBuilderTests.cs" />
+    <Compile Include="Builders\Services\PopulateUriServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateNullableBoolServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateNullableDateTimeServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateDateTimeServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateNullableDoubleServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateDoubleServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateBoolServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateNullableIntServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateIntServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateStringServiceTests.cs" />
     <Compile Include="BuilderTests.cs" />
     <Compile Include="GetRandomIntegerTests.cs" />
     <Compile Include="GetRandomPropertyTypeTests.cs" />

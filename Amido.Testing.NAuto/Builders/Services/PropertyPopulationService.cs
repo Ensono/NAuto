@@ -133,11 +133,11 @@ namespace Amido.Testing.NAuto.Builders.Services
 
             if (propertyType == typeof(bool))
             {
-                var boolValue = value != null && (bool) value;
+                 var boolValue = value != null && (bool) value;
                 return populateBoolService.Populate(propertyName, boolValue);
             }
 
-            if (propertyType == typeof(bool?) && value != null)
+            if (propertyType == typeof(bool?))
             {
                 return populateNullableBoolService.Populate(propertyName, (bool?) value);
             }

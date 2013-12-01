@@ -50,6 +50,7 @@
     <Compile Include="Builders\PropertyType.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersService.cs" />
     <Compile Include="Builders\Services\IBuildConstructorParametersService.cs" />
+    <Compile Include="Builders\Services\IPopulateComplexObjectService.cs" />
     <Compile Include="Builders\Services\IPopulateEnumService.cs" />
     <Compile Include="Builders\Services\PopulateComplexObjectService.cs" />
     <Compile Include="Builders\Services\PopulateEnumService.cs" />

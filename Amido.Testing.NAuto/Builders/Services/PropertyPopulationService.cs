@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -20,6 +19,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly PopulateProperty<Uri> populateUriService;
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
+        private readonly IPopulateComplexObjectService populateComplexObjectService;
         private AutoBuilderConfiguration configuration;
 
         public PropertyPopulationService(
@@ -34,7 +34,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             PopulateProperty<DateTime?> populateNullableDateTimeService,
             PopulateProperty<Uri> populateUriService,
             IPopulateEnumService populateEnumService,
-            IBuildConstructorParametersService buildConstructorParametersService)
+            IBuildConstructorParametersService buildConstructorParametersService,
+            IPopulateComplexObjectService populateComplexObjectService)
         {
             this.populateStringService = populateStringService;
             this.populateIntService = populateIntService;
@@ -48,6 +49,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.populateUriService = populateUriService;
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
+            this.populateComplexObjectService = populateComplexObjectService;
         }
 
         public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
@@ -64,6 +66,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             populateNullableDateTimeService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
         public void PopulateProperties(object objectToPopulate, int depth)
@@ -161,26 +164,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             
             if (IsPotentialComplexType(propertyType))
             {
-                try
-                {
-                    var constructorParameters = BuildConstructorParameters(propertyType.GetConstructors(), depth + 1);
-
-                    object complexType;
-                    if (constructorParameters.Length > 0)
-                    {
-                        complexType = Activator.CreateInstance(propertyType, constructorParameters);
-                    }
-                    else
-                    {
-                        complexType = Activator.CreateInstance(propertyType);
-                    }
-                    PopulateProperties(complexType, depth + 1);
-                    return complexType;
-                }
-                catch (Exception)
-                {
-                    // swallow error
-                }
+                return populateComplexObjectService.Populate(propertyName, propertyType, value, depth,
+                    buildConstructorParametersService.Build, Populate, PopulateProperties);
             }
             Console.WriteLine("Sorry, unable to fully build this model. Unsupported Type: " + propertyType);
             return null;

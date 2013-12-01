@@ -342,6 +342,7 @@ namespace Amido.Testing.NAuto.Tests
                 .Construct()
                 .If(x => x.FavouriteInteger < 10)
                 .Then(x => x.FirstName = x.LastName)
+                .With(x => x.FavouriteDouble = 123)
                 .Build();
                 
                 

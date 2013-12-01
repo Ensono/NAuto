@@ -19,6 +19,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             container.Register<PopulateProperty<Uri>, PopulateUriService>();
             container.Register<IPopulateEnumService, PopulateEnumService>();
             container.Register<IBuildConstructorParametersService, BuildConstructorParametersService>();
+            container.Register<IPopulateComplexObjectService, PopulateComplexObjectService>();
         }
     }
 }

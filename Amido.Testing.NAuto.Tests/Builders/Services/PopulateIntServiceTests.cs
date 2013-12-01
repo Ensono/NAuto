@@ -51,7 +51,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             }
 
             [Test]
-            public void Should_Return_New_Random_String_Based_On_Auto_Builder_Configuration_When_No_Convention_Exists()
+            public void Should_Return_New_Random_Int_Based_On_Auto_Builder_Configuration_When_No_Convention_Exists()
             {
                 // Arrange
                 autoBuilderConfiguration.Conventions.Clear();

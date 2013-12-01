@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Amido.Testing.NAuto.Builders;
 using Amido.Testing.NAuto.Builders.Services;
 using Amido.Testing.NAuto.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
+using Should;
 
 namespace Amido.Testing.NAuto.Tests.Builders.Services
 {
@@ -25,6 +27,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
         private Mock<IPopulateEnumService> populateEnumService;
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
+        private Mock<IPopulateListService> populateListService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
             
         [SetUp]
@@ -44,6 +47,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             populateEnumService = new Mock<IPopulateEnumService>();
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
+            populateListService = new Mock<IPopulateListService>();
 
             propertyPopulationService = new PropertyPopulationService(
                 populateStringService.Object,
@@ -58,7 +62,8 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 populateUriService.Object,
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
-                populateComplexObjectService.Object);
+                populateComplexObjectService.Object,
+                populateListService.Object);
 
             propertyPopulationService.AddConfiguration(autoBuilderConfiguration);
         }
@@ -125,21 +130,45 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 public StringTest Test { get; set; }
             }
 
-            
+            private class ListTest
+            {
+                public List<string> Test { get; set; }
+
+                public ListTest()
+                {
+                    Test = new List<string>();
+                }
+            }
+
+            [Test]
+            public void Should_Not_Populate_When_Max_Depth_Exceeded()
+            {
+                // Arrange
+                autoBuilderConfiguration.MaxDepth = -1;
+
+                // Act
+                var objectToPopulate = new StringTest();
+                propertyPopulationService.PopulateProperties(objectToPopulate, 0);
+
+                // Assert
+                objectToPopulate.Test.ShouldBeNull();
+            }
 
             [Test]
             public void Should_Call_Correct_Populate_Service_When_Passed_A_String()
             {
                 // Arrange
-                populateStringService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<string>())).Returns(It.IsAny<string>());
+                const string resultString = "TestReturn";
+                populateStringService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<string>())).Returns(resultString);
 
                 // Act
-                propertyPopulationService.PopulateProperties(new StringTest(), 0);
+                var objectToPopulate = new StringTest();
+                propertyPopulationService.PopulateProperties(objectToPopulate, 0);
 
                 // Assert
                 populateStringService.VerifyAll();
+                objectToPopulate.Test.ShouldEqual(resultString);
             }
-
 
             [Test]
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Int()
@@ -290,6 +319,25 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
 
                 // Assert
                 populateComplexObjectService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_List()
+            {
+                // Arrange
+                populateListService.Setup(x => x.Populate(
+                    It.IsAny<string>(),
+                    typeof(List<string>),
+                    It.IsAny<List<string>>(),
+                    0,
+                    It.IsAny<Func<int, string, Type, object, object>>()))
+                    .Returns(null);
+
+                // Act
+                propertyPopulationService.PopulateProperties(new ListTest(), 0);
+
+                // Assert
+                populateListService.VerifyAll();
             }
         }
     }

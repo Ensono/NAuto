@@ -20,6 +20,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
+        private readonly IPopulateListService populateListService;
         private AutoBuilderConfiguration configuration;
 
         public PropertyPopulationService(
@@ -35,7 +36,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             PopulateProperty<Uri> populateUriService,
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
-            IPopulateComplexObjectService populateComplexObjectService)
+            IPopulateComplexObjectService populateComplexObjectService,
+            IPopulateListService populateListService)
         {
             this.populateStringService = populateStringService;
             this.populateIntService = populateIntService;
@@ -50,6 +52,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
+            this.populateListService = populateListService;
         }
 
         public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
@@ -67,6 +70,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
         public void PopulateProperties(object objectToPopulate, int depth)
@@ -189,22 +193,7 @@ namespace Amido.Testing.NAuto.Builders.Services
 
         private object PopulateList(int depth, string propertyName, Type propertyType, object value)
         {
-            IList newList;
-
-            if (value != null && ((IList) value).Count == 0)
-            {
-                newList = (IList) value;
-            }
-            else
-            {
-                newList = (IList) Activator.CreateInstance(propertyType);
-            }
-
-            for (var i = 0; i < configuration.DefaultListItemCount; i++)
-            {
-                newList.Add(Populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null));
-            }
-            return newList;
+            return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
         }
     }
 }

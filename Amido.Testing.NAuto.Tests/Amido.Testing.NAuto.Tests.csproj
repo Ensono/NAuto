@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoBuilderTests.cs" />
-    <Compile Include="Builders\Services\PopulateBoolServiceTests - Copy.cs" />
+    <Compile Include="Builders\Services\BuildConstructorParametersServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateEnumServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateUriServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateNullableBoolServiceTests.cs" />

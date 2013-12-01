@@ -6,6 +6,8 @@ namespace Amido.Testing.NAuto.Builders
 {
     public interface IAutoBuilderOverrides<TModel> where TModel : class
     {
+        IConditionalResult<TModel> If(Func<TModel, bool> expression);
+
         IAutoBuilderOverrides<TModel> With(Action<TModel> expression);
 
         IAutoBuilderOverrides<TModel> With(

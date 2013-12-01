@@ -335,10 +335,25 @@ namespace Amido.Testing.NAuto.Tests
         }
 
         [Test]
+        [Ignore]
+        public void DeleteME()
+        {
+           var testModel =  NAuto.AutoBuild<TestModel>()
+                .Construct()
+                .If(x => x.FavouriteInteger < 10)
+                .Then(x => x.FirstName = x.LastName)
+                .Build();
+                
+                
+                 
+            Assert.Fail();
+        }
+
+        [Test]
         public void Should_Construct_Using_Argument_And_Populate_PrivateSetter()
         {
             var noDefautConstructor = NAuto.AutoBuild<NoDefaultConstructor>()
-                .ConstructWithSpecificParameters("Blah")
+                .Construct("Blah")
                 .Build();
 
             // Assert

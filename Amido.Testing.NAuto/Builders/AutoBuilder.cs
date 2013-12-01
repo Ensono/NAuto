@@ -33,6 +33,12 @@ namespace Amido.Testing.NAuto.Builders
             return this;
         }
 
+        public IAutoBuilder<TModel> AddConvention(ConventionMap conventionMap)
+        {
+            configuration.Conventions.Add(conventionMap);
+            return this;
+        }
+
         public IAutoBuilder<TModel> AddConventions(params ConventionMap[] conventionMaps)
         {
             configuration.Conventions.AddRange(conventionMaps);
@@ -45,7 +51,7 @@ namespace Amido.Testing.NAuto.Builders
             return this;
         }
 
-        public IAutoBuilderOverrides<TModel> Construct()
+        public IAutoBuilderOverrides<TModel> Construct(params object[] constructorArguments)
         {
             if (typeof(TModel).IsInterface)
             {
@@ -59,24 +65,24 @@ namespace Amido.Testing.NAuto.Builders
 
             propertyPopulationService.AddConfiguration(configuration);
 
-            var constructors = typeof (TModel).GetConstructors();
-            if (constructors.All(x => x.GetParameters().Count() != 0))
+            if (constructorArguments.Length > 0)
             {
-                var constructorParameters = propertyPopulationService.BuildConstructorParameters(constructors, 1);
-                entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters); 
+                entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorArguments);
             }
             else
             {
-                entity = (TModel)Activator.CreateInstance(typeof(TModel));   
+                var constructors = typeof(TModel).GetConstructors();
+                if (constructors.All(x => x.GetParameters().Count() != 0))
+                {
+                    var constructorParameters = propertyPopulationService.BuildConstructorParameters(constructors, 1);
+                    entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
+                }
+                else
+                {
+                    entity = (TModel)Activator.CreateInstance(typeof(TModel));
+                }
             }
-            propertyPopulationService.PopulateProperties(entity, 1);
-            return this;
-        }
 
-        public IAutoBuilderOverrides<TModel> ConstructWithSpecificParameters(params object[] constructorArguments)
-        {
-            propertyPopulationService.AddConfiguration(configuration);
-            entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorArguments);
             propertyPopulationService.PopulateProperties(entity, 1);
             return this;
         }
@@ -293,6 +299,11 @@ namespace Amido.Testing.NAuto.Builders
                 return nextLevelInstance;
             }
             return null;
+        }
+
+        public IConditionalResult<TModel> If(Func<TModel, bool> expression)
+        {
+            return new ConditionalResult<TModel>(this, entity, expression(entity));
         }
     }
 }

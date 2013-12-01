@@ -46,6 +46,7 @@
     <Compile Include="Builders\Conventions.cs" />
     <Compile Include="Builders\IAutoBuilder.cs" />
     <Compile Include="Builders\IAutoBuilderOverrides.cs" />
+    <Compile Include="Builders\IConditionalResult.cs" />
     <Compile Include="Builders\PropertyType.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersService.cs" />
     <Compile Include="Builders\Services\IBuildConstructorParametersService.cs" />

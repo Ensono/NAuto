@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -61,6 +64,7 @@
     <Compile Include="Builders\Services\PopulateNullableIntServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateIntServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateStringServiceTests.cs" />
+    <Compile Include="Builders\Services\PropertyPopulationServiceTests.cs" />
     <Compile Include="BuilderTests.cs" />
     <Compile Include="GetRandomIntegerTests.cs" />
     <Compile Include="GetRandomPropertyTypeTests.cs" />

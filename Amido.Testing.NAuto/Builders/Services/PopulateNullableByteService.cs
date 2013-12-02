@@ -1,8 +1,10 @@
-﻿namespace Amido.Testing.NAuto.Builders.Services
+﻿using System.Reflection;
+
+namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateNullableByteService : PopulateProperty<byte?>
     {
-        public override byte? Populate(string propertyName, byte? currentValue)
+        public override byte? Populate(string propertyName, byte? currentValue, PropertyInfo propertyInfo = null)
         {
             return currentValue.HasValue ? currentValue.Value : GetByteValue(propertyName).Value;
         }

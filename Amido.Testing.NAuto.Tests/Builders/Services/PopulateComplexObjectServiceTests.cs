@@ -73,7 +73,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
 
 
 
-            private object TestPopulateSingleProperty(int arg1, string arg2, Type arg3, object arg4)
+            private object TestPopulateSingleProperty(int arg1, string arg2, Type arg3, object arg4, PropertyInfo arg5)
             {
                 return null;
             }
@@ -83,7 +83,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 return null;
             }
 
-            private object[] TestBuildContructor(ConstructorInfo[] arg1, int arg2, Func<int, string, Type, object, object> arg3)
+            private object[] TestBuildContructor(ConstructorInfo[] arg1, int arg2, Func<int, string, Type, object, PropertyInfo, object> arg3)
             {
                 return null;
             }

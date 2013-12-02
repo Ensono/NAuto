@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateDoubleService : PopulateProperty<double>
     {
-        public override double Populate(string propertyName, double currentValue)
+        public override double Populate(string propertyName, double currentValue, PropertyInfo propertyInfo = null)
         {
             if (Math.Abs(currentValue - default(double)) > 0)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Amido.Testing.NAuto.Builders.Services;
 using NUnit.Framework;
 using Should;
@@ -40,7 +41,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 buildConstructorParametersService.Build(constructors, 1, TestPopulateFunction);
             }
 
-            private object TestPopulateFunction(int depth, string parameterName, Type parameterType, object currentValue)
+            private object TestPopulateFunction(int depth, string parameterName, Type parameterType, object currentValue, PropertyInfo propertyInfo)
             {
                 depth.ShouldEqual(2);
                 Assert.That(parameterName == "testString" || parameterName == "testInt");

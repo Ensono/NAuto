@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateUriService : PopulateProperty<Uri>
     {
-        public override Uri Populate(string propertyName, Uri currentValue)
+        public override Uri Populate(string propertyName, Uri currentValue, PropertyInfo propertyInfo = null)
         {
             if (currentValue == null)
             {

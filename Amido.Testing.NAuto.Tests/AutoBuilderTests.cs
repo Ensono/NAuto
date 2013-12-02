@@ -14,6 +14,18 @@ namespace Amido.Testing.NAuto.Tests
         AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
 
         [Test]
+        public void Should_Use_Data_Annotation_Email_Type_As_Convention()
+        {
+            var testModel = NAuto.AutoBuild<TestAnnotationModel>()
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            // Assert
+            testModel.Email.ShouldContain("@");
+        }
+
+        [Test]
         public void Should_Construct_List_Based_Top_Level_Models_With_Parameters()
         {
             // Arrange

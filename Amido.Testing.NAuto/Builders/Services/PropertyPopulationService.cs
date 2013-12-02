@@ -92,17 +92,17 @@ namespace Amido.Testing.NAuto.Builders.Services
                 return objectToPopulate;
             }
 
-            var propertyType = objectToPopulate.GetType();
+            var objectToPopulateType = objectToPopulate.GetType();
 
-            if (propertyType.GetInterfaces().Any(x => x == typeof(IList)))
+            if (objectToPopulateType.GetInterfaces().Any(x => x == typeof(IList)))
             {
-                if (propertyType.FullName.Contains("System.Collections.Generic.List`1"))
+                if (objectToPopulateType.FullName.Contains("System.Collections.Generic.List`1"))
                 {
-                    populateListService.Populate("", propertyType, objectToPopulate, depth - 1, Populate);
+                    populateListService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
-                else if (propertyType.BaseType == typeof(Array))
+                else if (objectToPopulateType.BaseType == typeof(Array))
                 {
-                    objectToPopulate = populateArrayService.Populate("", propertyType, objectToPopulate, depth - 1, Populate);
+                    objectToPopulate = populateArrayService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
             }
             else
@@ -111,7 +111,7 @@ namespace Amido.Testing.NAuto.Builders.Services
 
                 foreach (var propertyInfo in properties)
                 {
-                    propertyInfo.SetValue(objectToPopulate, Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate)));
+                    propertyInfo.SetValue(objectToPopulate, Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate), propertyInfo));
                 } 
             }
             return objectToPopulate;
@@ -122,7 +122,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             return buildConstructorParametersService.Build(constructors, depth, Populate);
         }
 
-        private object Populate(int depth, string propertyName, Type propertyType, object value)
+        private object Populate(int depth, string propertyName, Type propertyType, object value, PropertyInfo propertyInfo = null)
         {
             if (propertyType.GetInterfaces().Any(x => x == typeof(IList)))
             {
@@ -138,7 +138,7 @@ namespace Amido.Testing.NAuto.Builders.Services
 
             if (propertyType == typeof (string))
             {
-                return populateStringService.Populate(propertyName, (string)value);
+                return populateStringService.Populate(propertyName, (string)value, propertyInfo);
             }
 
             if (propertyType == typeof(int))

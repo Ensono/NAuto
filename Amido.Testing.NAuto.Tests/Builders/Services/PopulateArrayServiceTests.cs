@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using Amido.Testing.NAuto.Builders;
 using Amido.Testing.NAuto.Builders.Services;
 using NUnit.Framework;
@@ -31,7 +32,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 var type = typeof (string[]);
                 const int depth = 0;
                 const string arrayValue = "string";
-                var populate = new Func<int, string, Type, object, object>((d,p,t,v) => arrayValue) ;
+                var populate = new Func<int, string, Type, object, PropertyInfo, object>((d,p,t,i,v) => arrayValue) ;
 
                 var result = populateArrayService.Populate(propertyName, type, null, depth, populate) as string[];
 

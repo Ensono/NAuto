@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,7 @@
     <Compile Include="Builders\IConditionalResult.cs" />
     <Compile Include="Builders\PropertyType.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersService.cs" />
+    <Compile Include="Builders\Services\DataAnnotationConventionMapper.cs" />
     <Compile Include="Builders\Services\IBuildConstructorParametersService.cs" />
     <Compile Include="Builders\Services\IPopulateArrayService.cs" />
     <Compile Include="Builders\Services\IPopulateComplexObjectService.cs" />

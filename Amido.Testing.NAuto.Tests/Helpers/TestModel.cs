@@ -1,8 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Amido.Testing.NAuto.Tests.Helpers
 {
+    public class TestAnnotationModel
+    {
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [DataType(DataType.PostalCode)]
+        public string PostCode { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [DataType(DataType.Url)]
+        public string Url { get; set; }
+    }
+
     public class ClassWithEnum
     {
         public string TestString { get; set; }

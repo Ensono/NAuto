@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Reflection;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
@@ -17,7 +18,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             Type propertyType, 
             object currentValue, 
             int depth,
-            Func<int, string, Type, object, object> populate)
+            Func<int, string, Type, object, PropertyInfo, object> populate)
         {
             if (currentValue != null && ((IList)currentValue).Count > 0)
             {
@@ -37,7 +38,7 @@ namespace Amido.Testing.NAuto.Builders.Services
 
             for (var i = 0; i < AutoBuilderConfiguration.DefaultCollectionItemCount; i++)
             {
-                newList.Add(populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null));
+                newList.Add(populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null, null));
             }
             return newList;
         }

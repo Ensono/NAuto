@@ -1,8 +1,10 @@
-﻿namespace Amido.Testing.NAuto.Builders.Services
+﻿using System.Reflection;
+
+namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateBoolService : PopulateProperty<bool>
     {
-        public override bool Populate(string propertyName, bool currentValue)
+        public override bool Populate(string propertyName, bool currentValue, PropertyInfo propertyInfo = null)
         {
             return currentValue || GetBooleanValue(propertyName);
         }

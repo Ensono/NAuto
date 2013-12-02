@@ -1,8 +1,10 @@
-﻿namespace Amido.Testing.NAuto.Builders.Services
+﻿using System.Reflection;
+
+namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateNullableIntService : PopulateProperty<int?>
     {
-        public override int? Populate(string propertyName, int? currentValue)
+        public override int? Populate(string propertyName, int? currentValue, PropertyInfo propertyInfo = null)
         {
             if (currentValue != default(int?))
             {

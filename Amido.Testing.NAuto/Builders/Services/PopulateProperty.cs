@@ -1,4 +1,6 @@
-﻿namespace Amido.Testing.NAuto.Builders.Services
+﻿using System.Reflection;
+
+namespace Amido.Testing.NAuto.Builders.Services
 {
     public abstract class PopulateProperty<TProperty>
     {
@@ -9,6 +11,6 @@
             AutoBuilderConfiguration = autoBuilderConfiguration;
         }
 
-        public abstract TProperty Populate(string propertyName, TProperty currentValue);
+        public abstract TProperty Populate(string propertyName, TProperty currentValue, PropertyInfo propertyInfo = null);
     }
 }

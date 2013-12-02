@@ -183,7 +183,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             {
                 // Arrange
                 const string resultString = "TestReturn";
-                populateStringService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<string>())).Returns(resultString);
+                populateStringService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<PropertyInfo>())).Returns(resultString);
 
                 // Act
                 var objectToPopulate = new StringTest();
@@ -198,7 +198,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Int()
             {
                 // Arrange
-                populateIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int>())).Returns(It.IsAny<int>());
+                populateIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int>(), null)).Returns(It.IsAny<int>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new IntTest(), 0);
@@ -211,7 +211,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Int()
             {
                 // Arrange
-                populateNullableIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int?>())).Returns(It.IsAny<int?>());
+                populateNullableIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int?>(), null)).Returns(It.IsAny<int?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableIntTest(), 0);
@@ -224,7 +224,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Double()
             {
                 // Arrange
-                populateDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double>())).Returns(It.IsAny<double>());
+                populateDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double>(), null)).Returns(It.IsAny<double>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new DoubleTest(), 0);
@@ -237,7 +237,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Double()
             {
                 // Arrange
-                populateNullableDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double?>())).Returns(It.IsAny<double?>());
+                populateNullableDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double?>(), null)).Returns(It.IsAny<double?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableDoubleTest(), 0);
@@ -250,7 +250,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Bool()
             {
                 // Arrange
-                populateBoolService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<bool>())).Returns(It.IsAny<bool>());
+                populateBoolService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<bool>(), null)).Returns(It.IsAny<bool>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new BoolTest(), 0);
@@ -263,7 +263,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Bool()
             {
                 // Arrange
-                populateNullableBoolService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<bool?>())).Returns(It.IsAny<bool?>());
+                populateNullableBoolService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<bool?>(), null)).Returns(It.IsAny<bool?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableBoolTest(), 0);
@@ -276,7 +276,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Byte()
             {
                 // Arrange
-                populateByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte>())).Returns(It.IsAny<byte>());
+                populateByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte>(), null)).Returns(It.IsAny<byte>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new ByteTest(), 0);
@@ -289,7 +289,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Byte()
             {
                 // Arrange
-                populateNullableByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte?>())).Returns(It.IsAny<byte?>());
+                populateNullableByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte?>(), null)).Returns(It.IsAny<byte?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableByteTest(), 0);
@@ -302,7 +302,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_DateTime()
             {
                 // Arrange
-                populateDateTimeService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<DateTime>())).Returns(It.IsAny<DateTime>());
+                populateDateTimeService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<DateTime>(), null)).Returns(It.IsAny<DateTime>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new DateTimeTest(), 0);
@@ -315,7 +315,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_DateTime()
             {
                 // Arrange
-                populateNullableDateTimeService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<DateTime?>())).Returns(It.IsAny<DateTime?>());
+                populateNullableDateTimeService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<DateTime?>(), null)).Returns(It.IsAny<DateTime?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableDateTimeTest(), 0);
@@ -328,7 +328,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Uri()
             {
                 // Arrange
-                populateUriService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<Uri>())).Returns(It.IsAny<Uri>());
+                populateUriService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<Uri>(), null)).Returns(It.IsAny<Uri>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new UriTest(), 0);
@@ -359,8 +359,8 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                     typeof(StringTest), 
                     null, 
                     0,
-                    It.IsAny<Func<ConstructorInfo[], int, Func<int, string, Type, object, object>, object[]>>(), 
-                    It.IsAny<Func<int, string, Type, object, object>>(),
+                    It.IsAny<Func<ConstructorInfo[], int, Func<int, string, Type, object, PropertyInfo, object>, object[]>>(), 
+                    It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>(),
                     It.IsAny<Func<object, int, object>>())).Returns(null);
 
                 // Act
@@ -379,7 +379,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                     typeof(List<string>),
                     It.IsAny<List<string>>(),
                     0,
-                    It.IsAny<Func<int, string, Type, object, object>>()))
+                    It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>()))
                     .Returns(null);
 
                 // Act
@@ -398,7 +398,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                     typeof(string[]),
                     null,
                     0,
-                    It.IsAny<Func<int, string, Type, object, object>>()))
+                    It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>()))
                     .Returns(null);
 
                 // Act

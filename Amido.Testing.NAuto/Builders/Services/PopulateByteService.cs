@@ -1,8 +1,10 @@
-﻿namespace Amido.Testing.NAuto.Builders.Services
+﻿using System.Reflection;
+
+namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateByteService : PopulateProperty<byte>
     {
-        public override byte Populate(string propertyName, byte currentValue)
+        public override byte Populate(string propertyName, byte currentValue, PropertyInfo propertyInfo = null)
         {
             return currentValue == default(byte) ? GetByteValue(propertyName) : currentValue;
         }

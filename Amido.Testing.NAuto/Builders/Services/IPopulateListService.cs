@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
@@ -11,6 +12,6 @@ namespace Amido.Testing.NAuto.Builders.Services
             Type propertyType, 
             object currentValue, 
             int depth,
-            Func<int, string, Type, object, object> populate);
+            Func<int, string, Type, object, PropertyInfo, object> populate);
     }
 }

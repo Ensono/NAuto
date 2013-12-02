@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Amido.Testing.NAuto.Builders;
 using Amido.Testing.NAuto.Builders.Services;
 using NUnit.Framework;
@@ -32,7 +33,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 var type = typeof (List<string>);
                 const int depth = 0;
                 const string listValue = "string";
-                var populate = new Func<int, string, Type, object, object>((d,p,t,v) => listValue) ;
+                var populate = new Func<int, string, Type, object, PropertyInfo, object>((d,p,t,i,v) => listValue) ;
 
                 var result = populateListService.Populate(propertyName, type, null, depth, populate) as List<string>;
 
@@ -50,7 +51,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 var type = typeof(List<string>);
                 const int depth = 0;
                 const string listValue = "string";
-                var populate = new Func<int, string, Type, object, object>((d, p, t, v) => listValue);
+                var populate = new Func<int, string, Type, object, PropertyInfo, object>((d, p, t, i, v) => listValue);
 
                 var result = populateListService.Populate(propertyName, type, list, depth, populate) as List<string>;
 

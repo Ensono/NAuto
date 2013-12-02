@@ -21,6 +21,8 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
         private Mock<PopulateProperty<double?>> populateNullableDoubleService;
         private Mock<PopulateProperty<bool>> populateBoolService;
         private Mock<PopulateProperty<bool?>> populateNullableBoolService;
+        private Mock<PopulateProperty<byte>> populateByteService;
+        private Mock<PopulateProperty<byte?>> populateNullableByteService;
         private Mock<PopulateProperty<DateTime>> populateDateTimeService;
         private Mock<PopulateProperty<DateTime?>> populateNullableDateTimeService;
         private Mock<PopulateProperty<Uri>> populateUriService;
@@ -28,6 +30,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
         private Mock<IPopulateListService> populateListService;
+        private Mock<IPopulateArrayService> populateArrayService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
             
         [SetUp]
@@ -41,6 +44,8 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             populateNullableDoubleService = new Mock<PopulateProperty<double?>>();
             populateBoolService = new Mock<PopulateProperty<bool>>();
             populateNullableBoolService = new Mock<PopulateProperty<bool?>>();
+            populateByteService = new Mock<PopulateProperty<byte>>();
+            populateNullableByteService = new Mock<PopulateProperty<byte?>>();
             populateDateTimeService = new Mock<PopulateProperty<DateTime>>();
             populateNullableDateTimeService = new Mock<PopulateProperty<DateTime?>>();
             populateUriService = new Mock<PopulateProperty<Uri>>();
@@ -48,6 +53,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
             populateListService = new Mock<IPopulateListService>();
+            populateArrayService = new Mock<IPopulateArrayService>();
 
             propertyPopulationService = new PropertyPopulationService(
                 populateStringService.Object,
@@ -57,13 +63,16 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 populateNullableDoubleService.Object,
                 populateBoolService.Object,
                 populateNullableBoolService.Object,
+                populateByteService.Object,
+                populateNullableByteService.Object,
                 populateDateTimeService.Object,
                 populateNullableDateTimeService.Object,
                 populateUriService.Object,
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
-                populateListService.Object);
+                populateListService.Object,
+                populateArrayService.Object);
 
             propertyPopulationService.AddConfiguration(autoBuilderConfiguration);
         }
@@ -105,6 +114,16 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 public bool? Test { get; set; }
             }
 
+            private class ByteTest
+            {
+                public byte Test { get; set; }
+            }
+
+            private class NullableByteTest
+            {
+                public byte? Test { get; set; }
+            }
+
             private class DateTimeTest
             {
                 public DateTime Test { get; set; }
@@ -138,6 +157,11 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 {
                     Test = new List<string>();
                 }
+            }
+
+            private class ArrayTest
+            {
+                public string[] Test { get; set; }
             }
 
             [Test]
@@ -248,6 +272,31 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 populateNullableBoolService.VerifyAll();
             }
 
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Byte()
+            {
+                // Arrange
+                populateByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte>())).Returns(It.IsAny<byte>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new ByteTest(), 0);
+
+                // Assert
+                populateByteService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Byte()
+            {
+                // Arrange
+                populateNullableByteService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<byte?>())).Returns(It.IsAny<byte?>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new NullableByteTest(), 0);
+
+                // Assert
+                populateNullableByteService.VerifyAll();
+            }
 
             [Test]
             public void Should_Call_Correct_Populate_Service_When_Passed_A_DateTime()
@@ -338,6 +387,25 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
 
                 // Assert
                 populateListService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Array()
+            {
+                // Arrange
+                populateArrayService.Setup(x => x.Populate(
+                    It.IsAny<string>(),
+                    typeof(string[]),
+                    null,
+                    0,
+                    It.IsAny<Func<int, string, Type, object, object>>()))
+                    .Returns(null);
+
+                // Act
+                propertyPopulationService.PopulateProperties(new ArrayTest(), 0);
+
+                // Assert
+                populateArrayService.VerifyAll();
             }
         }
     }

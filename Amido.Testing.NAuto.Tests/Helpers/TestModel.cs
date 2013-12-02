@@ -112,6 +112,10 @@ namespace Amido.Testing.NAuto.Tests.Helpers
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public byte Byte { get; set; }
+        public byte[] Bytes { get; set; }
+        public byte? NullableByte { get; set; }
+        public byte?[] NullableBytes { get; set; }
         public string PostCode { get; set; }
         public int FavouriteInteger { get; set; }
         public double FavouriteDouble { get; set; }

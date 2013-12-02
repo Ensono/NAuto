@@ -3,18 +3,6 @@ using System.Collections;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
-    public interface IPopulateListService
-    {
-        void SetAutoBuilderConfiguration(AutoBuilderConfiguration autoBuilderConfiguration);
-
-        object Populate(
-            string propertyName, 
-            Type propertyType, 
-            object currentValue, 
-            int depth,
-            Func<int, string, Type, object, object> populate);
-    }
-
     public class PopulateListService : IPopulateListService
     {
         protected AutoBuilderConfiguration AutoBuilderConfiguration { get; set; }
@@ -31,7 +19,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             int depth,
             Func<int, string, Type, object, object> populate)
         {
-            if (currentValue != null)
+            if (currentValue != null && ((IList)currentValue).Count > 0)
             {
                 return currentValue;
             }

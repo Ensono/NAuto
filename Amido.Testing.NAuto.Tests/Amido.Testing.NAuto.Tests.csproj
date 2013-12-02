@@ -52,6 +52,10 @@
   <ItemGroup>
     <Compile Include="AutoBuilderTests.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateNullableByteServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateByteServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateListServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateArrayServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateComplexObjectServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateEnumServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateUriServiceTests.cs" />

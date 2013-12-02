@@ -11,19 +11,11 @@ namespace Amido.Testing.NAuto.Tests
     [TestFixture]
     public class AutoBuilderTests
     {
+        AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
+
         [Test]
         public void Should_Return_New_Model_Automatically_Populated()
         {
-            var testm = NAuto.AutoBuild<TestModel>()
-                .Configure(x => x.DefaultStringCasing = Casing.Lowered)
-                .Configure(x => x.DefaultBoolean = true)
-                .AddConvention("date", typeof(string), () => "b;ah")
-                .AddConventions(new List<ConventionMap>().ToArray())
-                .ClearConventions()
-                .Construct()
-                .Build();
-                
-
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
@@ -32,6 +24,10 @@ namespace Amido.Testing.NAuto.Tests
             // Assert
             testModel.FirstName.ShouldNotBeEmpty();
             testModel.LastName.ShouldNotBeEmpty();
+            testModel.Byte.ShouldBeGreaterThan((byte)0);
+            testModel.NullableByte.ShouldBeGreaterThan((byte)0);
+            testModel.Bytes.Length.ShouldEqual(configuration.DefaultListItemCount);
+            testModel.NullableBytes.Length.ShouldEqual(configuration.DefaultListItemCount);
             testModel.FavouriteInteger.ShouldNotEqual(default(int));
             testModel.FavouriteDouble.ShouldNotEqual(default(double));
             testModel.FavouriteDateTime.ShouldNotEqual(default(DateTime));
@@ -261,7 +257,7 @@ namespace Amido.Testing.NAuto.Tests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SimpleArray.Length.ShouldEqual(2);
+            testModel.SubTestModel.SimpleArray.Length.ShouldEqual(configuration.DefaultListItemCount);
         }
 
         [Test]
@@ -273,7 +269,7 @@ namespace Amido.Testing.NAuto.Tests
                 .Build();
 
             // Assert
-            testModel.FavouriteComplexArray.Length.ShouldEqual(2);
+            testModel.FavouriteComplexArray.Length.ShouldEqual(configuration.DefaultListItemCount);
         }
 
         [Test]
@@ -287,14 +283,14 @@ namespace Amido.Testing.NAuto.Tests
         }
 
         [Test]
-        public void Should_Add_2_String_Collections()
+        public void Should_Add_Multiple_String_Collections()
         {
             var testModel = NAuto.AutoBuild<StringCollectionsModel>()
                 .Construct()
                 .Build();
 
             // Assert
-            testModel.FavouriteStrings.Count.ShouldEqual(2);
+            testModel.FavouriteStrings.Count.ShouldEqual(configuration.DefaultListItemCount);
         }
 
         [Test]

@@ -14,6 +14,8 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly PopulateProperty<double?> populateNullableDoubleService;
         private readonly PopulateProperty<bool> populateBoolService;
         private readonly PopulateProperty<bool?> populateNullableBoolService;
+        private readonly PopulateProperty<byte> populateByteService;
+        private readonly PopulateProperty<byte?> populateNullableByteService;
         private readonly PopulateProperty<DateTime> populateDateTimeService;
         private readonly PopulateProperty<DateTime?> populateNullableDateTimeService;
         private readonly PopulateProperty<Uri> populateUriService;
@@ -21,6 +23,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
         private readonly IPopulateListService populateListService;
+        private readonly IPopulateArrayService populateArrayService;
         private AutoBuilderConfiguration configuration;
 
         public PropertyPopulationService(
@@ -31,13 +34,16 @@ namespace Amido.Testing.NAuto.Builders.Services
             PopulateProperty<double?> populateNullableDoubleService,
             PopulateProperty<bool> populateBoolService,
             PopulateProperty<bool?> populateNullableBoolService,
+            PopulateProperty<byte> populateByteService,
+            PopulateProperty<byte?> populateNullableByteService,
             PopulateProperty<DateTime> populateDateTimeService,
             PopulateProperty<DateTime?> populateNullableDateTimeService,
             PopulateProperty<Uri> populateUriService,
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
-            IPopulateListService populateListService)
+            IPopulateListService populateListService,
+            IPopulateArrayService populateArrayService)
         {
             this.populateStringService = populateStringService;
             this.populateIntService = populateIntService;
@@ -46,6 +52,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.populateNullableDoubleService = populateNullableDoubleService;
             this.populateBoolService = populateBoolService;
             this.populateNullableBoolService = populateNullableBoolService;
+            this.populateByteService = populateByteService;
+            this.populateNullableByteService = populateNullableByteService;
             this.populateDateTimeService = populateDateTimeService;
             this.populateNullableDateTimeService = populateNullableDateTimeService;
             this.populateUriService = populateUriService;
@@ -53,6 +61,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
             this.populateListService = populateListService;
+            this.populateArrayService = populateArrayService;
         }
 
         public void AddConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
@@ -65,12 +74,15 @@ namespace Amido.Testing.NAuto.Builders.Services
             populateNullableDoubleService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateBoolService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateNullableBoolService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateByteService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableByteService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateDateTimeService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateNullableDateTimeService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateArrayService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
         public void PopulateProperties(object objectToPopulate, int depth)
@@ -99,11 +111,11 @@ namespace Amido.Testing.NAuto.Builders.Services
             {
                 if (propertyType.FullName.Contains("System.Collections.Generic.List`1"))
                 {
-                    return PopulateList(depth, propertyName, propertyType, value);
+                    return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
                 }
                 if (propertyType.BaseType == typeof(Array) && value == null)
                 {
-                    return PopulateArray(depth, propertyName, propertyType);
+                    return populateArrayService.Populate(propertyName, propertyType, null, depth, Populate);
                 }
             }
 
@@ -136,13 +148,24 @@ namespace Amido.Testing.NAuto.Builders.Services
 
             if (propertyType == typeof(bool))
             {
-                 var boolValue = value != null && (bool) value;
+                var boolValue = value != null && (bool) value;
                 return populateBoolService.Populate(propertyName, boolValue);
             }
 
             if (propertyType == typeof(bool?))
             {
                 return populateNullableBoolService.Populate(propertyName, (bool?) value);
+            }
+
+            if (propertyType == typeof(byte))
+            {
+                var byteValue = value == null ? (byte)0 : (byte)value;
+                return populateByteService.Populate(propertyName, byteValue);
+            }
+
+            if (propertyType == typeof(byte?))
+            {
+                return populateNullableByteService.Populate(propertyName, (byte?)value);
             }
 
             if (propertyType == typeof(DateTime))
@@ -178,22 +201,6 @@ namespace Amido.Testing.NAuto.Builders.Services
         private static bool IsPotentialComplexType(Type propertyType)
         {
             return propertyType.BaseType != typeof(ValueType) && !propertyType.IsPrimitive && propertyType != typeof(string) && propertyType != typeof(Uri);
-        }
-
-        private object PopulateArray(int depth, string propertyName, Type propertyType)
-        {
-            var arrayElementType = propertyType.GetElementType();
-            var newArray = Array.CreateInstance(arrayElementType, configuration.DefaultListItemCount);
-            for (var i = 0; i < configuration.DefaultListItemCount; i++)
-            {
-                newArray.SetValue(Populate(depth + 1, propertyName, arrayElementType, null), i);
-            }
-            return newArray;
-        }
-
-        private object PopulateList(int depth, string propertyName, Type propertyType, object value)
-        {
-            return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
         }
     }
 }

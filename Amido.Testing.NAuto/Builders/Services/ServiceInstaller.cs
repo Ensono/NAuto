@@ -14,6 +14,8 @@ namespace Amido.Testing.NAuto.Builders.Services
             container.Register<PopulateProperty<double?>, PopulateNullableDoubleService>();
             container.Register<PopulateProperty<bool>, PopulateBoolService>();
             container.Register<PopulateProperty<bool?>, PopulateNullableBoolService>();
+            container.Register<PopulateProperty<byte>, PopulateByteService>();
+            container.Register<PopulateProperty<byte?>, PopulateNullableByteService>();
             container.Register<PopulateProperty<DateTime>, PopulateDateTimeService>();
             container.Register<PopulateProperty<DateTime?>, PopulateNullableDateTimeService>();
             container.Register<PopulateProperty<Uri>, PopulateUriService>();
@@ -21,6 +23,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             container.Register<IBuildConstructorParametersService, BuildConstructorParametersService>();
             container.Register<IPopulateComplexObjectService, PopulateComplexObjectService>();
             container.Register<IPopulateListService, PopulateListService>();
+            container.Register<IPopulateArrayService, PopulateArrayService>();
         }
     }
 }

@@ -78,9 +78,9 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 return null;
             }
 
-            private void TestPopulateProperties(object arg1, int arg2)
+            private object TestPopulateProperties(object arg1, int arg2)
             {
-
+                return null;
             }
 
             private object[] TestBuildContructor(ConstructorInfo[] arg1, int arg2, Func<int, string, Type, object, object> arg3)

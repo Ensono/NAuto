@@ -85,19 +85,36 @@ namespace Amido.Testing.NAuto.Builders.Services
             populateArrayService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
-        public void PopulateProperties(object objectToPopulate, int depth)
+        public object PopulateProperties(object objectToPopulate, int depth)
         {
             if (depth > configuration.MaxDepth)
             {
-                return;
+                return objectToPopulate;
             }
 
-            var properties = objectToPopulate.GetType().GetProperties();
+            var propertyType = objectToPopulate.GetType();
 
-            foreach (var propertyInfo in properties)
+            if (propertyType.GetInterfaces().Any(x => x == typeof(IList)))
             {
-                propertyInfo.SetValue(objectToPopulate, Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate)));
+                if (propertyType.FullName.Contains("System.Collections.Generic.List`1"))
+                {
+                    populateListService.Populate("", propertyType, objectToPopulate, depth - 1, Populate);
+                }
+                else if (propertyType.BaseType == typeof(Array))
+                {
+                    objectToPopulate = populateArrayService.Populate("", propertyType, objectToPopulate, depth - 1, Populate);
+                }
             }
+            else
+            {
+                var properties = objectToPopulate.GetType().GetProperties();
+
+                foreach (var propertyInfo in properties)
+                {
+                    propertyInfo.SetValue(objectToPopulate, Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate)));
+                } 
+            }
+            return objectToPopulate;
         }
 
         public object[] BuildConstructorParameters(ConstructorInfo[] constructors, int depth)

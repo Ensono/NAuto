@@ -72,7 +72,11 @@ namespace Amido.Testing.NAuto.Builders
             else
             {
                 var constructors = typeof(TModel).GetConstructors();
-                if (constructors.All(x => x.GetParameters().Count() != 0))
+                if((typeof(TModel).BaseType == typeof(Array)))
+                {
+                    entity = (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultListItemCount);
+                }
+                else if (constructors.All(x => x.GetParameters().Count() != 0))
                 {
                     var constructorParameters = propertyPopulationService.BuildConstructorParameters(constructors, 1);
                     entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
@@ -83,7 +87,7 @@ namespace Amido.Testing.NAuto.Builders
                 }
             }
 
-            propertyPopulationService.PopulateProperties(entity, 1);
+            entity = (TModel)propertyPopulationService.PopulateProperties(entity, 1);
             return this;
         }
 

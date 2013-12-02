@@ -31,7 +31,7 @@ namespace Amido.Testing.NAuto.Builders
             bool defaultBoolean = true,
             int stringMinLength = 5,
             int stringMaxLength = 25,
-            int maxDepth = 3,
+            int maxDepth = 5,
             int defaultListItemCount = 2
             ) :this(
             DateTime.UtcNow, 
@@ -62,7 +62,7 @@ namespace Amido.Testing.NAuto.Builders
             bool defaultBoolean = true,
             int stringMinLength = 5,
             int stringMaxLength = 25,
-            int maxDepth = 3,
+            int maxDepth = 5,
             int defaultListItemCount = 2
             )
         {

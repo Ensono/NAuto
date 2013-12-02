@@ -14,6 +14,30 @@ namespace Amido.Testing.NAuto.Tests
         AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
 
         [Test]
+        public void Should_Handle_List_Based_Top_Level_Models()
+        {
+            // Act
+            var testList = NAuto.AutoBuild<List<TestModel>>()
+              .Construct()
+              .Build();
+
+            // Assert
+            testList.ShouldNotBeEmpty();
+        }
+
+        [Test]
+        public void Should_Handle_Array_Based_Top_Level_Models()
+        {
+            // Act
+            var testArray = NAuto.AutoBuild<TestModel[]>()
+              .Construct()
+              .Build();
+
+            // Assert
+            testArray.ShouldNotBeEmpty();
+        }
+
+        [Test]
         public void Should_Return_New_Model_Automatically_Populated()
         {
             // Act
@@ -225,7 +249,7 @@ namespace Amido.Testing.NAuto.Tests
         }
         
         [Test]
-        public void Should_Not_Exceed_Max_Depth_Default_Of_3()
+        public void Should_Not_Exceed_Max_Depth_Default()
         {
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
@@ -233,7 +257,7 @@ namespace Amido.Testing.NAuto.Tests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubSubTestModel.FavouriteComplexList[0].SubSubString.ShouldBeNull();
+            testModel.SubTestModel.SubSubTestModel.FavouriteComplexList[0].FavouriteComplexList[0].SubSubString.ShouldBeNull();
         }
 
         [Test]

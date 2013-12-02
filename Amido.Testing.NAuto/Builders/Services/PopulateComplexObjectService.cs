@@ -19,7 +19,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             int depth,
             Func<ConstructorInfo[], int, Func<int, string, Type, object, object>, object[]> buildConstructorParametersFunction,
             Func<int, string, Type, object, object> populate,
-            Action<object, int> populateProperties)
+            Func<object, int, object> populateProperties)
         {
             if (currentValue != null)
             {

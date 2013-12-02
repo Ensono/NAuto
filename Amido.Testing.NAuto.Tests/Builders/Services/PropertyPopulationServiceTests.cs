@@ -361,7 +361,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                     0,
                     It.IsAny<Func<ConstructorInfo[], int, Func<int, string, Type, object, object>, object[]>>(), 
                     It.IsAny<Func<int, string, Type, object, object>>(),
-                    It.IsAny<Action<object, int>>())).Returns(null);
+                    It.IsAny<Func<object, int, object>>())).Returns(null);
 
                 // Act
                 propertyPopulationService.PopulateProperties(new ComplexObjectTest(), 0);

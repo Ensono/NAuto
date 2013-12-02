@@ -74,7 +74,7 @@ namespace Amido.Testing.NAuto.Builders
                 var constructors = typeof(TModel).GetConstructors();
                 if((typeof(TModel).BaseType == typeof(Array)))
                 {
-                    entity = (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultListItemCount);
+                    entity = (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultCollectionItemCount);
                 }
                 else if (constructors.All(x => x.GetParameters().Count() != 0))
                 {

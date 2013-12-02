@@ -17,7 +17,7 @@ namespace Amido.Testing.NAuto.Builders
         public DateTime DefaultDateTime { get; set; }
         public bool DefaultBoolean { get; set; }
         public int MaxDepth { get; set; }
-        public int DefaultListItemCount { get; set; }
+        public int DefaultCollectionItemCount { get; set; }
         public Conventions Conventions { get; set; }
 
         public AutoBuilderConfiguration(
@@ -32,7 +32,7 @@ namespace Amido.Testing.NAuto.Builders
             int stringMinLength = 5,
             int stringMaxLength = 25,
             int maxDepth = 5,
-            int defaultListItemCount = 2
+            int defaultCollectionItemCount = 2
             ) :this(
             DateTime.UtcNow, 
             stringCharacterSetType,
@@ -46,7 +46,7 @@ namespace Amido.Testing.NAuto.Builders
             stringMinLength,
             stringMaxLength,
             maxDepth, 
-            defaultListItemCount)
+            defaultCollectionItemCount)
         {
         }
 
@@ -63,7 +63,7 @@ namespace Amido.Testing.NAuto.Builders
             int stringMinLength = 5,
             int stringMaxLength = 25,
             int maxDepth = 5,
-            int defaultListItemCount = 2
+            int defaultCollectionItemCount = 2
             )
         {
             DefaultDateTime = defaultDateTime;
@@ -78,7 +78,7 @@ namespace Amido.Testing.NAuto.Builders
             StringMinLength = stringMinLength;
             StringMaxLength = stringMaxLength;
             MaxDepth = maxDepth;
-            DefaultListItemCount = defaultListItemCount;
+            DefaultCollectionItemCount = defaultCollectionItemCount;
             Conventions = new Conventions();
         }
     }

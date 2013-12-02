@@ -36,7 +36,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 var result = populateArrayService.Populate(propertyName, type, null, depth, populate) as string[];
 
                 result.ShouldNotBeNull();
-                result.Length.ShouldEqual(autoBuilderConfiguration.DefaultListItemCount);
+                result.Length.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
                 result.First().ShouldEqual(arrayValue);
                 result.Last().ShouldEqual(arrayValue);
             }

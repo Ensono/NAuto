@@ -13,8 +13,8 @@ namespace Amido.Testing.NAuto.Builders.Services
         public object Populate(string propertyName, Type propertyType, object currentValue, int depth, Func<int, string, Type, object, object> populate)
         {
             var arrayElementType = propertyType.GetElementType();
-            var newArray = Array.CreateInstance(arrayElementType, AutoBuilderConfiguration.DefaultListItemCount);
-            for (var i = 0; i < AutoBuilderConfiguration.DefaultListItemCount; i++)
+            var newArray = Array.CreateInstance(arrayElementType, AutoBuilderConfiguration.DefaultCollectionItemCount);
+            for (var i = 0; i < AutoBuilderConfiguration.DefaultCollectionItemCount; i++)
             {
                 newArray.SetValue(populate(depth + 1, propertyName, arrayElementType, null), i);
             }

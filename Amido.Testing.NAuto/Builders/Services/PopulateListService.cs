@@ -35,7 +35,7 @@ namespace Amido.Testing.NAuto.Builders.Services
                 newList = (IList)Activator.CreateInstance(propertyType);
             }
 
-            for (var i = 0; i < AutoBuilderConfiguration.DefaultListItemCount; i++)
+            for (var i = 0; i < AutoBuilderConfiguration.DefaultCollectionItemCount; i++)
             {
                 newList.Add(populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null));
             }

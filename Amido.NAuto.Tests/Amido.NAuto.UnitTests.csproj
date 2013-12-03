@@ -7,8 +7,8 @@
     <ProjectGuid>{4BC166B5-775A-48E6-9D9D-949BDF8840BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amido.NAuto.Tests</RootNamespace>
-    <AssemblyName>Amido.NAuto.Tests</AssemblyName>
+    <RootNamespace>Amido.NAuto.UnitTests</RootNamespace>
+    <AssemblyName>Amido.NAuto.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoBuilderTests.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersServiceTests.cs" />
     <Compile Include="Builders\Services\DataAnnotationConventionMapperTests.cs" />
     <Compile Include="Builders\Services\PopulateDictionaryServiceTests.cs" />
@@ -73,10 +72,6 @@
     <Compile Include="Builders\Services\PopulateIntServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateStringServiceTests.cs" />
     <Compile Include="Builders\Services\PropertyPopulationServiceTests.cs" />
-    <Compile Include="BuilderTests.cs" />
-    <Compile Include="GetRandomIntegerTests.cs" />
-    <Compile Include="GetRandomPropertyTypeTests.cs" />
-    <Compile Include="GetRandomStringTests.cs" />
     <Compile Include="Helpers\CustomBuilder.cs" />
     <Compile Include="Helpers\TestAnnotationModel.cs" />
     <Compile Include="Helpers\TestModel.cs" />

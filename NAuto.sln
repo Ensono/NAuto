@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amido.NAuto", "Amido.NAuto\Amido.NAuto.csproj", "{29062F9C-5A4B-4A6D-A71D-42DE6D5A8D9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amido.NAuto.Tests", "Amido.NAuto.Tests\Amido.NAuto.Tests.csproj", "{4BC166B5-775A-48E6-9D9D-949BDF8840BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amido.NAuto.UnitTests", "Amido.NAuto.Tests\Amido.NAuto.UnitTests.csproj", "{4BC166B5-775A-48E6-9D9D-949BDF8840BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3D103BF1-902E-428B-82C5-321971B59D6C}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3D103B
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amido.NAuto.IntegrationTests", "Amido.NAuto.IntegrationTests\Amido.NAuto.IntegrationTests.csproj", "{4A052FBA-43C7-408F-AFEE-701B03F4CC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{4BC166B5-775A-48E6-9D9D-949BDF8840BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BC166B5-775A-48E6-9D9D-949BDF8840BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BC166B5-775A-48E6-9D9D-949BDF8840BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A052FBA-43C7-408F-AFEE-701B03F4CC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A052FBA-43C7-408F-AFEE-701B03F4CC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A052FBA-43C7-408F-AFEE-701B03F4CC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A052FBA-43C7-408F-AFEE-701B03F4CC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
-﻿using Amido.NAuto.Tests.Helpers;
+﻿using Amido.NAuto.IntegrationTests.Helpers;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests
+namespace Amido.NAuto.IntegrationTests
 {
     [TestFixture]
     public class BuilderTests
@@ -12,7 +12,7 @@ namespace Amido.NAuto.Tests
         {
             // Act
             const string overridden = "overridden";
-            var testModel = Amido.NAuto.NAuto.Build<CustomBuilder>()
+            var testModel = NAuto.Build<CustomBuilder>()
                 .With(x => x.FirstName = overridden)
                 .Build();
 

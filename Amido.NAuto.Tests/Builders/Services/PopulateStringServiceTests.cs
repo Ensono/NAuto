@@ -4,7 +4,7 @@ using Moq;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests.Builders.Services
+namespace Amido.NAuto.UnitTests.Builders.Services
 {
     [TestFixture]
     public class PopulateStringServiceTests

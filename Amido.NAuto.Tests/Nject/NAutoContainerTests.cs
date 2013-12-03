@@ -5,7 +5,7 @@ using Amido.NAuto.Nject;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests.Nject
+namespace Amido.NAuto.UnitTests.Nject
 {
     [TestFixture]
     public class NAutoContainerTests

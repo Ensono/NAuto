@@ -1,10 +1,10 @@
 ﻿using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
-using Amido.NAuto.Tests.Helpers;
+using Amido.NAuto.UnitTests.Helpers;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests.Builders.Services
+namespace Amido.NAuto.UnitTests.Builders.Services
 {
     [TestFixture]
     public class DataAnnotationConventionMapperTests

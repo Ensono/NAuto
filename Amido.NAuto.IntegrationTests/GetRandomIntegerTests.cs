@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests
+namespace Amido.NAuto.IntegrationTests
 {
     [TestFixture]
     public class GetRandomIntegerTests
@@ -16,8 +16,8 @@ namespace Amido.NAuto.Tests
             var max = random.Next(123456);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomInteger(max);
-            var result2 = Amido.NAuto.NAuto.GetRandomInteger(max);
+            var result1 = NAuto.GetRandomInteger(max);
+            var result2 = NAuto.GetRandomInteger(max);
 
             // Assert
             result1.ShouldNotEqual(result2);
@@ -33,8 +33,8 @@ namespace Amido.NAuto.Tests
             var max = random.Next(101, 123456);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomInteger(min, max);
-            var result2 = Amido.NAuto.NAuto.GetRandomInteger(min, max);
+            var result1 = NAuto.GetRandomInteger(min, max);
+            var result2 = NAuto.GetRandomInteger(min, max);
 
             // Assert
             result1.ShouldNotEqual(result2);
@@ -52,8 +52,8 @@ namespace Amido.NAuto.Tests
             const double max = 456789.789456;
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomDouble(min, max);
-            var result2 = Amido.NAuto.NAuto.GetRandomDouble(min, max);
+            var result1 = NAuto.GetRandomDouble(min, max);
+            var result2 = NAuto.GetRandomDouble(min, max);
 
             // Assert
             result1.ShouldNotEqual(result2);

@@ -1,6 +1,6 @@
 ﻿using Amido.NAuto.Builders;
 
-namespace Amido.NAuto.UnitTests.Helpers
+namespace Amido.NAuto.IntegrationTests.Helpers
 {
     public class CustomBuilder : Builder<CustomBuilder, TestModel>
     {

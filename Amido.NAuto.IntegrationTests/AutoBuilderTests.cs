@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Amido.NAuto.Builders;
+using Amido.NAuto.IntegrationTests.Helpers;
 using Amido.NAuto.Randomizers;
-using Amido.NAuto.Tests.Helpers;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests
+namespace Amido.NAuto.IntegrationTests
 {
     [TestFixture]
     public class AutoBuilderTests
@@ -16,7 +16,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Use_Data_Annotation_Email_Type_As_Convention()
         {
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestAnnotationModel>()
+            var testModel = NAuto.AutoBuild<TestAnnotationModel>()
                 .ClearConventions()
                 .Construct()
                 .Build();
@@ -32,7 +32,7 @@ namespace Amido.NAuto.Tests
             var testListParameter = new List<TestModel>();
             testListParameter.Add(new TestModel{FirstName = "Sean"});
             // Act
-            var testList = Amido.NAuto.NAuto.AutoBuild<List<TestModel>>()
+            var testList = NAuto.AutoBuild<List<TestModel>>()
               .Construct(testListParameter)
               .Build();
 
@@ -44,7 +44,7 @@ namespace Amido.NAuto.Tests
         public void Should_Handle_List_Based_Top_Level_Models()
         {
             // Act
-            var testList = Amido.NAuto.NAuto.AutoBuild<List<TestModel>>()
+            var testList = NAuto.AutoBuild<List<TestModel>>()
               .Construct()
               .Build();
 
@@ -56,7 +56,7 @@ namespace Amido.NAuto.Tests
         public void Should_Handle_Array_Based_Top_Level_Models()
         {
             // Act
-            var testArray = Amido.NAuto.NAuto.AutoBuild<TestModel[]>()
+            var testArray = NAuto.AutoBuild<TestModel[]>()
               .Construct()
               .Build();
 
@@ -68,7 +68,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_New_Model_Automatically_Populated()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .Build();
 
@@ -95,7 +95,7 @@ namespace Amido.NAuto.Tests
             // Arrange
             const string overridden = "Overridden";
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubString = overridden)
                 .Build();
@@ -118,7 +118,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_Top_Level_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.FirstName, 9, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .Build();
@@ -131,7 +131,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_2_Levels_Deep_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubString, 7, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .Build();
@@ -144,7 +144,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_3_Levels_Deep_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubSubTestModel.SubSubString, 5, CharacterSetType.Anything, Spaces.Middle, Casing.Lowered)
                 .With(x => x.SubTestModel.SubString, 12)
@@ -160,7 +160,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_Top_Level_Integer_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.FavouriteInteger, 10, 13)
                 .Build();
@@ -174,7 +174,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_2nd_Level_Integer_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubInteger, 100, 103)
                 .Build();
@@ -188,7 +188,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_3rd_Level_Integer_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubSubTestModel.SubSubInteger, 100, 103)
                 .Build();
@@ -202,7 +202,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_Top_Level_Double_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.FavouriteDouble, 1000, 1003)
                 .Build();
@@ -216,7 +216,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_2nd_Level_Double_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubDouble, 100, 103)
                 .Build();
@@ -230,7 +230,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Model_With_Updated_Random_Settings_For_3rd_Level_Double_Property_In_Graph()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.SubTestModel.SubSubTestModel.SubSubDouble, 100, 103)
                 .Build();
@@ -249,7 +249,7 @@ namespace Amido.NAuto.Tests
             var config = new AutoBuilderConfiguration(stringMinLength:minLength, stringMaxLength:maxLength);
 
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>(config)
+            var testModel = NAuto.AutoBuild<TestModel>(config)
                 .Construct()
                 .Build();
 
@@ -262,7 +262,7 @@ namespace Amido.NAuto.Tests
         public void Should_Override_Property_With_Random_Email()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .With(x => x.Email, PropertyType.Email)
                 .With(x => x.SubTestModel.SubEmail, PropertyType.Email)
@@ -279,7 +279,7 @@ namespace Amido.NAuto.Tests
         public void Should_Not_Exceed_Max_Depth_Default()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>()
+            var testModel = NAuto.AutoBuild<TestModel>()
                 .Construct()
                 .Build();
 
@@ -291,7 +291,7 @@ namespace Amido.NAuto.Tests
         public void Should_Not_Exceed_Max_Depth_Default_Of_Override_Depth_Of_4()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration(maxDepth:4))
+            var testModel = NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration(maxDepth:4))
                 .Construct()
                 .Build();
 
@@ -303,7 +303,7 @@ namespace Amido.NAuto.Tests
         public void Should_Add_Simple_Item_ToArray()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration())
+            var testModel = NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration())
                 .Construct()
                 .Build();
 
@@ -315,7 +315,7 @@ namespace Amido.NAuto.Tests
         public void Should_Add_Complex_Item_ToArray()
         {
             // Act
-            var testModel = Amido.NAuto.NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration())
+            var testModel = NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration())
                 .Construct()
                 .Build();
 
@@ -326,7 +326,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Populate_Collections_Of_All_Supported_Types()
         {
-            var testModel = Amido.NAuto.NAuto.AutoBuild<CollectionsModel>()
+            var testModel = NAuto.AutoBuild<CollectionsModel>()
                 .Construct()
                 .Build();
 
@@ -336,7 +336,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Add_Multiple_String_Collections()
         {
-            var testModel = Amido.NAuto.NAuto.AutoBuild<StringCollectionsModel>()
+            var testModel = NAuto.AutoBuild<StringCollectionsModel>()
                 .Construct()
                 .Build();
 
@@ -347,7 +347,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Populate_Arrays_Of_All_Supported_Types()
         {
-            var testModel = Amido.NAuto.NAuto.AutoBuild<ArraysModel>()
+            var testModel = NAuto.AutoBuild<ArraysModel>()
                 .Construct()
                 .Build();
 
@@ -358,7 +358,7 @@ namespace Amido.NAuto.Tests
         public void Should_Return_Email_Type_Base_On_Property_Name()
         {
             var autoTestBuilderConfiguration = new AutoBuilderConfiguration();
-            var conventionsTestModel = Amido.NAuto.NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
+            var conventionsTestModel = NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
                 .Construct()
                 .Build();
 
@@ -372,7 +372,7 @@ namespace Amido.NAuto.Tests
 
             autoTestBuilderConfiguration.Conventions.Add(new ConventionMap("PetName", typeof(string), () => "Rex"));
             
-            var conventionsTestModel = Amido.NAuto.NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
+            var conventionsTestModel = NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
                 .Construct()
                 .Build();
 
@@ -382,25 +382,9 @@ namespace Amido.NAuto.Tests
         }
 
         [Test]
-        [Ignore]
-        public void DeleteME()
-        {
-           var testModel =  Amido.NAuto.NAuto.AutoBuild<TestModel>()
-                .Construct()
-                .If(x => x.FavouriteInteger < 10)
-                .Then(x => x.FirstName = x.LastName)
-                .With(x => x.FavouriteDouble = 123)
-                .Build();
-                
-                
-                 
-            Assert.Fail();
-        }
-
-        [Test]
         public void Should_Construct_Using_Argument_And_Populate_PrivateSetter()
         {
-            var noDefautConstructor = Amido.NAuto.NAuto.AutoBuild<NoDefaultConstructor>()
+            var noDefautConstructor = NAuto.AutoBuild<NoDefaultConstructor>()
                 .Construct("Blah")
                 .Build();
 
@@ -411,7 +395,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Construct_Automatically_And_Populate_PrivateSetter()
         {
-            var noDefautConstructor = Amido.NAuto.NAuto.AutoBuild<NoDefaultConstructor>()
+            var noDefautConstructor = NAuto.AutoBuild<NoDefaultConstructor>()
                 .Construct()
                 .Build();
 
@@ -422,7 +406,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Select_Random_Enum_Value()
         {
-            var model = Amido.NAuto.NAuto.AutoBuild<ClassWithEnum>()
+            var model = NAuto.AutoBuild<ClassWithEnum>()
                 .Construct()
                 .Build();
         }
@@ -430,7 +414,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Throw_Exception_If_Interface_Used_As_Type_Argument()
         {
-            var exception = Assert.Throws<ArgumentException>(() => Amido.NAuto.NAuto.AutoBuild<IMyInterface>()
+            var exception = Assert.Throws<ArgumentException>(() => NAuto.AutoBuild<IMyInterface>()
                 .Construct()
                 .Build());
 
@@ -440,7 +424,7 @@ namespace Amido.NAuto.Tests
         [Test]
         public void Should_Throw_Exception_If_Abstract_Class_Used_As_Type_Argument()
         {
-            var exception = Assert.Throws<ArgumentException>(() => Amido.NAuto.NAuto.AutoBuild<MyAbstractClass>()
+            var exception = Assert.Throws<ArgumentException>(() => NAuto.AutoBuild<MyAbstractClass>()
                 .Construct()
                 .Build());
 

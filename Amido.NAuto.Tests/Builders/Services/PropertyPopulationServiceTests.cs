@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
-using Amido.NAuto.Tests.Helpers;
+using Amido.NAuto.UnitTests.Helpers;
 using Moq;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests.Builders.Services
+namespace Amido.NAuto.UnitTests.Builders.Services
 {
     [TestFixture]
     public class PropertyPopulationServiceTests

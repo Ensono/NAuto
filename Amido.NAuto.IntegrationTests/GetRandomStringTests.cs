@@ -4,7 +4,7 @@ using Amido.NAuto.Randomizers;
 using NUnit.Framework;
 using Should;
 
-namespace Amido.NAuto.Tests
+namespace Amido.NAuto.IntegrationTests
 {
     [TestFixture]
     public class GetRandomStringTests
@@ -18,8 +18,8 @@ namespace Amido.NAuto.Tests
             var length = random.Next(100, 10000);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Anything);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Anything);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.Anything);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.Anything);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -35,8 +35,8 @@ namespace Amido.NAuto.Tests
             var maxLength = random.Next(6, 10000);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(minLength, maxLength, CharacterSetType.Anything, Spaces.Any);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(minLength, maxLength, CharacterSetType.Anything, Spaces.Any);
+            var result1 = NAuto.GetRandomString(minLength, maxLength, CharacterSetType.Anything, Spaces.Any);
+            var result2 = NAuto.GetRandomString(minLength, maxLength, CharacterSetType.Anything, Spaces.Any);
 
             // Assert
             result1.Length.ShouldBeGreaterThanOrEqualTo(minLength);
@@ -53,8 +53,8 @@ namespace Amido.NAuto.Tests
             var regexForTrue = new Regex("^[a-zA-Z ]*$");
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.Alpha);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -75,8 +75,8 @@ namespace Amido.NAuto.Tests
             var regexForTrue = new Regex("^[a-z ]*$");
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Lowered);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Lowered);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Lowered);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Lowered);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -97,8 +97,8 @@ namespace Amido.NAuto.Tests
             var regexForTrue = new Regex("^[A-Z ]*$");
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Uppered);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Uppered);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Uppered);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Uppered);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -119,8 +119,8 @@ namespace Amido.NAuto.Tests
             var regexForTrue = new Regex("^[0-9 ]*$");
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Numeric);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.Numeric);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.Numeric);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.Numeric);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -140,8 +140,8 @@ namespace Amido.NAuto.Tests
             var regexForTrue = new Regex("^[a-zA-Z0-9 ]*$");
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Any, Casing.Any);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Any, Casing.Any);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Any, Casing.Any);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Any, Casing.Any);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -158,8 +158,8 @@ namespace Amido.NAuto.Tests
             var length = random.Next(20, 10000);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Start, Casing.Any);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Start, Casing.Any);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Start, Casing.Any);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Start, Casing.Any);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -176,8 +176,8 @@ namespace Amido.NAuto.Tests
             var length = random.Next(20, 10000);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.End, Casing.Any);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.End, Casing.Any);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.End, Casing.Any);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.End, Casing.Any);
 
             // Assert
             result1.Length.ShouldEqual(length);
@@ -194,8 +194,8 @@ namespace Amido.NAuto.Tests
             var length = random.Next(20, 10000);
 
             // Act
-            var result1 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.StartAndEnd, Casing.Any);
-            var result2 = Amido.NAuto.NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.StartAndEnd, Casing.Any);
+            var result1 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.StartAndEnd, Casing.Any);
+            var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.StartAndEnd, Casing.Any);
 
             // Assert
             result1.Length.ShouldEqual(length);

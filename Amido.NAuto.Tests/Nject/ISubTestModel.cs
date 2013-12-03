@@ -1,4 +1,4 @@
-﻿namespace Amido.NAuto.Tests.Nject
+﻿namespace Amido.NAuto.UnitTests.Nject
 {
     public interface ISubTestModel<TType>
     {

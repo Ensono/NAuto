@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Amido.NAuto.UnitTests.Helpers
+namespace Amido.NAuto.IntegrationTests.Helpers
 {
     public class ClassWithEnum
     {

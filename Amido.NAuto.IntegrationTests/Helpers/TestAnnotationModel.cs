@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Amido.NAuto.UnitTests.Helpers
+namespace Amido.NAuto.IntegrationTests.Helpers
 {
     public class TestAnnotationModel
     {

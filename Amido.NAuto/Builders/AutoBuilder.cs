@@ -1,7 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using Amido.NAuto.Builders.Services;
 using Amido.NAuto.Randomizers;
 
@@ -220,6 +223,21 @@ namespace Amido.NAuto.Builders
         public TModel Build()
         {
             return entity;
+        }
+
+        public string ToJson()
+        {
+            return ToJson(entity);
+        }
+
+        private static string ToJson(TModel obj)
+        {
+            var serializer = new DataContractJsonSerializer(typeof(TModel));
+            using (var stream = new MemoryStream())
+            {
+                serializer.WriteObject(stream, obj);
+                return Encoding.Default.GetString(stream.ToArray());
+            }
         }
 
         private void SetStringPropertyUsingNewRandomizerSetting(

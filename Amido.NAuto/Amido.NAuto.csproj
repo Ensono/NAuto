@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,9 +84,12 @@
     <Compile Include="NAuto.cs" />
     <Compile Include="Nject\NAutoContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Randomizers\Casing.cs" />
+    <Compile Include="Randomizers\CharacterSetType.cs" />
     <Compile Include="Randomizers\RandomNumberGenerator.cs" />
     <Compile Include="Randomizers\RandomPropertyTypeGenerator.cs" />
     <Compile Include="Randomizers\RandomStringGenerator.cs" />
+    <Compile Include="Randomizers\Spaces.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

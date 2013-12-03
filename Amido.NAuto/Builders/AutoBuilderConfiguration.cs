@@ -5,11 +5,13 @@ namespace Amido.NAuto.Builders
 {
     public class AutoBuilderConfiguration
     {
+        private readonly Language defaultLanguage;
         public int StringMinLength { get; set; }
         public int StringMaxLength { get; set; }
         public CharacterSetType DefaultStringCharacterSetType { get; set; }
         public Casing DefaultStringCasing { get; set; }
         public Spaces DefaultStringSpaces { get; set; }
+        public Language DefaultLanguage { get; set; }
         public int IntMinimum { get; set; }
         public int IntMaximum { get; set; }
         public double DoubleMinimum { get; set; }
@@ -24,6 +26,7 @@ namespace Amido.NAuto.Builders
             CharacterSetType stringCharacterSetType = CharacterSetType.Anything,
             Casing stringCasing = Casing.Any,
             Spaces stringSpaces = Spaces.Any,
+            Language defaultLanguage = Language.English,
             int intMinimum = 1,
             int intMaximum = 10000,
             double doubleMinimum = 100,
@@ -38,6 +41,7 @@ namespace Amido.NAuto.Builders
             stringCharacterSetType,
             stringCasing,
             stringSpaces,
+            defaultLanguage,
             intMinimum,
             intMaximum,
             doubleMinimum,
@@ -55,6 +59,7 @@ namespace Amido.NAuto.Builders
             CharacterSetType defaultStringCharacterSetType = CharacterSetType.Anything,
             Casing defaultStringCasing = Casing.Any,
             Spaces defaultStringSpaces = Spaces.Any,
+            Language defaultLanguage = Language.English,
             int intMinimum = 1,
             int intMaximum = 10000,
             double doubleMinimum = 100,
@@ -70,6 +75,7 @@ namespace Amido.NAuto.Builders
             DefaultStringCharacterSetType = defaultStringCharacterSetType;
             DefaultStringCasing = defaultStringCasing;
             DefaultStringSpaces = defaultStringSpaces;
+            DefaultLanguage = defaultLanguage;
             IntMinimum = intMinimum;
             IntMaximum = intMaximum;
             DoubleMinimum = doubleMinimum;

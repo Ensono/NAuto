@@ -28,36 +28,36 @@ namespace Amido.NAuto
             where TModel : class
         {
             return new AutoBuilder<TModel>(Container.Resolve<IPropertyPopulationService>(), autoBuilderConfiguration);
-        } 
-
-        public static string GetRandomString(int length)
-        {
-            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any);
         }
 
-        public static string GetRandomString(int length, CharacterSetType characterSetType)
+        public static string GetRandomString(int length, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, Spaces.Any, Casing.Any);
+            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any, language);
         }
 
-        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces)
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, spaces, Casing.Any);
+            return RandomStringGenerator.Get(length, characterSetType, Spaces.Any, Casing.Any, language);
         }
 
-        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing)
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, spaces, casing);
+            return RandomStringGenerator.Get(length, characterSetType, spaces, Casing.Any, language);
         }
 
-        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces)
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, Casing.Any);
+            return RandomStringGenerator.Get(length, characterSetType, spaces, casing, language);
         }
 
-        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing)
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, casing);
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, Casing.Any, language);
+        }
+
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
+        {
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, casing, language);
         }
 
         public static int GetRandomInteger(int max)

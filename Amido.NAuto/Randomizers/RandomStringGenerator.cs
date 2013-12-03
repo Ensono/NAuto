@@ -8,18 +8,21 @@ namespace Amido.NAuto.Randomizers
     public static class RandomStringGenerator
     {
         private static readonly Random Random = new Random();
-        private static readonly List<string> Numbers = new List<string>{ "0", "1", "2", "3", "4", "5", "6", "8", "9" };
-        private static readonly List<string> SpecialCharacters = new List<string> { "!", "£", "$", "%", "^", "&", "*", "(", ")", "+", "{", "}", "[", "]", "@", "<", ">", "?", ":", ";", "~", "#", "|", "\\", "/", ",", "." };
-        private static readonly List<string> Lowercase = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-        private static readonly List<string> Uppercase = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        private static List<string> Numbers = new List<string>{ "0", "1", "2", "3", "4", "5", "6", "8", "9" };
+        private static List<string> SpecialCharacters = new List<string> { "!", "£", "$", "%", "^", "&", "*", "(", ")", "+", "{", "}", "[", "]", "@", "<", ">", "?", ":", ";", "~", "#", "|", "\\", "/", ",", "." };
+        private static List<string> Lowercase = new List<string>();
+        private static List<string> Uppercase = new List<string>();
 
-        public static int GetRandomNumber(int maxNumber)
-        {
-            return Random.Next(1, maxNumber);
-        }
+        private static List<string> ukLowercase = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+        private static List<string> ukUppercase = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
-        public static string Get(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing)
-        {
+        private static List<string> cyrillicLowercase = new List<string> { "а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ" };
+        private static List<string> cyrillicUppercase = new List<string> { "Ѐ", "Ё", "Ђ", "Ѓ", "Є", "Ѕ", "І", "Ї", "Ј", "Љ", "Њ", "Ћ", "Ќ", "Ѝ", "Ў", "Џ", "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й" };
+
+
+       public static string Get(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
+       {
+            SetLanguageCharacterSets(language);
             var characters = GetCharacterSet(characterSetType, casing);
 
             var sb = BuildRandomString(length, spaces, characters);
@@ -27,8 +30,9 @@ namespace Amido.NAuto.Randomizers
             return ConvertToProperCaseIfRequired(sb.ToString(), casing);
         }
 
-        public static string Get(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing)
+       public static string Get(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
         {
+            SetLanguageCharacterSets(language);
             var characters = GetCharacterSet(characterSetType, casing);
 
             var length = Random.Next(minLength, maxLength);
@@ -38,7 +42,30 @@ namespace Amido.NAuto.Randomizers
             return ConvertToProperCaseIfRequired(sb.ToString(), casing);
         }
 
-        public static string ConvertToProperCaseIfRequired(string text, Casing casing)
+        private static void SetLanguageCharacterSets(Language language)
+        {
+            Lowercase.Clear();
+            Uppercase.Clear();
+            switch (language)
+            {
+                    case Language.Russian:
+                    Lowercase.AddRange(cyrillicLowercase);
+                    Uppercase.AddRange(cyrillicUppercase);
+                    break;
+                default:
+                    Lowercase.AddRange(ukLowercase);
+                    Uppercase.AddRange(ukUppercase);
+                    break;
+            }
+        }
+
+
+        private static int GetRandomNumber(int maxNumber)
+        {
+            return Random.Next(1, maxNumber);
+        }
+
+        private static string ConvertToProperCaseIfRequired(string text, Casing casing)
         {
             if (casing == Casing.ProperCase)
             {
@@ -180,29 +207,9 @@ namespace Amido.NAuto.Randomizers
         }
     }
 
-    public enum CharacterSetType
+    public enum Language
     {
-        Anything,
-        Alpha,
-        AlphaNumeric,
-        Numeric
-    }
-
-    public enum Casing
-    {
-        Any,
-        Lowered,
-        Uppered,
-        ProperCase
-    }
-
-    public enum Spaces
-    {
-        None,
-        Any,
-        Start,
-        Middle,
-        End,
-        StartAndEnd
+        English,
+        Russian
     }
 }

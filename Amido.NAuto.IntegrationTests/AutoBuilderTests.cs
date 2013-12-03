@@ -431,6 +431,29 @@ namespace Amido.NAuto.IntegrationTests
             exception.Message.ShouldEqual("Can't instantiate abstract classes");
         }
 
+        [Test]
+        public void Should_Return_Json_Representation_Of_Model()
+        {
+            // Act
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Construct()
+                .ToJson();
+
+            testModel.ShouldNotBeNull();
+        }
+
+        [Test]
+        public void Should_Use_Russian_CharacterSet()
+        {
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Configure(x => x.DefaultLanguage = Language.Russian)
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            testModel.ShouldNotBeNull();   
+        }
+
         public interface IMyInterface{}
 
         public abstract class MyAbstractClass

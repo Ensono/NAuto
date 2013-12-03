@@ -80,5 +80,7 @@ namespace Amido.NAuto.Builders
             double max);
 
         TModel Build();
+
+        string ToJson();
     }
 }

@@ -38,7 +38,8 @@ namespace Amido.NAuto.Builders.Services
                 AutoBuilderConfiguration.StringMaxLength,
                 AutoBuilderConfiguration.DefaultStringCharacterSetType,
                 AutoBuilderConfiguration.DefaultStringSpaces,
-                AutoBuilderConfiguration.DefaultStringCasing);
+                AutoBuilderConfiguration.DefaultStringCasing,
+                AutoBuilderConfiguration.DefaultLanguage);
         }
     }
 }

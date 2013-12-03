@@ -1,0 +1,94 @@
+﻿using Amido.NAuto.Builders;
+using Amido.NAuto.Builders.Services;
+using Amido.NAuto.Randomizers;
+
+namespace Amido.NAuto
+{
+    public static class NAuto
+    {
+
+        static readonly Nject.NAutoContainer Container = new Nject.NAutoContainer();
+
+        static NAuto()
+        {
+            ServiceInstaller.Install(Container);
+        }
+        public static TTestDataBuilder Build<TTestDataBuilder>() where TTestDataBuilder : new()
+        {
+            return new TTestDataBuilder();
+        }
+
+
+        public static IAutoBuilder<TModel> AutoBuild<TModel>() where TModel : class
+        {
+            return new AutoBuilder<TModel>(Container.Resolve<IPropertyPopulationService>());
+        }
+
+        public static IAutoBuilder<TModel> AutoBuild<TModel>(AutoBuilderConfiguration autoBuilderConfiguration) 
+            where TModel : class
+        {
+            return new AutoBuilder<TModel>(Container.Resolve<IPropertyPopulationService>(), autoBuilderConfiguration);
+        } 
+
+        public static string GetRandomString(int length)
+        {
+            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any);
+        }
+
+        public static string GetRandomString(int length, CharacterSetType characterSetType)
+        {
+            return RandomStringGenerator.Get(length, characterSetType, Spaces.Any, Casing.Any);
+        }
+
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces)
+        {
+            return RandomStringGenerator.Get(length, characterSetType, spaces, Casing.Any);
+        }
+
+        public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing)
+        {
+            return RandomStringGenerator.Get(length, characterSetType, spaces, casing);
+        }
+
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces)
+        {
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, Casing.Any);
+        }
+
+        public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing)
+        {
+            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, casing);
+        }
+
+        public static int GetRandomInteger(int max)
+        {
+            return RandomNumberGenerator.GetInteger(max);
+        }
+
+        public static int GetRandomInteger(int min, int max)
+        {
+            return RandomNumberGenerator.GetInteger(min, max);
+        }
+
+        public static double GetRandomDouble(double min, double max)
+        {
+            return RandomNumberGenerator.GetDouble(min, max);
+        }
+
+        public static string GetRandomPropertyType(PropertyType propertyType)
+        {
+            switch (propertyType)
+            {
+                case PropertyType.Email:
+                    return RandomPropertyTypeGenerator.GetRandomEmail();
+                case PropertyType.Url:
+                    return RandomPropertyTypeGenerator.GetRandomUrl();
+                case PropertyType.PostCode:
+                    return RandomPropertyTypeGenerator.GetRandomPostCode();
+                case PropertyType.TelephoneNumber:
+                    return RandomPropertyTypeGenerator.GetRandomTelephoneNumber();
+            }
+            return null;
+        }
+    }
+}

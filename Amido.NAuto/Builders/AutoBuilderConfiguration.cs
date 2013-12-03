@@ -23,9 +23,9 @@ namespace Amido.NAuto.Builders
         public Conventions Conventions { get; set; }
 
         public AutoBuilderConfiguration(
-            CharacterSetType stringCharacterSetType = CharacterSetType.Anything,
-            Casing stringCasing = Casing.Any,
-            Spaces stringSpaces = Spaces.Any,
+            CharacterSetType stringCharacterSetType = CharacterSetType.Alpha,
+            Casing stringCasing = Casing.ProperCase,
+            Spaces stringSpaces = Spaces.None,
             Language defaultLanguage = Language.English,
             int intMinimum = 1,
             int intMaximum = 10000,
@@ -56,9 +56,9 @@ namespace Amido.NAuto.Builders
 
         public AutoBuilderConfiguration(
             DateTime defaultDateTime,
-            CharacterSetType defaultStringCharacterSetType = CharacterSetType.Anything,
-            Casing defaultStringCasing = Casing.Any,
-            Spaces defaultStringSpaces = Spaces.Any,
+            CharacterSetType stringCharacterSetType = CharacterSetType.Alpha,
+            Casing stringCasing = Casing.ProperCase,
+            Spaces stringSpaces = Spaces.None,
             Language defaultLanguage = Language.English,
             int intMinimum = 1,
             int intMaximum = 10000,
@@ -72,9 +72,9 @@ namespace Amido.NAuto.Builders
             )
         {
             DefaultDateTime = defaultDateTime;
-            DefaultStringCharacterSetType = defaultStringCharacterSetType;
-            DefaultStringCasing = defaultStringCasing;
-            DefaultStringSpaces = defaultStringSpaces;
+            DefaultStringCharacterSetType = stringCharacterSetType;
+            DefaultStringCasing = stringCasing;
+            DefaultStringSpaces = stringSpaces;
             DefaultLanguage = defaultLanguage;
             IntMinimum = intMinimum;
             IntMaximum = intMaximum;

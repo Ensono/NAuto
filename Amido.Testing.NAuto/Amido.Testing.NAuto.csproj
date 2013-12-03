@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,11 +53,14 @@
     <Compile Include="Builders\Services\BuildConstructorParametersService.cs" />
     <Compile Include="Builders\Services\DataAnnotationConventionMapper.cs" />
     <Compile Include="Builders\Services\IBuildConstructorParametersService.cs" />
+    <Compile Include="Builders\Services\IDataAnnotationConventionMapper.cs" />
     <Compile Include="Builders\Services\IPopulateArrayService.cs" />
     <Compile Include="Builders\Services\IPopulateComplexObjectService.cs" />
+    <Compile Include="Builders\Services\IPopulateDictionaryService.cs" />
     <Compile Include="Builders\Services\IPopulateEnumService.cs" />
     <Compile Include="Builders\Services\IPopulateListService.cs" />
     <Compile Include="Builders\Services\PopulateArrayService.cs" />
+    <Compile Include="Builders\Services\PopulateDictionaryService.cs" />
     <Compile Include="Builders\Services\PopulateNullableByteService.cs" />
     <Compile Include="Builders\Services\PopulateByteService.cs" />
     <Compile Include="Builders\Services\PopulateListService.cs" />

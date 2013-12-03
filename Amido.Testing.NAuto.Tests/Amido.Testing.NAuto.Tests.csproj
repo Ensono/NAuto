@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,6 +54,8 @@
   <ItemGroup>
     <Compile Include="AutoBuilderTests.cs" />
     <Compile Include="Builders\Services\BuildConstructorParametersServiceTests.cs" />
+    <Compile Include="Builders\Services\DataAnnotationConventionMapperTests.cs" />
+    <Compile Include="Builders\Services\PopulateDictionaryServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateNullableByteServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateByteServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateListServiceTests.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="GetRandomPropertyTypeTests.cs" />
     <Compile Include="GetRandomStringTests.cs" />
     <Compile Include="Helpers\CustomBuilder.cs" />
+    <Compile Include="Helpers\TestAnnotationModel.cs" />
     <Compile Include="Helpers\TestModel.cs" />
     <Compile Include="Nject\IImplementationWithConstructorParameters.cs" />
     <Compile Include="Nject\ImplementationWithConstructorParameters.cs" />

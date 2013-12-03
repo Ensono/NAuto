@@ -7,6 +7,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         public static void Install(Nject.NAutoContainer container)
         {
             container.Register<IPropertyPopulationService, PropertyPopulationService>();
+            container.Register<IDataAnnotationConventionMapper, DataAnnotationConventionMapper>();
             container.Register<PopulateProperty<string>, PopulateStringService>();
             container.Register<PopulateProperty<int>, PopulateIntService>();
             container.Register<PopulateProperty<int?>, PopulateNullableIntService>(); 
@@ -23,6 +24,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             container.Register<IBuildConstructorParametersService, BuildConstructorParametersService>();
             container.Register<IPopulateComplexObjectService, PopulateComplexObjectService>();
             container.Register<IPopulateListService, PopulateListService>();
+            container.Register<IPopulateDictionaryService, PopulateDictionaryService>();
             container.Register<IPopulateArrayService, PopulateArrayService>();
         }
     }

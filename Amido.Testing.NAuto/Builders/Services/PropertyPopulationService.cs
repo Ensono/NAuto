@@ -23,6 +23,7 @@ namespace Amido.Testing.NAuto.Builders.Services
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
         private readonly IPopulateListService populateListService;
+        private readonly IPopulateDictionaryService populateDictionaryService;
         private readonly IPopulateArrayService populateArrayService;
         private AutoBuilderConfiguration configuration;
 
@@ -43,6 +44,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
             IPopulateListService populateListService,
+            IPopulateDictionaryService populateDictionaryService,
             IPopulateArrayService populateArrayService)
         {
             this.populateStringService = populateStringService;
@@ -61,6 +63,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
             this.populateListService = populateListService;
+            this.populateDictionaryService = populateDictionaryService;
             this.populateArrayService = populateArrayService;
         }
 
@@ -82,6 +85,7 @@ namespace Amido.Testing.NAuto.Builders.Services
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateDictionaryService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateArrayService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 
@@ -100,9 +104,20 @@ namespace Amido.Testing.NAuto.Builders.Services
                 {
                     populateListService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
+                else if (objectToPopulateType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
+                {
+                    populateDictionaryService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate, Populate);
+                }
                 else if (objectToPopulateType.BaseType == typeof(Array))
                 {
                     objectToPopulate = populateArrayService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
+                }
+            }
+            else if (objectToPopulateType.GetInterfaces().Any(x => x == typeof(IDictionary)))
+            {
+                if (objectToPopulateType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
+                {
+                    return populateDictionaryService.Populate("", objectToPopulateType, objectToPopulate, depth, Populate, Populate);
                 }
             }
             else
@@ -133,6 +148,13 @@ namespace Amido.Testing.NAuto.Builders.Services
                 if (propertyType.BaseType == typeof(Array) && value == null)
                 {
                     return populateArrayService.Populate(propertyName, propertyType, null, depth, Populate);
+                }
+            }
+            if (propertyType.GetInterfaces().Any(x => x == typeof(IDictionary)))
+            {
+                if (propertyType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
+                {
+                    return populateDictionaryService.Populate("", propertyType, value, depth, Populate, Populate);
                 }
             }
 

@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
 namespace Amido.Testing.NAuto.Builders.Services
 {
-    public static class DataAnnotationConventionMapper
+    public class DataAnnotationConventionMapper : IDataAnnotationConventionMapper
     {
-        public static object TryGetValue<TProperty>(PropertyInfo propertyInfo)
+        public object TryGetValue(Type type, PropertyInfo propertyInfo, AutoBuilderConfiguration autoBuilderConfiguration)
         {
             if (propertyInfo != null)
             {
@@ -14,7 +15,7 @@ namespace Amido.Testing.NAuto.Builders.Services
                 if (dataTypeAttribute != null)
                 {
                     var dataType = ((DataTypeAttribute)dataTypeAttribute).DataType;
-                    if (typeof(TProperty) == typeof(string))
+                    if (type == typeof(string))
                     {
                         if (dataType == DataType.EmailAddress)
                         {
@@ -37,7 +38,42 @@ namespace Amido.Testing.NAuto.Builders.Services
                         }
                     }
                 }
+
+                return GenerateRandomStringFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
             }
+
+            return null;
+        }
+
+        private static string GenerateRandomStringFromDataAnnotations(PropertyInfo propertyInfo, AutoBuilderConfiguration autoBuilderConfiguration)
+        {
+            var minLength = autoBuilderConfiguration.StringMinLength;
+            var maxLength = autoBuilderConfiguration.StringMaxLength;
+
+            var minLengthAttribute = propertyInfo.GetCustomAttributes(typeof (MinLengthAttribute)).FirstOrDefault();
+            if (minLengthAttribute != null)
+            {
+                minLength = ((MinLengthAttribute) minLengthAttribute).Length;
+            }
+
+            var maxLengthAttribute = propertyInfo.GetCustomAttributes(typeof (MaxLengthAttribute)).FirstOrDefault();
+            if (maxLengthAttribute != null)
+            {
+                maxLength = ((MaxLengthAttribute) maxLengthAttribute).Length;
+            }
+
+            if (minLengthAttribute != null || maxLengthAttribute != null)
+            {
+                {
+                    return NAuto.GetRandomString(
+                        minLength,
+                        maxLength,
+                        autoBuilderConfiguration.DefaultStringCharacterSetType,
+                        autoBuilderConfiguration.DefaultStringSpaces,
+                        autoBuilderConfiguration.DefaultStringCasing);
+                }
+            }
+
             return null;
         }
     }

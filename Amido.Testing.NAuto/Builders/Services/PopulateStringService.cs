@@ -4,6 +4,13 @@ namespace Amido.Testing.NAuto.Builders.Services
 {
     public class PopulateStringService : PopulateProperty<string>
     {
+        private readonly IDataAnnotationConventionMapper dataAnnotationConventionMapper;
+
+        public PopulateStringService(IDataAnnotationConventionMapper dataAnnotationConventionMapper)
+        {
+            this.dataAnnotationConventionMapper = dataAnnotationConventionMapper;
+        }
+
         public override string Populate(string propertyName, string currentValue, PropertyInfo propertyInfo = null)
         {
             if (currentValue != null)
@@ -20,7 +27,7 @@ namespace Amido.Testing.NAuto.Builders.Services
                 return (string)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(string));
             }
 
-            var annotatedType = DataAnnotationConventionMapper.TryGetValue<string>(propertyInfo);
+            var annotatedType = dataAnnotationConventionMapper.TryGetValue(typeof(string), propertyInfo, AutoBuilderConfiguration);
             if (annotatedType != null)
             {
                 return (string)annotatedType;

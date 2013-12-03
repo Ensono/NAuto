@@ -30,6 +30,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
         private Mock<IPopulateListService> populateListService;
+        private Mock<IPopulateDictionaryService> populateDictionaryService;
         private Mock<IPopulateArrayService> populateArrayService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
             
@@ -53,6 +54,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
             populateListService = new Mock<IPopulateListService>();
+            populateDictionaryService = new Mock<IPopulateDictionaryService>();
             populateArrayService = new Mock<IPopulateArrayService>();
 
             propertyPopulationService = new PropertyPopulationService(
@@ -72,6 +74,7 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
                 populateListService.Object,
+                populateDictionaryService.Object,
                 populateArrayService.Object);
 
             propertyPopulationService.AddConfiguration(autoBuilderConfiguration);
@@ -156,6 +159,16 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
                 public ListTest()
                 {
                     Test = new List<string>();
+                }
+            }
+
+            private class DictionaryTest
+            {
+                public Dictionary<int, string> Test { get; set; }
+
+                public DictionaryTest()
+                {
+                    Test = new Dictionary<int, string>();
                 }
             }
 
@@ -387,6 +400,26 @@ namespace Amido.Testing.NAuto.Tests.Builders.Services
 
                 // Assert
                 populateListService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Dictionary()
+            {
+                // Arrange
+                populateDictionaryService.Setup(x => x.Populate(
+                    It.IsAny<string>(),
+                    typeof(Dictionary<int, string>),
+                    It.IsAny<Dictionary<int, string>>(),
+                    0,
+                    It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>(),
+                    It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>()))
+                    .Returns(null);
+
+                // Act
+                propertyPopulationService.PopulateProperties(new DictionaryTest(), 0);
+
+                // Assert
+                populateDictionaryService.VerifyAll();
             }
 
             [Test]

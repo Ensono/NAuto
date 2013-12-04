@@ -17,7 +17,7 @@
             return string.Format("{0}{1}{2}", firstPart, secondPart, lastPart);
         }
 
-        public static string GetRandomPostCode(Language language = Language.English)
+        public static string GetRandomPostalCode(Language language = Language.English)
         {
             var firstPart = NAuto.GetRandomString(2, CharacterSetType.Alpha, Spaces.None, Casing.Uppered, language);
             var secondPart = NAuto.GetRandomString(1, 2, CharacterSetType.Numeric, Spaces.None, Casing.Uppered, language);
@@ -27,12 +27,16 @@
             return string.Format("{0}{1} {2}{3}", firstPart, secondPart, thirdPart, lastPart);
         }
 
-        public static string GetRandomTelephoneNumber()
+        public static string GetRandomTelephoneNumber(Language language = Language.English)
         {
-            var firstPart = NAuto.GetRandomString(4, CharacterSetType.Numeric, Spaces.None, Casing.Any);
-            var secondPart = NAuto.GetRandomString(3, CharacterSetType.Numeric, Spaces.None, Casing.Any);
-            var thirdPart = NAuto.GetRandomString(3, CharacterSetType.Numeric, Spaces.None, Casing.Any);
-            return string.Format("0{0} {1} {2}", firstPart, secondPart, thirdPart);
+            var firstPart = NAuto.GetRandomString(4, CharacterSetType.Numeric, Spaces.None, Casing.Any, language);
+            var secondPart = NAuto.GetRandomString(3, CharacterSetType.Numeric, Spaces.None, Casing.Any, language);
+            var thirdPart = NAuto.GetRandomString(3, CharacterSetType.Numeric, Spaces.None, Casing.Any, language);
+            if (language != Language.Chinese)
+            {
+                return string.Format("0{0} {1} {2}", firstPart, secondPart, thirdPart);    
+            }
+            return string.Format("{0} {1} {2}", firstPart, secondPart, thirdPart);
         }
     }
 }

@@ -83,10 +83,10 @@ namespace Amido.NAuto
                     return RandomPropertyTypeGenerator.GetRandomEmail(language);
                 case PropertyType.Url:
                     return RandomPropertyTypeGenerator.GetRandomUrl(language);
-                case PropertyType.PostCode:
-                    return RandomPropertyTypeGenerator.GetRandomPostCode(language);
+                case PropertyType.PostalCode:
+                    return RandomPropertyTypeGenerator.GetRandomPostalCode(language);
                 case PropertyType.TelephoneNumber:
-                    return RandomPropertyTypeGenerator.GetRandomTelephoneNumber();
+                    return RandomPropertyTypeGenerator.GetRandomTelephoneNumber(language);
             }
             return null;
         }

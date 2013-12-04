@@ -24,7 +24,7 @@ namespace Amido.NAuto.Builders.Services
 
                         if (dataType == DataType.PostalCode)
                         {
-                            return NAuto.GetRandomPropertyType(PropertyType.PostCode);
+                            return NAuto.GetRandomPropertyType(PropertyType.PostalCode);
                         }
 
                         if (dataType == DataType.PhoneNumber)

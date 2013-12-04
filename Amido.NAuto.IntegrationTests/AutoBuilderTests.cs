@@ -18,6 +18,7 @@ namespace Amido.NAuto.IntegrationTests
         {
             var testModel = NAuto.AutoBuild<TestAnnotationModel>()
                 .ClearConventions()
+                .ClearConvention("sdf", typeof(string))
                 .Construct()
                 .Build();
 
@@ -359,6 +360,7 @@ namespace Amido.NAuto.IntegrationTests
         {
             var autoTestBuilderConfiguration = new AutoBuilderConfiguration();
             var conventionsTestModel = NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
+                .Configure(x => x.DefaultLanguage = Language.Russian)
                 .Construct()
                 .Build();
 
@@ -443,17 +445,28 @@ namespace Amido.NAuto.IntegrationTests
         }
 
         [Test]
-        public void Should_Use_Russian_CharacterSet()
+        public void Should_Use_Chinese_CharacterSet()
         {
             var testModel = NAuto.AutoBuild<TestModel>()
-                .Configure(x => x.DefaultLanguage = Language.Russian)
-                .ClearConventions()
+                .Configure(x => x.DefaultLanguage = Language.Chinese)
                 .Construct()
                 .Build();
 
             testModel.ShouldNotBeNull();   
         }
 
+        [Test]
+        public void Should_Generate_List_With_Specified_Number_Of_Arguments()
+        {
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Configure(x => x.DefaultLanguage = Language.Chinese)
+                .Construct()
+                .With(x => x.FavouriteStringList = RandomListGenerator.Get<string>(20))
+                .Build();
+
+            testModel.ShouldNotBeNull();
+        }
+        
         public interface IMyInterface{}
 
         public abstract class MyAbstractClass

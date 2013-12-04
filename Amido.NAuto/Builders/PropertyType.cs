@@ -4,7 +4,7 @@
     {
         Email,
         Url,
-        PostCode,
+        PostalCode,
         TelephoneNumber
     }
 }

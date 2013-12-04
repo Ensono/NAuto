@@ -10,7 +10,7 @@ namespace Amido.NAuto.Builders
         public Conventions()
         {
             Add(new ConventionMap("email", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Email, configuration.DefaultLanguage)));
-            Add(new ConventionMap("postcode", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.PostCode, configuration.DefaultLanguage)));
+            Add(new ConventionMap("postcode", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.PostalCode, configuration.DefaultLanguage)));
             Add(new ConventionMap("url", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
             Add(new ConventionMap("uri", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
             Add(new ConventionMap("website", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));

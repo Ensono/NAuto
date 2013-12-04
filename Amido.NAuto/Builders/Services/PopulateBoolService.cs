@@ -13,7 +13,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, typeof(bool)))
             {
-                return (bool)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(bool));
+                return (bool)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(bool), AutoBuilderConfiguration);
             }
             return AutoBuilderConfiguration.DefaultBoolean;
         }

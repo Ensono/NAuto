@@ -5,7 +5,6 @@ namespace Amido.NAuto.Builders
 {
     public class AutoBuilderConfiguration
     {
-        private readonly Language defaultLanguage;
         public int StringMinLength { get; set; }
         public int StringMaxLength { get; set; }
         public CharacterSetType DefaultStringCharacterSetType { get; set; }

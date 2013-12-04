@@ -41,7 +41,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             {
                 // Arrange
                 var testConventionResult = DateTime.Now.AddDays(1);
-                autoBuilderConfiguration.Conventions.Add(new ConventionMap("test", typeof(DateTime?), () => testConventionResult));
+                autoBuilderConfiguration.Conventions.Add(new ConventionMap("test", typeof(DateTime?), config => testConventionResult));
                 const string propertyName = "testname";
 
                 // Act

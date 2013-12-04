@@ -18,7 +18,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, typeof(Uri)))
             {
-                return (Uri)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(Uri));
+                return (Uri)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(Uri), AutoBuilderConfiguration);
             }
             return new Uri(NAuto.GetRandomPropertyType(PropertyType.Url));
         }

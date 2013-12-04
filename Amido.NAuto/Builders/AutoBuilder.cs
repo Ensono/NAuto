@@ -30,7 +30,7 @@ namespace Amido.NAuto.Builders
             return this;
         }
 
-        public IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<Object> result)
+        public IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<AutoBuilderConfiguration, Object> result)
         {
             configuration.Conventions.Add(new ConventionMap(nameContains, type, result));
             return this;

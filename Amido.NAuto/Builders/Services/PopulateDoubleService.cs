@@ -18,7 +18,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, typeof(double)))
             {
-                return (double)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(double));
+                return (double)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(double), AutoBuilderConfiguration);
             }
             return NAuto.GetRandomDouble(AutoBuilderConfiguration.DoubleMinimum, AutoBuilderConfiguration.DoubleMaximum);
         }

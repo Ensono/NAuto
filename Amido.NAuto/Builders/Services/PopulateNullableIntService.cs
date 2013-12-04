@@ -17,7 +17,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, typeof(int?)))
             {
-                return (int)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(int?));
+                return (int)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(int?), AutoBuilderConfiguration);
             }
 
             return NAuto.GetRandomInteger(AutoBuilderConfiguration.IntMinimum, AutoBuilderConfiguration.IntMaximum);

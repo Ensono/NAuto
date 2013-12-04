@@ -22,7 +22,7 @@ namespace Amido.NAuto.Builders.Services
 
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, enumType))
             {
-                return (Enum)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, enumType);
+                return (Enum)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, enumType, AutoBuilderConfiguration);
             }
 
             if (values.Length <= 1)

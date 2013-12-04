@@ -28,7 +28,7 @@ namespace Amido.NAuto.Builders.Services
 
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, propertyType))
             {
-                return AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, propertyType);
+                return AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, propertyType, AutoBuilderConfiguration);
             }
              try
                 {

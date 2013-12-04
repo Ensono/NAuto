@@ -24,7 +24,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (AutoBuilderConfiguration.Conventions.MatchesConvention(propertyName, typeof(string)))
             {
-                return (string)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(string));
+                return (string)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(string), AutoBuilderConfiguration);
             }
 
             var annotatedType = dataAnnotationConventionMapper.TryGetValue(typeof(string), propertyInfo, AutoBuilderConfiguration);

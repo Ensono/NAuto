@@ -30,6 +30,17 @@ namespace Amido.NAuto.Builders
             return this;
         }
 
+        public IAutoBuilder<TModel> ClearConvention(string nameContains, Type type)
+        {
+            var conventionMap =
+                configuration.Conventions.FirstOrDefault(x => x.NameContains == nameContains && x.Type == type);
+            if (conventionMap != null)
+            {
+                configuration.Conventions.Remove(conventionMap);
+            }
+            return this;
+        }
+
         public IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<AutoBuilderConfiguration, Object> result)
         {
             configuration.Conventions.Add(new ConventionMap(nameContains, type, result));

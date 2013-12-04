@@ -6,6 +6,7 @@ namespace Amido.NAuto.Builders
     {
         IAutoBuilderOverrides<TModel> Construct(params object[] constructorParameters);
         IAutoBuilder<TModel> ClearConventions();
+        IAutoBuilder<TModel> ClearConvention(string nameContains, Type type);
         IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<AutoBuilderConfiguration, Object> result);
         IAutoBuilder<TModel> AddConvention(ConventionMap conventionMap);
         IAutoBuilder<TModel> AddConventions(params ConventionMap[] conventionMaps);

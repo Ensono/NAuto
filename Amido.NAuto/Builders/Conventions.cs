@@ -9,28 +9,28 @@ namespace Amido.NAuto.Builders
     {
         public Conventions()
         {
-            Add(new ConventionMap("email", typeof(string), configration => NAuto.GetRandomPropertyType(PropertyType.Email)));
-            Add(new ConventionMap("postcode", typeof(string), configration => NAuto.GetRandomPropertyType(PropertyType.PostCode)));
-            Add(new ConventionMap("url", typeof(string), configration => NAuto.GetRandomPropertyType(PropertyType.Url)));
-            Add(new ConventionMap("uri", typeof(string), configration => NAuto.GetRandomPropertyType(PropertyType.Url)));
-            Add(new ConventionMap("website", typeof(string), configration => NAuto.GetRandomPropertyType(PropertyType.Url)));
-            Add(new ConventionMap("username", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.None, Casing.Lowered, configration.DefaultLanguage)));
-            Add(new ConventionMap("firstname", typeof(string), configration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("lastname", typeof(string), configration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("forename", typeof(string), configration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("surname", typeof(string), configration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("dateofbirth", typeof(DateTime), configration => DateTime.Now.AddYears(-20)));
-            Add(new ConventionMap("dateofbirth", typeof(DateTime?), configration => DateTime.Now.AddYears(-20)));
-            Add(new ConventionMap("age", typeof(int), configration =>NAuto.GetRandomInteger(10, 70)));
-            Add(new ConventionMap("age", typeof(int?), configration =>NAuto.GetRandomInteger(10, 70)));
-            Add(new ConventionMap("housename", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.Middle, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("houseno", typeof(string), configration => NAuto.GetRandomString(1, 5, CharacterSetType.AlphaNumeric, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("addressline", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.Middle, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("street", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("town", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("city", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("county", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
-            Add(new ConventionMap("country", typeof(string), configration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configration.DefaultLanguage)));
+            Add(new ConventionMap("email", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Email, configuration.DefaultLanguage)));
+            Add(new ConventionMap("postcode", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.PostCode, configuration.DefaultLanguage)));
+            Add(new ConventionMap("url", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
+            Add(new ConventionMap("uri", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
+            Add(new ConventionMap("website", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
+            Add(new ConventionMap("username", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.None, Casing.Lowered, configuration.DefaultLanguage)));
+            Add(new ConventionMap("firstname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("lastname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("forename", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("surname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("dateofbirth", typeof(DateTime), configuration => DateTime.Now.AddYears(-20)));
+            Add(new ConventionMap("dateofbirth", typeof(DateTime?), configuration => DateTime.Now.AddYears(-20)));
+            Add(new ConventionMap("age", typeof(int), configuration =>NAuto.GetRandomInteger(10, 70)));
+            Add(new ConventionMap("age", typeof(int?), configuration =>NAuto.GetRandomInteger(10, 70)));
+            Add(new ConventionMap("housename", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.Middle, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("houseno", typeof(string), configuration => NAuto.GetRandomString(1, 5, CharacterSetType.AlphaNumeric, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("addressline", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.Middle, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("street", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("town", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("city", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("county", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
+            Add(new ConventionMap("country", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
         }
 
         public bool MatchesConvention(string name, Type type)

@@ -61,7 +61,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateByteService.Populate(propertyName, default(byte));
 
                 // Assert
-                result.ShouldBeGreaterThan((byte)0);
+                result.ShouldBeGreaterThanOrEqualTo((byte)0);
             }
         }
     }

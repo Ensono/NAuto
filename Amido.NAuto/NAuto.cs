@@ -75,16 +75,16 @@ namespace Amido.NAuto
             return RandomNumberGenerator.GetDouble(min, max);
         }
 
-        public static string GetRandomPropertyType(PropertyType propertyType)
+        public static string GetRandomPropertyType(PropertyType propertyType, Language language = Language.English)
         {
             switch (propertyType)
             {
                 case PropertyType.Email:
-                    return RandomPropertyTypeGenerator.GetRandomEmail();
+                    return RandomPropertyTypeGenerator.GetRandomEmail(language);
                 case PropertyType.Url:
-                    return RandomPropertyTypeGenerator.GetRandomUrl();
+                    return RandomPropertyTypeGenerator.GetRandomUrl(language);
                 case PropertyType.PostCode:
-                    return RandomPropertyTypeGenerator.GetRandomPostCode();
+                    return RandomPropertyTypeGenerator.GetRandomPostCode(language);
                 case PropertyType.TelephoneNumber:
                     return RandomPropertyTypeGenerator.GetRandomTelephoneNumber();
             }

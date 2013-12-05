@@ -36,20 +36,20 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 // Assert
                 result.ShouldEqual(currentValue);
             }
-        }
 
-        [Test]
-        public void Should_Return_New_Random_Guid_Based_If_Value_Not_Defaulted()
-        {
-            // Arrange
-            const string propertyName = "CustomerGuid";
-            var currentValue = Guid.Empty;
+            [Test]
+            public void Should_Return_New_Random_Guid_Based_If_Value_Not_Defaulted()
+            {
+                // Arrange
+                const string propertyName = "CustomerGuid";
+                var currentValue = Guid.Empty;
 
-            // Act
-            var result = populateGuidService.Populate(propertyName, currentValue);
+                // Act
+                var result = populateGuidService.Populate(propertyName, currentValue);
 
-            // Assert
-            result.ShouldNotEqual(currentValue);
+                // Assert
+                result.ShouldNotEqual(currentValue);
+            }
         }
     }
 }

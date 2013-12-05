@@ -63,6 +63,7 @@
     <Compile Include="Builders\Services\PopulateArrayService.cs" />
     <Compile Include="Builders\Services\PopulateDictionaryService.cs" />
     <Compile Include="Builders\Services\PopulateGuidService.cs" />
+    <Compile Include="Builders\Services\PopulateLongService.cs" />
     <Compile Include="Builders\Services\PopulateNullableByteService.cs" />
     <Compile Include="Builders\Services\PopulateByteService.cs" />
     <Compile Include="Builders\Services\PopulateListService.cs" />

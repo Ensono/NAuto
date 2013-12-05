@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -228,6 +229,11 @@ namespace Amido.NAuto.Builders
            double max)
         {
             SetDoublePropertyUsingNewRandomizerSetting(() => NAuto.GetRandomDouble(min, max), expression);
+            return this;
+        }
+
+        public IAutoBuilderOverrides<TModel> WithList(Expression<Func<TModel, IList>> expression, int numberOfItems = 2)
+        {
             return this;
         }
 

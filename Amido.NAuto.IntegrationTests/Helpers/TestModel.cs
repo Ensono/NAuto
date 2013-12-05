@@ -16,6 +16,13 @@ namespace Amido.NAuto.IntegrationTests.Helpers
         }
     }
 
+    public class ClassForSequencing
+    {
+        public int Id { get; set; }
+        public string Id2 { get; set; }
+        public TestModel TestModel { get; set; }
+    }
+
     public enum TestEnum
     {
         Item1 = 0,
@@ -111,6 +118,7 @@ namespace Amido.NAuto.IntegrationTests.Helpers
     }
     public class TestModel
     {
+        public List<ClassForSequencing> Sequencing { get; set; } 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

@@ -57,6 +57,7 @@
     <Compile Include="Helpers\TestAnnotationModel.cs" />
     <Compile Include="Helpers\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomListGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Amido.NAuto\Amido.NAuto.csproj">

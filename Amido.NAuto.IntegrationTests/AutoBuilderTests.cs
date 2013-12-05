@@ -448,6 +448,7 @@ namespace Amido.NAuto.IntegrationTests
         public void Should_Use_Chinese_CharacterSet()
         {
             var testModel = NAuto.AutoBuild<TestModel>()
+                .ClearConventions()
                 .Configure(x => x.DefaultLanguage = Language.Chinese)
                 .Construct()
                 .Build();
@@ -461,7 +462,19 @@ namespace Amido.NAuto.IntegrationTests
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Configure(x => x.DefaultLanguage = Language.Chinese)
                 .Construct()
-                .With(x => x.FavouriteStringList = RandomListGenerator.Get<string>(20))
+                .With(x => x.FavouriteStringList = NAuto.GetRandomList<string>(5))
+                .Build();
+
+            testModel.ShouldNotBeNull();
+        }
+
+        [Test]
+        public void Should_Generate_Sequenced_List_With_Specified_Number_Of_Arguments()
+        {
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Configure(x => x.DefaultLanguage = Language.Chinese)
+                .Construct()
+                .With(x => x.Sequencing = NAuto.GetRandomList<ClassForSequencing>(s => s.Id, 10, 5, 10, Language.Chinese))
                 .Build();
 
             testModel.ShouldNotBeNull();

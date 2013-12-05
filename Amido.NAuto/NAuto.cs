@@ -1,4 +1,7 @@
-﻿using Amido.NAuto.Builders;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using Amido.NAuto.Randomizers;
 
@@ -73,6 +76,16 @@ namespace Amido.NAuto
         public static double GetRandomDouble(double min, double max)
         {
             return RandomNumberGenerator.GetDouble(min, max);
+        }
+
+        public static List<TModel> GetRandomList<TModel>(int numberOfItems = 2, Language language = Language.English) where TModel : class
+        {
+            return RandomListGenerator.Get<TModel>(numberOfItems, language);
+        }
+
+        public static List<TModel> GetRandomList<TModel>(Expression<Func<TModel, int>> identityProperty, int numberOfItems = 2, int seed = 1, int increment = 1, Language language = Language.English) where TModel : class
+        {
+            return RandomListGenerator.Get(identityProperty, numberOfItems, seed, increment, language);
         }
 
         public static string GetRandomPropertyType(PropertyType propertyType, Language language = Language.English)

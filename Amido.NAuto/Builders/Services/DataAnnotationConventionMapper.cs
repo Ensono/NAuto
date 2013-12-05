@@ -38,8 +38,10 @@ namespace Amido.NAuto.Builders.Services
                         }
                     }
                 }
-
-                return GenerateRandomStringFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
+                if (type == typeof (string))
+                {
+                    return GenerateRandomStringFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
+                }
             }
 
             return null;

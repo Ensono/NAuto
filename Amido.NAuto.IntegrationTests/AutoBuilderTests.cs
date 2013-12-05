@@ -16,7 +16,7 @@ namespace Amido.NAuto.IntegrationTests
         [Test]
         public void Should_Use_Data_Annotation_Email_Type_As_Convention()
         {
-            var testModel = NAuto.AutoBuild<TestAnnotationModel>()
+            var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
                 .ClearConventions()
                 .ClearConvention("sdf", typeof(string))
                 .Construct()

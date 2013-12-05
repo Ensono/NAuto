@@ -61,6 +61,33 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 result.Length.ShouldBeGreaterThanOrEqualTo(50);
                 result.Length.ShouldBeLessThanOrEqualTo(55);
             }
+
+            [Test]
+            public void Should_Return_String_LessThanOrEqualTo_Max_StringLengthAttribute()
+            {
+                // Arrange
+                var property = typeof(TestAnnotationModel).GetProperty("StringLengthTestNoMinimum");
+
+                // Act
+                var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
+
+                // Assert
+                result.Length.ShouldBeLessThanOrEqualTo(10);
+            }
+
+            [Test]
+            public void Should_Return_String_Within_Range_StringLengthAttribute()
+            {
+                // Arrange
+                var property = typeof(TestAnnotationModel).GetProperty("StringLengthTestMinAndMax");
+
+                // Act
+                var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
+
+                // Assert
+                result.Length.ShouldBeGreaterThanOrEqualTo(45);
+                result.Length.ShouldBeLessThanOrEqualTo(50);
+            }
         }
     }
 }

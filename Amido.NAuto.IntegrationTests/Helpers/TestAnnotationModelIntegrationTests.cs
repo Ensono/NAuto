@@ -2,9 +2,10 @@
 
 namespace Amido.NAuto.IntegrationTests.Helpers
 {
-    public class TestAnnotationModel
+    public class TestAnnotationModelIntegrationTests
     {
         [DataType(DataType.EmailAddress)]
+        
         public string Email { get; set; }
 
         [DataType(DataType.PostalCode)]
@@ -26,5 +27,11 @@ namespace Amido.NAuto.IntegrationTests.Helpers
         [MinLength(50)]
         [MaxLength(55)]
         public string MinMaxLengthTest { get; set; }
+
+        [StringLength(10)]
+        public string StringLengthTestNoMinimum { get; set; }
+        
+        [StringLength(50, MinimumLength = 45)]
+        public string StringLengthTestMinAndMax { get; set; }
     }
 }

@@ -26,5 +26,11 @@ namespace Amido.NAuto.UnitTests.Helpers
         [MinLength(50)]
         [MaxLength(55)]
         public string MinMaxLengthTest { get; set; }
+
+        [StringLength(10)]
+        public string StringLengthTestNoMinimum { get; set; }
+        
+        [StringLength(50, MinimumLength = 45)]
+        public string StringLengthTestMinAndMax { get; set; }
     }
 }

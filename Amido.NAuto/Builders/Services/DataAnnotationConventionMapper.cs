@@ -75,6 +75,32 @@ namespace Amido.NAuto.Builders.Services
                 }
             }
 
+            var stringLengthAttribute = propertyInfo.GetCustomAttributes(typeof(StringLengthAttribute)).FirstOrDefault();
+
+            if (stringLengthAttribute != null)
+            {
+                var minStringLength = ((StringLengthAttribute)stringLengthAttribute).MinimumLength;
+                var maxStringLength = ((StringLengthAttribute)stringLengthAttribute).MaximumLength;
+
+                if (maxStringLength == 0)
+                {
+                    maxStringLength = minStringLength + 50;
+                }
+
+                if (maxStringLength < minStringLength)
+                {
+                    throw new ArgumentException("Property " + propertyInfo.Name + ": the minimum string length cannot be greater than the maximum string length...");
+                }
+
+                return NAuto.GetRandomString(
+                        minStringLength,
+                        maxStringLength,
+                        autoBuilderConfiguration.DefaultStringCharacterSetType,
+                        autoBuilderConfiguration.DefaultStringSpaces,
+                        autoBuilderConfiguration.DefaultStringCasing,
+                        autoBuilderConfiguration.DefaultLanguage);
+            }
+
             return null;
         }
     }

@@ -54,7 +54,7 @@
     <Compile Include="GetRandomPropertyTypeTests.cs" />
     <Compile Include="GetRandomStringTests.cs" />
     <Compile Include="Helpers\CustomBuilder.cs" />
-    <Compile Include="Helpers\TestAnnotationModel.cs" />
+    <Compile Include="Helpers\TestAnnotationModelIntegrationTests.cs" />
     <Compile Include="Helpers\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomListGeneratorTests.cs" />

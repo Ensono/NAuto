@@ -26,6 +26,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
         private Mock<PopulateProperty<DateTime>> populateDateTimeService;
         private Mock<PopulateProperty<DateTime?>> populateNullableDateTimeService;
         private Mock<PopulateProperty<Uri>> populateUriService;
+        private Mock<PopulateProperty<Guid>> populateGuidService;
         private Mock<IPopulateEnumService> populateEnumService;
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
@@ -50,6 +51,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             populateDateTimeService = new Mock<PopulateProperty<DateTime>>();
             populateNullableDateTimeService = new Mock<PopulateProperty<DateTime?>>();
             populateUriService = new Mock<PopulateProperty<Uri>>();
+            populateGuidService = new Mock<PopulateProperty<Guid>>();
             populateEnumService = new Mock<IPopulateEnumService>();
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
@@ -70,6 +72,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 populateDateTimeService.Object,
                 populateNullableDateTimeService.Object,
                 populateUriService.Object,
+                populateGuidService.Object,
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
@@ -140,6 +143,11 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             private class UriTest
             {
                 public Uri Test { get; set; }
+            }
+
+            private class GuidTest
+            {
+                public Guid Test { get; set; }
             }
 
             private class EnumTest
@@ -348,6 +356,19 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
                 // Assert
                 populateUriService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Guid()
+            {
+                // Arrange
+                populateGuidService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<Guid>(), null)).Returns(It.IsAny<Guid>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new GuidTest(), 0);
+
+                // Assert
+                populateGuidService.VerifyAll();
             }
 
             [Test]

@@ -11,7 +11,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (propertyInfo != null)
             {
-                var dataTypeAttribute = propertyInfo.GetCustomAttributes(typeof (DataTypeAttribute)).FirstOrDefault();
+                var dataTypeAttribute = propertyInfo.GetCustomAttributes(typeof(DataTypeAttribute)).FirstOrDefault();
                 if (dataTypeAttribute != null)
                 {
                     var dataType = ((DataTypeAttribute)dataTypeAttribute).DataType;
@@ -38,7 +38,8 @@ namespace Amido.NAuto.Builders.Services
                         }
                     }
                 }
-                if (type == typeof (string))
+
+                if (type == typeof(string))
                 {
                     return GenerateRandomStringFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
                 }
@@ -52,16 +53,16 @@ namespace Amido.NAuto.Builders.Services
             var minLength = autoBuilderConfiguration.StringMinLength;
             var maxLength = autoBuilderConfiguration.StringMaxLength;
 
-            var minLengthAttribute = propertyInfo.GetCustomAttributes(typeof (MinLengthAttribute)).FirstOrDefault();
+            var minLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MinLengthAttribute)).FirstOrDefault();
             if (minLengthAttribute != null)
             {
-                minLength = ((MinLengthAttribute) minLengthAttribute).Length;
+                minLength = ((MinLengthAttribute)minLengthAttribute).Length;
             }
 
-            var maxLengthAttribute = propertyInfo.GetCustomAttributes(typeof (MaxLengthAttribute)).FirstOrDefault();
+            var maxLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MaxLengthAttribute)).FirstOrDefault();
             if (maxLengthAttribute != null)
             {
-                maxLength = ((MaxLengthAttribute) maxLengthAttribute).Length;
+                maxLength = ((MaxLengthAttribute)maxLengthAttribute).Length;
             }
 
             if (minLengthAttribute != null || maxLengthAttribute != null)

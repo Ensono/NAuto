@@ -11,13 +11,20 @@ using Amido.NAuto.Randomizers;
 
 namespace Amido.NAuto.Builders
 {
+    /// <summary>
+    /// AutoBuild models.
+    /// </summary>
+    /// <typeparam name="TModel">The type of the model.</typeparam>
     public class AutoBuilder<TModel> : IAutoBuilder<TModel>, IAutoBuilderOverrides<TModel> where TModel : class
     {
         private readonly IPropertyPopulationService propertyPopulationService;
         private readonly AutoBuilderConfiguration configuration;
         private TModel entity;
 
-        public AutoBuilder(IPropertyPopulationService propertyPopulationService) : this(propertyPopulationService, new AutoBuilderConfiguration()){}
+        public AutoBuilder(IPropertyPopulationService propertyPopulationService)
+            : this(propertyPopulationService, new AutoBuilderConfiguration())
+        {
+        }
 
         public AutoBuilder(IPropertyPopulationService propertyPopulationService, AutoBuilderConfiguration configuration)
         {
@@ -39,10 +46,11 @@ namespace Amido.NAuto.Builders
             {
                 configuration.Conventions.Remove(conventionMap);
             }
+
             return this;
         }
 
-        public IAutoBuilder<TModel> AddConvention(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, Object> result)
+        public IAutoBuilder<TModel> AddConvention(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, object> result)
         {
             configuration.Conventions.Add(new ConventionMap(conventionFilterType, conventionFilter, type, result));
             return this;
@@ -73,7 +81,7 @@ namespace Amido.NAuto.Builders
                 throw new ArgumentException("Can't instantiate interfaces");
             }
 
-            if (typeof (TModel).IsAbstract)
+            if (typeof(TModel).IsAbstract)
             {
                 throw new ArgumentException("Can't instantiate abstract classes");
             }
@@ -87,7 +95,7 @@ namespace Amido.NAuto.Builders
             else
             {
                 var constructors = typeof(TModel).GetConstructors();
-                if((typeof(TModel).BaseType == typeof(Array)))
+                if (typeof(TModel).BaseType == typeof(Array))
                 {
                     entity = (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultCollectionItemCount);
                 }
@@ -186,11 +194,13 @@ namespace Amido.NAuto.Builders
            int max)
         {
             SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(max), expression);
+
             return this;
         }
+
         public IAutoBuilderOverrides<TModel> With(
-           Expression<Func<TModel, int>> expression,
-           int min,
+            Expression<Func<TModel, int>> expression,
+            int min,
            int max)
         {
             SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(min, max), expression);
@@ -247,6 +257,11 @@ namespace Amido.NAuto.Builders
             return ToJson(entity);
         }
 
+        public IConditionalResult<TModel> If(Func<TModel, bool> expression)
+        {
+            return new ConditionalResult<TModel>(this, this.entity, expression(this.entity));
+        }
+
         private static string ToJson(TModel obj)
         {
             var serializer = new DataContractJsonSerializer(typeof(TModel));
@@ -261,7 +276,7 @@ namespace Amido.NAuto.Builders
             Func<string> getRandomStringFunction, 
             Expression<Func<TModel, string>> expression)
         {
-            var memberExpression = ((MemberExpression) expression.Body);
+            var memberExpression = (MemberExpression)expression.Body;
             var property = memberExpression.Member as PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
@@ -274,7 +289,7 @@ namespace Amido.NAuto.Builders
             Func<int> getRandomIntegerFunction,
             Expression<Func<TModel, int>> expression)
         {
-            var memberExpression = ((MemberExpression)expression.Body);
+            var memberExpression = (MemberExpression)expression.Body;
             var property = memberExpression.Member as PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
@@ -287,7 +302,7 @@ namespace Amido.NAuto.Builders
            Func<int> getRandomIntegerFunction,
            Expression<Func<TModel, int?>> expression)
         {
-            var memberExpression = ((MemberExpression)expression.Body);
+            var memberExpression = (MemberExpression)expression.Body;
             var property = memberExpression.Member as PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
@@ -300,7 +315,7 @@ namespace Amido.NAuto.Builders
             Func<double> getRandomDoubleFunction,
             Expression<Func<TModel, double>> expression)
         {
-            var memberExpression = ((MemberExpression)expression.Body);
+            var memberExpression = (MemberExpression)expression.Body;
             var property = memberExpression.Member as PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
@@ -313,7 +328,7 @@ namespace Amido.NAuto.Builders
             Func<double> getRandomDoubleFunction,
             Expression<Func<TModel, double?>> expression)
         {
-            var memberExpression = ((MemberExpression)expression.Body);
+            var memberExpression = (MemberExpression)expression.Body;
             var property = memberExpression.Member as PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
@@ -337,12 +352,8 @@ namespace Amido.NAuto.Builders
                 var nextLevelInstance = property.GetValue(body);
                 return nextLevelInstance;
             }
-            return null;
-        }
 
-        public IConditionalResult<TModel> If(Func<TModel, bool> expression)
-        {
-            return new ConditionalResult<TModel>(this, entity, expression(entity));
+            return null;
         }
     }
 }

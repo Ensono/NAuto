@@ -4,18 +4,21 @@ namespace Amido.NAuto.Builders
 {
     public class ConventionMap
     {
-        public string ConventionFilter { get; set; }
-        public Type Type { get; set; }
-        public Func<AutoBuilderConfiguration, object> Result { get; set; }
-        public ConventionFilterType ConventionFilterType { get; set; }
-
-        public ConventionMap(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, Object> result)
+        public ConventionMap(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, object> result)
         {
-            ConventionFilter = conventionFilter;
-            Type = type;
-            Result = result;
-            ConventionFilterType = conventionFilterType;
+            this.ConventionFilter = conventionFilter;
+            this.Type = type;
+            this.Result = result;
+            this.ConventionFilterType = conventionFilterType;
         }
+
+        public string ConventionFilter { get; set; }
+
+        public Type Type { get; set; }
+
+        public Func<AutoBuilderConfiguration, object> Result { get; set; }
+
+        public ConventionFilterType ConventionFilterType { get; set; }
 
         public bool IsMatch(string propertyName, Type type)
         {
@@ -26,26 +29,31 @@ namespace Amido.NAuto.Builders
                     {
                         return true;
                     }
+
                     break;
                     case ConventionFilterType.EndsWith:
                     if (type == Type && propertyName.ToLowerInvariant().EndsWith(ConventionFilter.ToLowerInvariant()))
                     {
                         return true;
                     }
+
                     break;
                     case ConventionFilterType.Equals:
                     if (type == Type && propertyName.ToLowerInvariant() == ConventionFilter.ToLowerInvariant())
                     {
                         return true;
                     }
+
                     break;
                 default:
                     if (type == Type && propertyName.ToLowerInvariant().Contains(ConventionFilter.ToLowerInvariant()))
                     {
                         return true;
                     }
+
                     break;
             }
+
             return false;
         }
     }

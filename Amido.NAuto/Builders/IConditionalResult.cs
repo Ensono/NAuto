@@ -26,6 +26,7 @@ namespace Amido.NAuto.Builders
             {
                 expression(entity);
             }
+
             return autoBuilder;
         }
     }

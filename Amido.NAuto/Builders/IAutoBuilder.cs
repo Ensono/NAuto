@@ -5,12 +5,21 @@ namespace Amido.NAuto.Builders
     public interface IAutoBuilder<TModel> where TModel : class
     {
         IAutoBuilderOverrides<TModel> Construct(params object[] constructorParameters);
-        IAutoBuilder<TModel> ClearConventions();
-        IAutoBuilder<TModel> ClearConvention(string conventionFilter, Type type);
-        IAutoBuilder<TModel> AddConvention(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, Object> result);
-        IAutoBuilder<TModel> AddConvention(ConventionMap conventionMap);
-        IAutoBuilder<TModel> AddConventions(params ConventionMap[] conventionMaps);
-        IAutoBuilder<TModel> Configure(Action<AutoBuilderConfiguration> configureAction);
 
+        IAutoBuilder<TModel> ClearConventions();
+
+        IAutoBuilder<TModel> ClearConvention(string conventionFilter, Type type);
+
+        IAutoBuilder<TModel> AddConvention(
+            ConventionFilterType conventionFilterType,
+            string conventionFilter,
+            Type type,
+            Func<AutoBuilderConfiguration, object> result);
+
+        IAutoBuilder<TModel> AddConvention(ConventionMap conventionMap);
+
+        IAutoBuilder<TModel> AddConventions(params ConventionMap[] conventionMaps);
+
+        IAutoBuilder<TModel> Configure(Action<AutoBuilderConfiguration> configureAction);
     }
 }

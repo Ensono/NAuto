@@ -28,12 +28,15 @@ namespace Amido.NAuto.UnitTests.Builders.Services
         private Mock<PopulateProperty<Uri>> populateUriService;
         private Mock<PopulateProperty<Guid>> populateGuidService;
         private Mock<PopulateProperty<long>> populateLongService;
-        private Mock<PopulateProperty<long?>> populateNullableLongService;
-        private Mock<PopulateProperty<short>> populateShortService;
+<<<<<<< HEAD
         private Mock<PopulateProperty<char>> populateCharService;
         private Mock<PopulateProperty<char?>> populateNullableCharService;
         private Mock<PopulateProperty<decimal>> populateDecimalService;
         private Mock<PopulateProperty<decimal?>> populateNullableDecimalService;
+=======
+        private Mock<PopulateProperty<long?>> populateNullableLongService;
+        private Mock<PopulateProperty<short>> populateShortService;
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
         private Mock<IPopulateEnumService> populateEnumService;
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
@@ -60,12 +63,15 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             populateUriService = new Mock<PopulateProperty<Uri>>();
             populateGuidService = new Mock<PopulateProperty<Guid>>();
             populateLongService = new Mock<PopulateProperty<long>>();
-            populateNullableLongService = new Mock<PopulateProperty<long?>>();
-            populateShortService = new Mock<PopulateProperty<short>>();
+<<<<<<< HEAD
             populateCharService = new Mock<PopulateProperty<char>>();
             populateNullableCharService = new Mock<PopulateProperty<char?>>();
             populateDecimalService = new Mock<PopulateProperty<decimal>>();
             populateNullableDecimalService = new Mock<PopulateProperty<decimal?>>();
+=======
+            populateNullableLongService = new Mock<PopulateProperty<long?>>();
+            populateShortService = new Mock<PopulateProperty<short>>();
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             populateEnumService = new Mock<IPopulateEnumService>();
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
@@ -88,12 +94,15 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 populateUriService.Object,
                 populateGuidService.Object,
                 populateLongService.Object,
-                populateNullableLongService.Object,
-                populateShortService.Object,
+<<<<<<< HEAD
                 populateCharService.Object,
                 populateNullableCharService.Object,
                 populateDecimalService.Object,
                 populateNullableDecimalService.Object,
+=======
+                populateNullableLongService.Object,
+                populateShortService.Object,
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
@@ -176,16 +185,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 public long Test { get; set; }
             }
 
-            private class NullableLongTest
-            {
-                public long? Test { get; set; }
-            }
-
-            private class ShortTest
-            {
-                public short Test { get; set; }
-            }
-
+<<<<<<< HEAD
             private class CharTest
             {
                 public Char Test { get; set; }
@@ -204,6 +204,16 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             private class NullableDecimalTest
             {
                 public decimal? Test { get; set; }
+=======
+            private class NullableLongTest
+            {
+                public long? Test { get; set; }
+            }
+
+            private class ShortTest
+            {
+                public short Test { get; set; }
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             }
 
             private class EnumTest

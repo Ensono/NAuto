@@ -21,12 +21,15 @@ namespace Amido.NAuto.Builders.Services
         private readonly PopulateProperty<Uri> populateUriService;
         private readonly PopulateProperty<Guid> populateGuidService;
         private readonly PopulateProperty<long> populateLongService;
-        private readonly PopulateProperty<long?> populateNullableLongService;
-        private readonly PopulateProperty<short> populateShortService;
+<<<<<<< HEAD
         private readonly PopulateProperty<char> populateCharService;
         private readonly PopulateProperty<char?> populateNullableCharService;
         private readonly PopulateProperty<decimal> populateDecimalService;
         private readonly PopulateProperty<decimal?> populateNullableDecimalService;
+=======
+        private readonly PopulateProperty<long?> populateNullableLongService;
+        private readonly PopulateProperty<short> populateShortService;
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
@@ -50,12 +53,15 @@ namespace Amido.NAuto.Builders.Services
             PopulateProperty<Uri> populateUriService,
             PopulateProperty<Guid> populateGuidService,
             PopulateProperty<long> populateLongService,
-            PopulateProperty<long?> populateNullableLongService,
-            PopulateProperty<short> populateShortService,
+<<<<<<< HEAD
             PopulateProperty<char> populateCharService,
             PopulateProperty<char?> populateNullableCharService,
             PopulateProperty<decimal> populateDecimalService,
             PopulateProperty<decimal?> populateNullableDecimalService,
+=======
+            PopulateProperty<long?> populateNullableLongService,
+            PopulateProperty<short> populateShortService,
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
@@ -77,12 +83,15 @@ namespace Amido.NAuto.Builders.Services
             this.populateUriService = populateUriService;
             this.populateGuidService = populateGuidService;
             this.populateLongService = populateLongService;
-            this.populateNullableLongService = populateNullableLongService;
-            this.populateShortService = populateShortService;
+<<<<<<< HEAD
             this.populateCharService = populateCharService;
             this.populateNullableCharService = populateNullableCharService;
             this.populateDecimalService = populateDecimalService;
             this.populateNullableDecimalService = populateNullableDecimalService;
+=======
+            this.populateNullableLongService = populateNullableLongService;
+            this.populateShortService = populateShortService;
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
@@ -108,12 +117,15 @@ namespace Amido.NAuto.Builders.Services
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateGuidService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
-            populateNullableLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
-            populateShortService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+<<<<<<< HEAD
             populateCharService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateNullableCharService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateDecimalService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateNullableDecimalService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+=======
+            populateNullableLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateShortService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
@@ -265,16 +277,7 @@ namespace Amido.NAuto.Builders.Services
                 return populateLongService.Populate(propertyName, (long)value);
             }
 
-            if (propertyType == typeof(long?))
-            {
-                return populateNullableLongService.Populate(propertyName, (long?)value);
-            }
-
-            if (propertyType == typeof(short))
-            {
-                return populateShortService.Populate(propertyName, (short)value);
-            }
-
+<<<<<<< HEAD
             if (propertyType == typeof(char))
             {
                 var charValue = value == null ? default(char) : (char)value;
@@ -295,6 +298,16 @@ namespace Amido.NAuto.Builders.Services
             if (propertyType == typeof(decimal?))
             {
                 return populateNullableDecimalService.Populate(propertyName, (decimal?)value);
+=======
+            if (propertyType == typeof(long?))
+            {
+                return populateNullableLongService.Populate(propertyName, (long?)value);
+            }
+
+            if (propertyType == typeof(short))
+            {
+                return populateShortService.Populate(propertyName, (short)value);
+>>>>>>> 88299b494fe08ae436efc4cc6f782a877dbb6736
             }
 
             if (propertyType.BaseType == typeof(Enum) && value != null)

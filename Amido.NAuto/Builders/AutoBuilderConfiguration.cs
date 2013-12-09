@@ -15,6 +15,8 @@ namespace Amido.NAuto.Builders
         public int IntMaximum { get; set; }
         public double DoubleMinimum { get; set; }
         public double DoubleMaximum { get; set; }
+        public short ShortMinimum { get; set; }
+        public short ShortMaximum { get; set; }
         public DateTime DefaultDateTime { get; set; }
         public bool DefaultBoolean { get; set; }
         public int MaxDepth { get; set; }
@@ -30,6 +32,8 @@ namespace Amido.NAuto.Builders
             int intMaximum = 10000,
             double doubleMinimum = 100,
             double doubleMaximum = 100000,
+            short shortMinimum = 1,
+            short shortMaximum = 32000,
             bool defaultBoolean = true,
             int stringMinLength = 5,
             int stringMaxLength = 25,
@@ -45,6 +49,8 @@ namespace Amido.NAuto.Builders
             intMaximum,
             doubleMinimum,
             doubleMaximum,
+            shortMinimum,
+            shortMaximum,
             defaultBoolean,
             stringMinLength,
             stringMaxLength,
@@ -63,6 +69,8 @@ namespace Amido.NAuto.Builders
             int intMaximum = 10000,
             double doubleMinimum = 100,
             double doubleMaximum = 100000,
+            short shortMinimum = 1,
+            short shortMaximum = 32000,
             bool defaultBoolean = true,
             int stringMinLength = 5,
             int stringMaxLength = 25,
@@ -79,6 +87,8 @@ namespace Amido.NAuto.Builders
             IntMaximum = intMaximum;
             DoubleMinimum = doubleMinimum;
             DoubleMaximum = doubleMaximum;
+            ShortMinimum = shortMinimum;
+            ShortMaximum = shortMaximum;
             DefaultBoolean = defaultBoolean;
             StringMinLength = stringMinLength;
             StringMaxLength = stringMaxLength;

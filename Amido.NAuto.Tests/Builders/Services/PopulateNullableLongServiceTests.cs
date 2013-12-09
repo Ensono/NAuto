@@ -42,7 +42,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             {
                 // Arrange
                 long? testConventionResult = 1234;
-                autoBuilderConfiguration.Conventions.Add(new ConventionMap("test", typeof(long?), config => testConventionResult));
+                autoBuilderConfiguration.Conventions.Add(new ConventionMap(ConventionFilterType.Contains, "test", typeof(long?), config => testConventionResult));
                 const string propertyName = "testname";
 
                 // Act

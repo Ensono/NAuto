@@ -27,7 +27,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             {
                 // Arrange
                 var testConventionResult = new Uri("http://test.com");
-                autoBuilderConfiguration.Conventions.Add(new ConventionMap("test", typeof(Uri), config => testConventionResult));
+                autoBuilderConfiguration.Conventions.Add(new ConventionMap(ConventionFilterType.Contains, "test", typeof(Uri), config => testConventionResult));
                 const string propertyName = "testname";
 
                 // Act

@@ -31,10 +31,10 @@ namespace Amido.NAuto.Builders
             return this;
         }
 
-        public IAutoBuilder<TModel> ClearConvention(string nameContains, Type type)
+        public IAutoBuilder<TModel> ClearConvention(string conventionFilter, Type type)
         {
             var conventionMap =
-                configuration.Conventions.FirstOrDefault(x => x.NameContains == nameContains && x.Type == type);
+                configuration.Conventions.FirstOrDefault(x => x.ConventionFilter == conventionFilter && x.Type == type);
             if (conventionMap != null)
             {
                 configuration.Conventions.Remove(conventionMap);
@@ -42,9 +42,9 @@ namespace Amido.NAuto.Builders
             return this;
         }
 
-        public IAutoBuilder<TModel> AddConvention(string nameContains, Type type, Func<AutoBuilderConfiguration, Object> result)
+        public IAutoBuilder<TModel> AddConvention(ConventionFilterType conventionFilterType, string conventionFilter, Type type, Func<AutoBuilderConfiguration, Object> result)
         {
-            configuration.Conventions.Add(new ConventionMap(nameContains, type, result));
+            configuration.Conventions.Add(new ConventionMap(conventionFilterType, conventionFilter, type, result));
             return this;
         }
 

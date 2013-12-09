@@ -70,6 +70,7 @@ namespace Amido.NAuto.IntegrationTests
         {
             // Act
             var testModel = NAuto.AutoBuild<TestModel>()
+                .AddConvention(new ConventionMap(ConventionFilterType.StartsWith, "id", typeof(string), config => "Blah"))
                 .Construct()
                 .Build();
 
@@ -372,7 +373,7 @@ namespace Amido.NAuto.IntegrationTests
         {
             var autoTestBuilderConfiguration = new AutoBuilderConfiguration();
 
-            autoTestBuilderConfiguration.Conventions.Add(new ConventionMap("PetName", typeof(string), config => "Rex"));
+            autoTestBuilderConfiguration.Conventions.Add(new ConventionMap(ConventionFilterType.Contains, "PetName", typeof(string), config => "Rex"));
             
             var conventionsTestModel = NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
                 .Construct()

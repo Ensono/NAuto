@@ -40,7 +40,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             {
                 // Arrange
                 decimal? testConventionResult = 1234.1234M;
-                autoBuilderConfiguration.Conventions.Add(new ConventionMap("test", typeof(decimal?), config => testConventionResult));
+                autoBuilderConfiguration.Conventions.Add(new ConventionMap(ConventionFilterType.Contains, "test", typeof(decimal?), config => testConventionResult));
                 const string propertyName = "testname";
 
                 // Act

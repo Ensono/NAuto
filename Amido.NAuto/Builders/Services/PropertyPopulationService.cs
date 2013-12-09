@@ -22,6 +22,7 @@ namespace Amido.NAuto.Builders.Services
         private readonly PopulateProperty<Guid> populateGuidService;
         private readonly PopulateProperty<long> populateLongService;
         private readonly PopulateProperty<long?> populateNullableLongService;
+        private readonly PopulateProperty<short> populateShortService;
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
@@ -46,6 +47,7 @@ namespace Amido.NAuto.Builders.Services
             PopulateProperty<Guid> populateGuidService,
             PopulateProperty<long> populateLongService,
             PopulateProperty<long?> populateNullableLongService,
+            PopulateProperty<short> populateShortService,
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
@@ -68,6 +70,7 @@ namespace Amido.NAuto.Builders.Services
             this.populateGuidService = populateGuidService;
             this.populateLongService = populateLongService;
             this.populateNullableLongService = populateNullableLongService;
+            this.populateShortService = populateShortService;
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
@@ -93,6 +96,8 @@ namespace Amido.NAuto.Builders.Services
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateGuidService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateShortService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
@@ -247,6 +252,11 @@ namespace Amido.NAuto.Builders.Services
             if (propertyType == typeof(long?))
             {
                 return populateNullableLongService.Populate(propertyName, (long?)value);
+            }
+
+            if (propertyType == typeof(short))
+            {
+                return populateShortService.Populate(propertyName, (short)value);
             }
 
             if (propertyType.BaseType == typeof(Enum) && value != null)

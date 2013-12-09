@@ -65,6 +65,7 @@
     <Compile Include="Builders\Services\PopulateComplexObjectServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateEnumServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateNullableLongServiceTests.cs" />
+    <Compile Include="Builders\Services\PopulateShortServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateUriServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateNullableBoolServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateNullableDateTimeServiceTests.cs" />

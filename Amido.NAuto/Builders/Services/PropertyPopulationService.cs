@@ -21,6 +21,10 @@ namespace Amido.NAuto.Builders.Services
         private readonly PopulateProperty<Uri> populateUriService;
         private readonly PopulateProperty<Guid> populateGuidService;
         private readonly PopulateProperty<long> populateLongService;
+        private readonly PopulateProperty<char> populateCharService;
+        private readonly PopulateProperty<char?> populateNullableCharService;
+        private readonly PopulateProperty<decimal> populateDecimalService;
+        private readonly PopulateProperty<decimal?> populateNullableDecimalService;
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
@@ -44,6 +48,10 @@ namespace Amido.NAuto.Builders.Services
             PopulateProperty<Uri> populateUriService,
             PopulateProperty<Guid> populateGuidService,
             PopulateProperty<long> populateLongService,
+            PopulateProperty<char> populateCharService,
+            PopulateProperty<char?> populateNullableCharService,
+            PopulateProperty<decimal> populateDecimalService,
+            PopulateProperty<decimal?> populateNullableDecimalService,
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
@@ -65,6 +73,10 @@ namespace Amido.NAuto.Builders.Services
             this.populateUriService = populateUriService;
             this.populateGuidService = populateGuidService;
             this.populateLongService = populateLongService;
+            this.populateCharService = populateCharService;
+            this.populateNullableCharService = populateNullableCharService;
+            this.populateDecimalService = populateDecimalService;
+            this.populateNullableDecimalService = populateNullableDecimalService;
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
@@ -90,6 +102,10 @@ namespace Amido.NAuto.Builders.Services
             populateUriService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateGuidService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateLongService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateCharService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableCharService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateDecimalService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
+            populateNullableDecimalService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateEnumService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateComplexObjectService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
             populateListService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
@@ -239,6 +255,28 @@ namespace Amido.NAuto.Builders.Services
             if (propertyType == typeof(long))
             {
                 return populateLongService.Populate(propertyName, (long)value);
+            }
+
+            if (propertyType == typeof(char))
+            {
+                var charValue = value == null ? default(char) : (char)value;
+                return populateCharService.Populate(propertyName, charValue);
+            }
+
+            if (propertyType == typeof(char?))
+            {
+                return populateNullableCharService.Populate(propertyName, (char?)value);
+            }
+
+            if (propertyType == typeof(decimal))
+            {
+                var decimalValue = value == null ? 0 : (decimal)value;
+                return populateDecimalService.Populate(propertyName, decimalValue);
+            }
+
+            if (propertyType == typeof(decimal?))
+            {
+                return populateNullableDecimalService.Populate(propertyName, (decimal?)value);
             }
 
             if (propertyType.BaseType == typeof(Enum) && value != null)

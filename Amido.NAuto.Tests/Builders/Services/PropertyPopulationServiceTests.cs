@@ -28,6 +28,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
         private Mock<PopulateProperty<Uri>> populateUriService;
         private Mock<PopulateProperty<Guid>> populateGuidService;
         private Mock<PopulateProperty<long>> populateLongService;
+        private Mock<PopulateProperty<char>> populateCharService;
+        private Mock<PopulateProperty<char?>> populateNullableCharService;
+        private Mock<PopulateProperty<decimal>> populateDecimalService;
+        private Mock<PopulateProperty<decimal?>> populateNullableDecimalService;
         private Mock<IPopulateEnumService> populateEnumService;
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
@@ -54,6 +58,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             populateUriService = new Mock<PopulateProperty<Uri>>();
             populateGuidService = new Mock<PopulateProperty<Guid>>();
             populateLongService = new Mock<PopulateProperty<long>>();
+            populateCharService = new Mock<PopulateProperty<char>>();
+            populateNullableCharService = new Mock<PopulateProperty<char?>>();
+            populateDecimalService = new Mock<PopulateProperty<decimal>>();
+            populateNullableDecimalService = new Mock<PopulateProperty<decimal?>>();
             populateEnumService = new Mock<IPopulateEnumService>();
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
@@ -76,6 +84,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 populateUriService.Object,
                 populateGuidService.Object,
                 populateLongService.Object,
+                populateCharService.Object,
+                populateNullableCharService.Object,
+                populateDecimalService.Object,
+                populateNullableDecimalService.Object,
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
@@ -156,6 +168,26 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             private class LongTest
             {
                 public long Test { get; set; }
+            }
+
+            private class CharTest
+            {
+                public Char Test { get; set; }
+            }
+
+            private class NullableCharTest
+            {
+                public Char? Test { get; set; }
+            }
+
+            private class DecimalTest
+            {
+                public decimal Test { get; set; }
+            }
+
+            private class NullableDecimalTest
+            {
+                public decimal? Test { get; set; }
             }
 
             private class EnumTest
@@ -390,6 +422,55 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
                 // Assert
                 populateLongService.VerifyAll();
+            }
+
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Char()
+            {
+                // Arrange
+                populateCharService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<Char>(), null)).Returns(It.IsAny<Char>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new CharTest(), 0);
+
+                // Assert
+                populateCharService.VerifyAll();
+            }
+
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Char()
+            {
+                // Arrange
+                populateNullableCharService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<Char?>(), null)).Returns(It.IsAny<Char?>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new NullableCharTest(), 0);
+
+                // Assert
+                populateNullableCharService.VerifyAll();
+            }
+
+
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Decimal()
+            {
+                // Arrange
+                populateDecimalService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<decimal>(), null)).Returns(It.IsAny<decimal>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new DecimalTest(), 0);
+
+                // Assert
+                populateDecimalService.VerifyAll();
+            }
+
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Decimal()
+            {
+                // Arrange
+                populateNullableDecimalService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<decimal?>(), null)).Returns(It.IsAny<decimal?>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new NullableDecimalTest(), 0);
+
+                // Assert
+                populateNullableDecimalService.VerifyAll();
             }
 
             [Test]

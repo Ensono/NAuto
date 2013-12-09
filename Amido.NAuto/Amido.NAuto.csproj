@@ -61,6 +61,10 @@
     <Compile Include="Builders\Services\IPopulateEnumService.cs" />
     <Compile Include="Builders\Services\IPopulateListService.cs" />
     <Compile Include="Builders\Services\PopulateArrayService.cs" />
+    <Compile Include="Builders\Services\PopulateNullableDecimalService.cs" />
+    <Compile Include="Builders\Services\PopulateDecimalService.cs" />
+    <Compile Include="Builders\Services\PopulateNullableCharService.cs" />
+    <Compile Include="Builders\Services\PopulateCharService.cs" />
     <Compile Include="Builders\Services\PopulateDictionaryService.cs" />
     <Compile Include="Builders\Services\PopulateGuidService.cs" />
     <Compile Include="Builders\Services\PopulateLongService.cs" />

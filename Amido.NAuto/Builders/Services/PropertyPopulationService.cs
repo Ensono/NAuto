@@ -21,6 +21,7 @@ namespace Amido.NAuto.Builders.Services
         private readonly PopulateProperty<Uri> populateUriService;
         private readonly PopulateProperty<Guid> populateGuidService;
         private readonly PopulateProperty<long> populateLongService;
+        private readonly PopulateProperty<long?> populateNullableLongService;
         private readonly IPopulateEnumService populateEnumService;
         private readonly IBuildConstructorParametersService buildConstructorParametersService;
         private readonly IPopulateComplexObjectService populateComplexObjectService;
@@ -44,6 +45,7 @@ namespace Amido.NAuto.Builders.Services
             PopulateProperty<Uri> populateUriService,
             PopulateProperty<Guid> populateGuidService,
             PopulateProperty<long> populateLongService,
+            PopulateProperty<long?> populateNullableLongService,
             IPopulateEnumService populateEnumService,
             IBuildConstructorParametersService buildConstructorParametersService,
             IPopulateComplexObjectService populateComplexObjectService,
@@ -65,6 +67,7 @@ namespace Amido.NAuto.Builders.Services
             this.populateUriService = populateUriService;
             this.populateGuidService = populateGuidService;
             this.populateLongService = populateLongService;
+            this.populateNullableLongService = populateNullableLongService;
             this.populateEnumService = populateEnumService;
             this.buildConstructorParametersService = buildConstructorParametersService;
             this.populateComplexObjectService = populateComplexObjectService;
@@ -239,6 +242,11 @@ namespace Amido.NAuto.Builders.Services
             if (propertyType == typeof(long))
             {
                 return populateLongService.Populate(propertyName, (long)value);
+            }
+
+            if (propertyType == typeof(long?))
+            {
+                return populateNullableLongService.Populate(propertyName, (long?)value);
             }
 
             if (propertyType.BaseType == typeof(Enum) && value != null)

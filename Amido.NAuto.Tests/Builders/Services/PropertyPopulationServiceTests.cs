@@ -28,6 +28,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
         private Mock<PopulateProperty<Uri>> populateUriService;
         private Mock<PopulateProperty<Guid>> populateGuidService;
         private Mock<PopulateProperty<long>> populateLongService;
+        private Mock<PopulateProperty<long?>> populateNullableLongService;
         private Mock<IPopulateEnumService> populateEnumService;
         private Mock<IBuildConstructorParametersService> buildConstructorParameterService;
         private Mock<IPopulateComplexObjectService> populateComplexObjectService;
@@ -54,6 +55,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             populateUriService = new Mock<PopulateProperty<Uri>>();
             populateGuidService = new Mock<PopulateProperty<Guid>>();
             populateLongService = new Mock<PopulateProperty<long>>();
+            populateNullableLongService = new Mock<PopulateProperty<long?>>();
             populateEnumService = new Mock<IPopulateEnumService>();
             buildConstructorParameterService = new Mock<IBuildConstructorParametersService>();
             populateComplexObjectService = new Mock<IPopulateComplexObjectService>();
@@ -76,6 +78,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 populateUriService.Object,
                 populateGuidService.Object,
                 populateLongService.Object,
+                populateNullableLongService.Object,
                 populateEnumService.Object,
                 buildConstructorParameterService.Object,
                 populateComplexObjectService.Object,
@@ -156,6 +159,11 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             private class LongTest
             {
                 public long Test { get; set; }
+            }
+
+            private class NullableLongTest
+            {
+                public long? Test { get; set; }
             }
 
             private class EnumTest
@@ -390,6 +398,19 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
                 // Assert
                 populateLongService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Long()
+            {
+                // Arrange
+                populateNullableLongService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<long?>(), null)).Returns(It.IsAny<long?>());
+
+                // Act
+                propertyPopulationService.PopulateProperties(new NullableLongTest(), 0);
+
+                // Assert
+                populateNullableLongService.VerifyAll();
             }
 
             [Test]

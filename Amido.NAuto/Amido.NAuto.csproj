@@ -69,6 +69,7 @@
     <Compile Include="Builders\Services\PopulateListService.cs" />
     <Compile Include="Builders\Services\PopulateComplexObjectService.cs" />
     <Compile Include="Builders\Services\PopulateEnumService.cs" />
+    <Compile Include="Builders\Services\PopulateNullableLongService.cs" />
     <Compile Include="Builders\Services\PopulateUriService.cs" />
     <Compile Include="Builders\Services\PopulateNullableBoolService.cs" />
     <Compile Include="Builders\Services\PopulateNullableDateTimeService.cs" />

@@ -22,6 +22,7 @@ namespace Amido.NAuto.Builders.Services
             container.Register<PopulateProperty<Uri>, PopulateUriService>();
             container.Register<PopulateProperty<Guid>, PopulateGuidService>();
             container.Register<PopulateProperty<long>, PopulateLongService>();
+            container.Register<PopulateProperty<long?>, PopulateNullableLongService>();
             container.Register<IPopulateEnumService, PopulateEnumService>();
             container.Register<IBuildConstructorParametersService, BuildConstructorParametersService>();
             container.Register<IPopulateComplexObjectService, PopulateComplexObjectService>();

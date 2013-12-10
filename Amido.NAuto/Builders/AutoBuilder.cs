@@ -455,6 +455,7 @@ namespace Amido.NAuto.Builders
         /// </returns>
         public string ToJson(bool useCamelCase = true, bool ignoreNulls = true, bool indentJson = true)
         {
+            this.Build();
             return JsonSerializer.ToIndentedJsonString(entity, useCamelCase, ignoreNulls, indentJson);
         }
 

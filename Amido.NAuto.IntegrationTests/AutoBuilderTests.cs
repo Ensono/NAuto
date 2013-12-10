@@ -16,10 +16,18 @@ namespace Amido.NAuto.IntegrationTests
         [Test]
         public void Should_Load_Json_Representation()
         {
+            var testModel = NAuto.AutoBuild<TestModel>()
+                    .Load(@"TestJsonModels\testModel1.json")
+                    .Build();
+        }
+
+        [Test]
+        public void Should_Persist_Json_Representation()
+        {
             var testModel =
                 NAuto.AutoBuild<TestModel>()
-                    .Load("TestJsonModels\\testModel1.json")
-                    .Build();
+                    .Load(@"TestJsonModels\sd\testModel1.json")
+                    .Persist(@"TestJsonModels\testModel2.json");
         }
 
         [Test]

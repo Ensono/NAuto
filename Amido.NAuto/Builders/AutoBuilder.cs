@@ -163,6 +163,7 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns this.</returns>
         public IAutoBuilderOverrides<TModel> Load(string relativeFilePath)
         {
+            propertyPopulationService.AddConfiguration(configuration);
             var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
             var fullPath = currentDirectory + relativeFilePath;
 
@@ -420,7 +421,7 @@ namespace Amido.NAuto.Builders
         {
             if (!isLoadedModel)
             {
-                if (this.constructorParameters.Length > 0)
+                if (this.constructorParameters != null && this.constructorParameters.Length > 0)
                 {
                     this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), this.constructorParameters);
                 }
@@ -454,6 +455,15 @@ namespace Amido.NAuto.Builders
             }
 
             return this.Entity;
+        }
+
+        public TModel Persist(string relativeFilePath)
+        {
+            this.Build();
+            var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
+            var fullPath = currentDirectory + relativeFilePath;
+            File.WriteAllText(fullPath, this.ToJson());
+            return Entity;
         }
 
         /// <summary>

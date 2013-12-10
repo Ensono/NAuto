@@ -11,16 +11,14 @@ namespace Amido.NAuto.IntegrationTests
     [TestFixture]
     public class AutoBuilderTests
     {
-        AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
-
+        private readonly AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
+        
         [Test]
-        public void Should_Persist_Json_Representation()
+        public void Should_Load_Json_Representation()
         {
             var testModel =
-                NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
-                    .ClearConventions()
-                    .ClearConvention("sdf", typeof(string))
-                    .Construct()
+                NAuto.AutoBuild<TestModel>()
+                    .Load("TestJsonModels\\testModel1.json")
                     .Build();
         }
 

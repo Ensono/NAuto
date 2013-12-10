@@ -11,6 +11,7 @@ using Amido.NAuto.Serializers;
 namespace Amido.NAuto.Builders
 {
     using System.Collections.Generic;
+    using System.IO;
 
     /// <summary>
     /// AutoBuild models.
@@ -21,6 +22,8 @@ namespace Amido.NAuto.Builders
         private readonly IPropertyPopulationService propertyPopulationService;
         private readonly AutoBuilderConfiguration configuration;
         private object[] constructorParameters;
+
+        private bool isLoadedModel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoBuilder{TModel}"/> class.
@@ -42,10 +45,11 @@ namespace Amido.NAuto.Builders
             this.configuration = configuration;
 
             this.Actions = new List<Action>();
+            isLoadedModel = false;
         }
 
         internal TModel Entity { get; set; }
-        
+
         internal List<Action> Actions { get; set; }
 
         /// <summary>
@@ -149,6 +153,25 @@ namespace Amido.NAuto.Builders
 
             propertyPopulationService.AddConfiguration(configuration);
            
+            return this;
+        }
+
+        /// <summary>
+        /// Loads the specified relative path.
+        /// </summary>
+        /// <param name="relativeFilePath">The relative path.</param>
+        /// <returns>Returns this.</returns>
+        public IAutoBuilderOverrides<TModel> Load(string relativeFilePath)
+        {
+            var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
+            var fullPath = currentDirectory + relativeFilePath;
+
+            if (File.Exists(fullPath))
+            {
+                Entity = JsonSerializer.FromJsonString<TModel>(File.ReadAllText(fullPath));
+                isLoadedModel = true;
+            }
+
             return this;
         }
 
@@ -395,29 +418,35 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns the populated model.</returns>
         public TModel Build()
         {
-            if (this.constructorParameters.Length > 0)
+            if (!isLoadedModel)
             {
-                this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), this.constructorParameters);
-            }
-            else
-            {
-                var constructors = typeof(TModel).GetConstructors();
-                if (typeof(TModel).BaseType == typeof(Array))
+                if (this.constructorParameters.Length > 0)
                 {
-                    this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultCollectionItemCount);
-                }
-                else if (constructors.All(x => x.GetParameters().Count() != 0))
-                {
-                    var constructorParameters = propertyPopulationService.BuildConstructorParameters(constructors, 1);
-                    this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
+                    this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), this.constructorParameters);
                 }
                 else
                 {
-                    this.Entity = (TModel)Activator.CreateInstance(typeof(TModel));
+                    var constructors = typeof(TModel).GetConstructors();
+                    if (typeof(TModel).BaseType == typeof(Array))
+                    {
+                        this.Entity =
+                            (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultCollectionItemCount);
+                    }
+                    else if (constructors.All(x => x.GetParameters().Count() != 0))
+                    {
+                        var constructorParameters = propertyPopulationService.BuildConstructorParameters(
+                            constructors,
+                            1);
+                        this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
+                    }
+                    else
+                    {
+                        this.Entity = (TModel)Activator.CreateInstance(typeof(TModel));
+                    }
                 }
-            }
 
-            this.Entity = (TModel)propertyPopulationService.PopulateProperties(this.Entity, 1);
+                this.Entity = (TModel)propertyPopulationService.PopulateProperties(this.Entity, 1);
+            }
 
             foreach (var action in this.Actions)
             {

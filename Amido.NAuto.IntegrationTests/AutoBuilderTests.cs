@@ -21,7 +21,6 @@ namespace Amido.NAuto.IntegrationTests
                     .ClearConventions()
                     .ClearConvention("sdf", typeof(string))
                     .Construct()
-                    .Persist(@"MyTestJsonFiles\Customers\MyTest.json")
                     .Build();
         }
 

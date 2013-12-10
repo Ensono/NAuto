@@ -11,10 +11,10 @@
 
         public static string GetRandomUrl(Language language = Language.English)
         {
-            const string firstPart = "http://www.";
+            const string FirstPart = "http://www.";
             var secondPart = NAuto.GetRandomString(5, 15, CharacterSetType.AlphaNumeric, Spaces.None, Casing.Lowered, language);
-            const string lastPart = ".com";
-            return string.Format("{0}{1}{2}", firstPart, secondPart, lastPart);
+            const string LastPart = ".com";
+            return string.Format("{0}{1}{2}", FirstPart, secondPart, LastPart);
         }
 
         public static string GetRandomPostalCode(Language language = Language.English)
@@ -36,6 +36,7 @@
             {
                 return string.Format("0{0} {1} {2}", firstPart, secondPart, thirdPart);    
             }
+
             return string.Format("{0} {1} {2}", firstPart, secondPart, thirdPart);
         }
     }

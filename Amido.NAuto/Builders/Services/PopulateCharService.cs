@@ -10,8 +10,8 @@ namespace Amido.NAuto.Builders.Services
             {
                 return currentValue;
             }
-            return GetCharValue(propertyName);
 
+            return GetCharValue(propertyName);
         }
 
         private char GetCharValue(string propertyName)
@@ -20,6 +20,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (char)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(char), AutoBuilderConfiguration);
             }
+
             return char.Parse(NAuto.GetRandomString(1, AutoBuilderConfiguration.DefaultLanguage));
         }
     }

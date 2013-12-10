@@ -30,6 +30,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, propertyType, AutoBuilderConfiguration);
             }
+
              try
                 {
                     var constructorParameters = buildConstructorParametersFunction(propertyType.GetConstructors(), depth + 1, populate);

@@ -11,6 +11,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return currentValue;
             }
+
             return GetDecimalValue(propertyName);
         }
 
@@ -20,9 +21,8 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (decimal)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(decimal), AutoBuilderConfiguration);
             }
+
             return (decimal)NAuto.GetRandomDouble(AutoBuilderConfiguration.DoubleMinimum, AutoBuilderConfiguration.DoubleMaximum);
         }
-
-       
     }
 }

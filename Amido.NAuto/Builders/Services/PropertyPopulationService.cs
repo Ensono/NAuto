@@ -134,22 +134,22 @@ namespace Amido.NAuto.Builders.Services
             {
                 if (objectToPopulateType.FullName.Contains("System.Collections.Generic.List`1"))
                 {
-                    populateListService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
+                    populateListService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
                 else if (objectToPopulateType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
                 {
-                    populateDictionaryService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate, Populate);
+                    populateDictionaryService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate, Populate);
                 }
                 else if (objectToPopulateType.BaseType == typeof(Array))
                 {
-                    objectToPopulate = populateArrayService.Populate("", objectToPopulateType, objectToPopulate, depth - 1, Populate);
+                    objectToPopulate = populateArrayService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
             }
             else if (objectToPopulateType.GetInterfaces().Any(x => x == typeof(IDictionary)))
             {
                 if (objectToPopulateType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
                 {
-                    return populateDictionaryService.Populate("", objectToPopulateType, objectToPopulate, depth, Populate, Populate);
+                    return populateDictionaryService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth, Populate, Populate);
                 }
             }
             else
@@ -158,9 +158,15 @@ namespace Amido.NAuto.Builders.Services
 
                 foreach (var propertyInfo in properties)
                 {
-                    propertyInfo.SetValue(objectToPopulate, Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate), propertyInfo));
+                    if (propertyInfo.CanWrite)
+                    {
+                        propertyInfo.SetValue(
+                            objectToPopulate,
+                            Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate), propertyInfo));
+                    }
                 } 
             }
+
             return objectToPopulate;
         }
 
@@ -169,35 +175,50 @@ namespace Amido.NAuto.Builders.Services
             return buildConstructorParametersService.Build(constructors, depth, Populate);
         }
 
+        private static bool IsPotentialComplexType(Type propertyType)
+        {
+            return propertyType.BaseType != typeof(ValueType) && !propertyType.IsPrimitive && propertyType != typeof(string) && propertyType != typeof(Uri);
+        }
+
         private object Populate(int depth, string propertyName, Type propertyType, object value, PropertyInfo propertyInfo = null)
         {
+            if (propertyInfo != null)
+            {
+                if (!propertyInfo.CanWrite)
+                {
+                    return value;
+                }    
+            }
+
             if (propertyType.GetInterfaces().Any(x => x == typeof(IList)))
             {
                 if (propertyType.FullName.Contains("System.Collections.Generic.List`1"))
                 {
                     return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
                 }
+
                 if (propertyType.BaseType == typeof(Array) && value == null)
                 {
                     return populateArrayService.Populate(propertyName, propertyType, null, depth, Populate);
                 }
             }
+
             if (propertyType.GetInterfaces().Any(x => x == typeof(IDictionary)))
             {
                 if (propertyType.FullName.Contains("System.Collections.Generic.Dictionary`2"))
                 {
-                    return populateDictionaryService.Populate("", propertyType, value, depth, Populate, Populate);
+                    return populateDictionaryService.Populate(string.Empty, propertyType, value, depth, Populate, Populate);
                 }
             }
 
-            if (propertyType == typeof (string))
+            if (propertyType == typeof(string))
             {
                 return populateStringService.Populate(propertyName, (string)value, propertyInfo);
             }
 
             if (propertyType == typeof(int))
             {
-                var intValue = value == null ? 0 : (int) value;
+                var intValue = value == null ? 0 : (int)value;
                 return populateIntService.Populate(propertyName, intValue);
             }
 
@@ -208,7 +229,7 @@ namespace Amido.NAuto.Builders.Services
 
             if (propertyType == typeof(double))
             {
-                var doubleValue = value == null ? 0 : (double) value;
+                var doubleValue = value == null ? 0 : (double)value;
                 return populateDoubleService.Populate(propertyName, doubleValue);
             }
 
@@ -219,13 +240,13 @@ namespace Amido.NAuto.Builders.Services
 
             if (propertyType == typeof(bool))
             {
-                var boolValue = value != null && (bool) value;
+                var boolValue = value != null && (bool)value;
                 return populateBoolService.Populate(propertyName, boolValue);
             }
 
             if (propertyType == typeof(bool?))
             {
-                return populateNullableBoolService.Populate(propertyName, (bool?) value);
+                return populateNullableBoolService.Populate(propertyName, (bool?)value);
             }
 
             if (propertyType == typeof(byte))
@@ -241,13 +262,13 @@ namespace Amido.NAuto.Builders.Services
 
             if (propertyType == typeof(DateTime))
             {
-                var dateTimeValue = value == null ? default(DateTime) : (DateTime) value;
+                var dateTimeValue = value == null ? default(DateTime) : (DateTime)value;
                 return populateDateTimeService.Populate(propertyName, dateTimeValue);
             }
 
             if (propertyType == typeof(DateTime?))
             {
-                return populateNullableDateTimeService.Populate(propertyName, (DateTime?) value);
+                return populateNullableDateTimeService.Populate(propertyName, (DateTime?)value);
             }
 
             if (propertyType == typeof(Uri))
@@ -304,16 +325,18 @@ namespace Amido.NAuto.Builders.Services
             
             if (IsPotentialComplexType(propertyType))
             {
-                return populateComplexObjectService.Populate(propertyName, propertyType, value, depth,
-                    buildConstructorParametersService.Build, Populate, PopulateProperties);
+                return populateComplexObjectService.Populate(
+                    propertyName,
+                    propertyType,
+                    value,
+                    depth,
+                    buildConstructorParametersService.Build,
+                    Populate,
+                    PopulateProperties);
             }
+
             Console.WriteLine("Sorry, unable to fully build this model. Unsupported Type: " + propertyType);
             return null;
-        }
-
-        private static bool IsPotentialComplexType(Type propertyType)
-        {
-            return propertyType.BaseType != typeof(ValueType) && !propertyType.IsPrimitive && propertyType != typeof(string) && propertyType != typeof(Uri);
         }
     }
 }

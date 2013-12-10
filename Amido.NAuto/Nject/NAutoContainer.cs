@@ -5,7 +5,12 @@ namespace Amido.NAuto.Nject
 {
     public class NAutoContainer
     {
-        public static Dictionary<Type, Type> Mappings = new Dictionary<Type, Type>();
+        public static readonly Dictionary<Type, Type> Mappings = new Dictionary<Type, Type>();
+
+        public static void ClearMappings()
+        {
+            Mappings.Clear();
+        }
 
         public NAutoContainer Register<TInteface, TImplementation>() where TImplementation : TInteface
         {
@@ -47,8 +52,8 @@ namespace Amido.NAuto.Nject
 
                 return Activator.CreateInstance(implementationType, parameterObjects.ToArray());
             }
+
             return Activator.CreateInstance(implementationType);
         }
-       
     }
 }

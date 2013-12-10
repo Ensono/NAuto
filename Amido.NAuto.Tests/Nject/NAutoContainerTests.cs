@@ -15,7 +15,7 @@ namespace Amido.NAuto.UnitTests.Nject
         [SetUp]
         public void SetUp()
         {
-            NAutoContainer.Mappings.Clear();
+            NAutoContainer.ClearMappings();
             nAutoContainer = new NAutoContainer();
         }
 

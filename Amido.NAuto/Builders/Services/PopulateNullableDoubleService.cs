@@ -10,6 +10,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return currentValue;
             }
+
             return GetDoubleValue(propertyName);
         }
 
@@ -19,6 +20,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (double?)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(double?), AutoBuilderConfiguration);
             }
+
             return NAuto.GetRandomDouble(AutoBuilderConfiguration.DoubleMinimum, AutoBuilderConfiguration.DoubleMaximum);
         }
     }

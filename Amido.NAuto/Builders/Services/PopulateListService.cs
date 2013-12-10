@@ -40,6 +40,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 newList.Add(populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null, null));
             }
+
             return newList;
         }
     }

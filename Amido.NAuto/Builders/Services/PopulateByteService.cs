@@ -15,6 +15,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (byte)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(byte), AutoBuilderConfiguration);
             }
+
             return (byte)NAuto.GetRandomInteger(1, 1000);
         }
     }

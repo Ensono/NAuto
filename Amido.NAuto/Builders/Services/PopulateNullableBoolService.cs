@@ -15,6 +15,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (bool)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(bool?), AutoBuilderConfiguration);
             }
+
             return AutoBuilderConfiguration.DefaultBoolean;
         }
     }

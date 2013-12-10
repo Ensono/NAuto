@@ -35,6 +35,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 newDictionary.Add(populateKey(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null, null), populateValue(depth + 1, propertyName, propertyType.GenericTypeArguments[1], null, null));
             }
+
             return newDictionary;
         }
     }

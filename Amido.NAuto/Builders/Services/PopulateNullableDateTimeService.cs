@@ -16,6 +16,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (DateTime?)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(DateTime?), AutoBuilderConfiguration);
             }
+
             return AutoBuilderConfiguration.DefaultDateTime;
         }
     }

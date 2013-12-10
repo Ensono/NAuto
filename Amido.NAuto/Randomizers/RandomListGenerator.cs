@@ -27,13 +27,14 @@ namespace Amido.NAuto.Randomizers
             var id = seed;
             foreach (var model in list)
             {
-                var memberExpression = ((MemberExpression)identityProperty.Body);
+                var memberExpression = (MemberExpression)identityProperty.Body;
                 var property = memberExpression.Member as PropertyInfo;
                 var instanceToUpdate = model;
                 if (property != null)
                 {
                     property.SetValue(instanceToUpdate, id);
                 }
+
                 id += increment;
             }
 

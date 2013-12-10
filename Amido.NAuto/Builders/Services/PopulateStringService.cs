@@ -17,6 +17,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return currentValue;
             }
+
             return GetStringValue(propertyName, propertyInfo);
         }
 

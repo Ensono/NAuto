@@ -29,9 +29,9 @@ namespace Amido.NAuto.Builders.Services
             {
                 return null;
             }
+
             var randomValue = NAuto.GetRandomInteger(0, values.Length - 1);
             return (Enum)values.GetValue(randomValue);
-            
         }
     }
 }

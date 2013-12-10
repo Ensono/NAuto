@@ -10,6 +10,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return currentValue;
             }
+
             return GetIntValue(propertyName);
         }
 

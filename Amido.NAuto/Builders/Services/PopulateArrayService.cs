@@ -6,6 +6,7 @@ namespace Amido.NAuto.Builders.Services
     public class PopulateArrayService : IPopulateArrayService
     {
         protected AutoBuilderConfiguration AutoBuilderConfiguration { get; set; }
+
         public void SetAutoBuilderConfiguration(AutoBuilderConfiguration autoBuilderConfiguration)
         {
             AutoBuilderConfiguration = autoBuilderConfiguration;
@@ -19,6 +20,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 newArray.SetValue(populate(depth + 1, propertyName, arrayElementType, null, null), i);
             }
+
             return newArray;
         }
     }

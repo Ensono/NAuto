@@ -11,6 +11,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return GetUriValue(propertyName);    
             }
+
             return currentValue;
         }
 
@@ -20,6 +21,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return (Uri)AutoBuilderConfiguration.Conventions.GetConventionResult(propertyName, typeof(Uri), AutoBuilderConfiguration);
             }
+
             return new Uri(NAuto.GetRandomPropertyType(PropertyType.Url, AutoBuilderConfiguration.DefaultLanguage));
         }
     }

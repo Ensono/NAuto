@@ -9,25 +9,28 @@ namespace Amido.NAuto.Builders
 
     public class ConditionalResult<TModel> : IConditionalResult<TModel> where TModel : class
     {
-        private readonly IAutoBuilderOverrides<TModel> autoBuilder;
+        private readonly AutoBuilder<TModel> autoBuilder;
         private readonly TModel entity;
-        private readonly bool isTrue;
+        private readonly Func<TModel, bool> conditionalExpression;
 
-        public ConditionalResult(IAutoBuilderOverrides<TModel> autoBuilder, TModel entity, bool isTrue)
+        public ConditionalResult(AutoBuilder<TModel> autoBuilder, TModel entity, Func<TModel, bool> conditionalExpression)
         {
             this.autoBuilder = autoBuilder;
             this.entity = entity;
-            this.isTrue = isTrue;
+            this.conditionalExpression = conditionalExpression;
         }
 
         public IAutoBuilderOverrides<TModel> Then(Action<TModel> expression)
         {
-            if (isTrue)
-            {
-                expression(entity);
-            }
-
-            return autoBuilder;
+            Action action = () =>
+                {
+                    if (conditionalExpression(autoBuilder.Entity))
+                    {
+                        expression(autoBuilder.Entity);
+                    }
+                };
+            autoBuilder.Actions.Add(action);
+           return autoBuilder;
         }
     }
 }

@@ -491,7 +491,19 @@ namespace Amido.NAuto.IntegrationTests
 
             testModel.ShouldNotBeNull();
         }
-        
+
+        [Test]
+        public void Should_Follow_If_Then_Logic()
+        {
+            var model = NAuto.AutoBuild<TestModel>()
+                .Construct()
+                .If(x => x.Email != null)
+                .Then(x => x.LastName = "Blah")
+                .Build();
+
+            model.LastName.ShouldEqual("Blah");
+        }
+
         public interface IMyInterface{}
 
         public abstract class MyAbstractClass

@@ -52,6 +52,7 @@
     <Compile Include="Builders\AutoBuilder.cs" />
     <Compile Include="Builders\AutoBuilderConfiguration.cs" />
     <Compile Include="Builders\Builder.cs" />
+    <Compile Include="Builders\ConditionalResult.cs" />
     <Compile Include="Builders\ConventionFilterType.cs" />
     <Compile Include="Builders\ConventionMap.cs" />
     <Compile Include="Builders\Conventions.cs" />

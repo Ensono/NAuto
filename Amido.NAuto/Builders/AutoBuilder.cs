@@ -172,6 +172,11 @@ namespace Amido.NAuto.Builders
                 Entity = JsonSerializer.FromJsonString<TModel>(File.ReadAllText(fullPath));
                 isLoadedModel = true;
             }
+            else
+            {
+                Console.WriteLine("Unable to load from " + fullPath);
+                this.Build();
+            }
 
             return this;
         }
@@ -457,12 +462,16 @@ namespace Amido.NAuto.Builders
             return this.Entity;
         }
 
-        public TModel Persist(string relativeFilePath)
+        public TModel Persist(string relativeFilePath, bool overWrite = false)
         {
             this.Build();
             var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
             var fullPath = currentDirectory + relativeFilePath;
-            File.WriteAllText(fullPath, this.ToJson());
+            if (!File.Exists(fullPath) || overWrite)
+            {
+                File.WriteAllText(fullPath, this.ToJson());   
+            }
+
             return Entity;
         }
 

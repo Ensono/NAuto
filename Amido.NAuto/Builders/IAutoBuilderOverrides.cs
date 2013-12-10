@@ -82,7 +82,7 @@ namespace Amido.NAuto.Builders
 
         TModel Build();
 
-        TModel Persist(string relativeFilePath);
+        TModel Persist(string relativeFilePath, bool overWrite = false);
 
         string ToJson(bool useCamelCase = true, bool ignoreNulls = true, bool indentJson = true);
     }

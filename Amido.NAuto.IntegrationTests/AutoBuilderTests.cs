@@ -14,6 +14,18 @@ namespace Amido.NAuto.IntegrationTests
         AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
 
         [Test]
+        public void Should_Persist_Json_Representation()
+        {
+            var testModel =
+                NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
+                    .ClearConventions()
+                    .ClearConvention("sdf", typeof(string))
+                    .Construct()
+                    .Persist(@"MyTestJsonFiles\Customers\MyTest.json")
+                    .Build();
+        }
+
+        [Test]
         public void Should_Use_Data_Annotation_Email_Type_As_Convention()
         {
             var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()

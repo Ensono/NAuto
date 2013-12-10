@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections;
-using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Runtime.Serialization.Json;
-using System.Text;
+
 using Amido.NAuto.Builders.Services;
 using Amido.NAuto.Randomizers;
 
 namespace Amido.NAuto.Builders
 {
+    using System.IO;
+
+    using Amido.NAuto.Serializers;
+
     /// <summary>
     /// AutoBuild models.
     /// </summary>
@@ -427,20 +429,21 @@ namespace Amido.NAuto.Builders
         /// <summary>
         /// Returns a JSON representation of the model.
         /// </summary>
-        /// <returns>JSON model.</returns>
-        public string ToJson()
+        /// <param name="useCamelCase">
+        /// Use Camel Case.
+        /// </param>
+        /// <param name="ignoreNulls">
+        /// Ignore Nulls.
+        /// </param>
+        /// <param name="indentJson">
+        /// Indent Json.
+        /// </param>
+        /// <returns>
+        /// JSON model.
+        /// </returns>
+        public string ToJson(bool useCamelCase = true, bool ignoreNulls = true, bool indentJson = true)
         {
-            return ToJson(entity);
-        }
-
-        private static string ToJson(TModel obj)
-        {
-            var serializer = new DataContractJsonSerializer(typeof(TModel));
-            using (var stream = new MemoryStream())
-            {
-                serializer.WriteObject(stream, obj);
-                return Encoding.Default.GetString(stream.ToArray());
-            }
+            return JsonSerializer.ToIndentedJsonString(entity, useCamelCase, ignoreNulls, indentJson);
         }
 
         private void SetStringPropertyUsingNewRandomizerSetting(

@@ -178,7 +178,7 @@ namespace Amido.NAuto.Builders
         public IAutoBuilderOverrides<TModel> Load(string relativeFilePath)
         {
             propertyPopulationService.AddConfiguration(configuration);
-            var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
+            var currentDirectory = Path.Combine(new Uri(Assembly.GetAssembly(typeof(AutoBuilder<>)).CodeBase).LocalPath, @"..\..\..\");
             var fullPath = currentDirectory + relativeFilePath;
 
             if (File.Exists(fullPath))
@@ -478,7 +478,7 @@ namespace Amido.NAuto.Builders
         public TModel Persist(string relativeFilePath, bool overWrite = false)
         {
             var json = this.ToJson();
-            var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
+            var currentDirectory = Path.Combine(new Uri(Assembly.GetAssembly(typeof(AutoBuilder<>)).CodeBase).LocalPath, @"..\..\..\");
             var fullPath = currentDirectory + relativeFilePath;
             if (!File.Exists(fullPath) || overWrite)
             {
@@ -497,7 +497,7 @@ namespace Amido.NAuto.Builders
         /// <param name="ignoreNulls">
         /// Ignore Nulls.
         /// </param>
-        /// <param name="indentJson">
+        /// <param name="indentJson">p
         /// Indent Json.
         /// </param>
         /// <returns>

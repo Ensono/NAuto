@@ -26,8 +26,9 @@ namespace Amido.NAuto.IntegrationTests
         {
             var testModel =
                 NAuto.AutoBuild<TestModel>()
-                    .Load(@"TestJsonModels\sd\testModel1.json")
-                    .Persist(@"TestJsonModels\testModel2.json");
+                    .Load(@"TestJsonModels\testModel3.json")
+                    
+                    .Persist(@"TestJsonModels\testModel3.json");
         }
 
         [Test]

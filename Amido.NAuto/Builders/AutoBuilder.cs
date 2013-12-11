@@ -175,7 +175,6 @@ namespace Amido.NAuto.Builders
             else
             {
                 Console.WriteLine("Unable to load from " + fullPath);
-                this.Build();
             }
 
             return this;
@@ -464,12 +463,12 @@ namespace Amido.NAuto.Builders
 
         public TModel Persist(string relativeFilePath, bool overWrite = false)
         {
-            this.Build();
+            var json = this.ToJson();
             var currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"..\..\..\";
             var fullPath = currentDirectory + relativeFilePath;
             if (!File.Exists(fullPath) || overWrite)
             {
-                File.WriteAllText(fullPath, this.ToJson());   
+                File.WriteAllText(fullPath, json);   
             }
 
             return Entity;

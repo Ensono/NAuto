@@ -219,23 +219,23 @@ namespace Amido.NAuto.Builders.Services
             if (propertyType == typeof(int))
             {
                 var intValue = value == null ? 0 : (int)value;
-                return populateIntService.Populate(propertyName, intValue);
+                return populateIntService.Populate(propertyName, intValue, propertyInfo);
             }
 
             if (propertyType == typeof(int?))
             {
-                return populateNullableIntProperty.Populate(propertyName, (int?)value);
+                return populateNullableIntProperty.Populate(propertyName, (int?)value, propertyInfo);
             }
 
             if (propertyType == typeof(double))
             {
                 var doubleValue = value == null ? 0 : (double)value;
-                return populateDoubleService.Populate(propertyName, doubleValue);
+                return populateDoubleService.Populate(propertyName, doubleValue, propertyInfo);
             }
 
             if (propertyType == typeof(double?))
             {
-                return populateNullableDoubleService.Populate(propertyName, (double?)value);
+                return populateNullableDoubleService.Populate(propertyName, (double?)value, propertyInfo);
             }
 
             if (propertyType == typeof(bool))

@@ -62,13 +62,51 @@ namespace Amido.NAuto.IntegrationTests
         public void Should_Use_Data_Annotation_Email_Type_As_Convention()
         {
             var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
-                .ClearConventions()
-                .ClearConvention("sdf", typeof(string))
+                .ClearConventions()                
                 .Construct()
                 .Build();
 
             // Assert
             testModel.Email.ShouldContain("@");
+        }
+
+        [Test]
+        public void Should_Use_Int_Range_Data_Annotation_As_Convention()
+        {
+            var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            // Assert
+            testModel.RangeIntTest.ShouldBeGreaterThanOrEqualTo(1);
+            testModel.RangeIntTest.ShouldBeLessThanOrEqualTo(10);
+        }
+
+        [Test]
+        public void Should_Use_Double_Range_Data_Annotation_As_Convention()
+        {
+            var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            // Assert
+            testModel.RangeDoubleTest.ShouldBeGreaterThanOrEqualTo(1.2);
+            testModel.RangeDoubleTest.ShouldBeLessThanOrEqualTo(10.2);
+        }
+
+        [Test]
+        public void Should_Use_Nullable_Int_Range_Data_Annotation_As_Convention()
+        {
+            var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            // Assert
+            testModel.RangeNullableIntTest.ShouldBeGreaterThanOrEqualTo(1);
+            testModel.RangeNullableIntTest.ShouldBeLessThanOrEqualTo(10);
         }
 
         [Test]

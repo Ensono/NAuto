@@ -43,9 +43,49 @@ namespace Amido.NAuto.Builders.Services
                 {
                     return GenerateRandomStringFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
                 }
+
+                if (type == typeof(int))
+                {
+                    return GenerateRandomIntFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
+                }
+
+                if (type == typeof(double))
+                {
+                    return GenerateRandomDoubleFromDataAnnotations(propertyInfo, autoBuilderConfiguration);
+                }
             }
 
             return null;
+        }
+
+        private static double GenerateRandomDoubleFromDataAnnotations(PropertyInfo propertyInfo, AutoBuilderConfiguration autoBuilderConfiguration)
+        {
+            var min = autoBuilderConfiguration.DoubleMinimum;
+            var max = autoBuilderConfiguration.DoubleMaximum;
+
+            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute)).FirstOrDefault();
+            if (rangeAttribute != null)
+            {
+                min = double.Parse(((RangeAttribute)rangeAttribute).Minimum.ToString());
+                max = double.Parse(((RangeAttribute)rangeAttribute).Maximum.ToString());
+            }
+
+            return NAuto.GetRandomDouble(min, max);
+        }
+
+        private static int GenerateRandomIntFromDataAnnotations(PropertyInfo propertyInfo, AutoBuilderConfiguration autoBuilderConfiguration)
+        {
+            var min = autoBuilderConfiguration.IntMinimum;
+            var max = autoBuilderConfiguration.IntMaximum;
+
+            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute)).FirstOrDefault();
+            if (rangeAttribute != null)
+            {
+                min = (int)((RangeAttribute)rangeAttribute).Minimum;
+                max = (int)((RangeAttribute)rangeAttribute).Maximum;
+            }
+
+            return NAuto.GetRandomInteger(min, max);
         }
 
         private static string GenerateRandomStringFromDataAnnotations(PropertyInfo propertyInfo, AutoBuilderConfiguration autoBuilderConfiguration)

@@ -275,7 +275,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Int()
             {
                 // Arrange
-                populateIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int>(), null)).Returns(It.IsAny<int>());
+                populateIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<PropertyInfo>())).Returns(It.IsAny<int>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new IntTest(), 0);
@@ -288,7 +288,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Int()
             {
                 // Arrange
-                populateNullableIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int?>(), null)).Returns(It.IsAny<int?>());
+                populateNullableIntService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<int?>(), It.IsAny<PropertyInfo>())).Returns(It.IsAny<int?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableIntTest(), 0);
@@ -301,7 +301,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Double()
             {
                 // Arrange
-                populateDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double>(), null)).Returns(It.IsAny<double>());
+                populateDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double>(), It.IsAny<PropertyInfo>())).Returns(It.IsAny<double>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new DoubleTest(), 0);
@@ -314,7 +314,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             public void Should_Call_Correct_Populate_Service_When_Passed_A_Nullable_Double()
             {
                 // Arrange
-                populateNullableDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double?>(), null)).Returns(It.IsAny<double?>());
+                populateNullableDoubleService.Setup(x => x.Populate(It.IsAny<string>(), It.IsAny<double?>(), It.IsAny<PropertyInfo>())).Returns(It.IsAny<double?>());
 
                 // Act
                 propertyPopulationService.PopulateProperties(new NullableDoubleTest(), 0);

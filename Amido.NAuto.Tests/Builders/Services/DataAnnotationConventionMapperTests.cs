@@ -88,6 +88,34 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 result.Length.ShouldBeGreaterThanOrEqualTo(45);
                 result.Length.ShouldBeLessThanOrEqualTo(50);
             }
+
+            [Test]
+            public void Should_Return_Int_Within_Range_Of_RangeAttribute()
+            {
+                // Arrange
+                var property = typeof(TestAnnotationModel).GetProperty("RangeIntTest");
+
+                // Act
+                var result = (int)dataAnnotationConventionMapper.TryGetValue(typeof(int), property, autoBuilderConfiguration);
+
+                // Assert
+                result.ShouldBeGreaterThanOrEqualTo(1);
+                result.ShouldBeLessThanOrEqualTo(10);
+            }
+
+            [Test]
+            public void Should_Return_Double_Within_Range_Of_RangeAttribute()
+            {
+                // Arrange
+                var property = typeof(TestAnnotationModel).GetProperty("RangeDoubleTest");
+
+                // Act
+                var result = (double)dataAnnotationConventionMapper.TryGetValue(typeof(double), property, autoBuilderConfiguration);
+
+                // Assert
+                result.ShouldBeGreaterThanOrEqualTo(1.2);
+                result.ShouldBeLessThanOrEqualTo(10.2);
+            }
         }
     }
 }

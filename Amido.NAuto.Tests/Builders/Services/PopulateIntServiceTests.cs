@@ -5,17 +5,21 @@ using Should;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
+    using Moq;
+
     [TestFixture]
     public class PopulateIntServiceTests
     {
         private PopulateIntService populateIntService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
+        private Mock<IDataAnnotationConventionMapper> dataAnnotationConventionMapper;
 
-        [SetUp]
+            [SetUp]
         public void SetUp()
         {
-            autoBuilderConfiguration = new AutoBuilderConfiguration();    
-            populateIntService = new PopulateIntService();
+            autoBuilderConfiguration = new AutoBuilderConfiguration();
+            dataAnnotationConventionMapper = new Mock<IDataAnnotationConventionMapper>();
+            populateIntService = new PopulateIntService(dataAnnotationConventionMapper.Object);
             populateIntService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 

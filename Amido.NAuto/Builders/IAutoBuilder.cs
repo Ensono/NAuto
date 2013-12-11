@@ -6,6 +6,8 @@ namespace Amido.NAuto.Builders
     {
         IAutoBuilderOverrides<TModel> Construct(params object[] constructorParameters);
 
+        IAutoBuilderOverrides<TModel> Empty(); 
+            
         IAutoBuilderOverrides<TModel> Load(string relativeFilePath);
 
         IAutoBuilder<TModel> ClearConventions();

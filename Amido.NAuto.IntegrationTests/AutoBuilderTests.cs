@@ -12,7 +12,35 @@ namespace Amido.NAuto.IntegrationTests
     public class AutoBuilderTests
     {
         private readonly AutoBuilderConfiguration configuration = new AutoBuilderConfiguration();
-        
+
+        [Test]
+        public void Should_Create_Empty_Instance_Of_Model()
+        {
+            const string Email = "a@b.com";
+
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Empty()
+                .With(x => x.Email = Email)
+                .Build();
+
+            testModel.ShouldNotBeNull();
+            testModel.Email.ShouldEqual(Email);
+        }
+
+        [Test]
+        public void Should_Create_Empty_Instance_Of_Model_In_Json()
+        {
+            const string Email = "a@b.com";
+
+            var testModel = NAuto.AutoBuild<TestModel>()
+                .Empty()
+                .With(x => x.Email = Email)
+                .ToJson();
+
+            testModel.ShouldNotBeNull();
+            testModel.ShouldContain(Email);
+        }
+
         [Test]
         public void Should_Load_Json_Representation()
         {
@@ -27,7 +55,6 @@ namespace Amido.NAuto.IntegrationTests
             var testModel =
                 NAuto.AutoBuild<TestModel>()
                     .Load(@"TestJsonModels\testModel3.json")
-                    
                     .Persist(@"TestJsonModels\testModel3.json");
         }
 

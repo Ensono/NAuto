@@ -23,7 +23,7 @@ namespace Amido.NAuto.Builders
         private readonly AutoBuilderConfiguration configuration;
         private object[] constructorParameters;
 
-        private bool isLoadedModel;
+        private bool hasInstance;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoBuilder{TModel}"/> class.
@@ -45,7 +45,7 @@ namespace Amido.NAuto.Builders
             this.configuration = configuration;
 
             this.Actions = new List<Action>();
-            isLoadedModel = false;
+            this.hasInstance = false;
         }
 
         internal TModel Entity { get; set; }
@@ -156,6 +156,20 @@ namespace Amido.NAuto.Builders
             return this;
         }
 
+        public IAutoBuilderOverrides<TModel> Empty()
+        {
+            var constructors = typeof(TModel).GetConstructors();
+
+            if (constructors.First().GetParameters().Length > 0)
+            {
+                throw new NotSupportedException("class does not have a default constructor");
+            }
+
+            Entity = Activator.CreateInstance<TModel>();
+            hasInstance = true;
+            return this;
+        }
+
         /// <summary>
         /// Loads the specified relative path.
         /// </summary>
@@ -170,7 +184,7 @@ namespace Amido.NAuto.Builders
             if (File.Exists(fullPath))
             {
                 Entity = JsonSerializer.FromJsonString<TModel>(File.ReadAllText(fullPath));
-                isLoadedModel = true;
+                this.hasInstance = true;
             }
             else
             {
@@ -423,7 +437,7 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns the populated model.</returns>
         public TModel Build()
         {
-            if (!isLoadedModel)
+            if (!this.hasInstance)
             {
                 if (this.constructorParameters != null && this.constructorParameters.Length > 0)
                 {

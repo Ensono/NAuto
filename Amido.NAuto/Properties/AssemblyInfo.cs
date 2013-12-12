@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Amido.Testing.NAuto")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Amido.NAuto")]
+[assembly: AssemblyDescription("Automatic convention based population of test objects.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Amido.Testing.NAuto")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Amido Development Ltd")]
+[assembly: AssemblyProduct("Amido.NAuto")]
+[assembly: AssemblyCopyright("Amido Development Ltd Copyright © 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

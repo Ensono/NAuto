@@ -1,5 +1,6 @@
 ﻿using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
+using Moq;
 using NUnit.Framework;
 using Should;
 
@@ -10,12 +11,14 @@ namespace Amido.NAuto.UnitTests.Builders.Services
     {
         private PopulateNullableDoubleService populateNullableDoubleService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
+        private Mock<IDataAnnotationConventionMapper> dataAnnotationConventionMapper;
 
         [SetUp]
         public void SetUp()
         {
             autoBuilderConfiguration = new AutoBuilderConfiguration();
-            populateNullableDoubleService = new PopulateNullableDoubleService();
+            dataAnnotationConventionMapper = new Mock<IDataAnnotationConventionMapper>();
+            populateNullableDoubleService = new PopulateNullableDoubleService(dataAnnotationConventionMapper.Object);
             populateNullableDoubleService.SetAutoBuilderConfiguration(autoBuilderConfiguration);
         }
 

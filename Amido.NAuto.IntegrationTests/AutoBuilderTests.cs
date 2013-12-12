@@ -110,6 +110,19 @@ namespace Amido.NAuto.IntegrationTests
         }
 
         [Test]
+        public void Should_Use_Nullable_Double_Range_Data_Annotation_As_Convention()
+        {
+            var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
+                .ClearConventions()
+                .Construct()
+                .Build();
+
+            // Assert
+            testModel.RangeNullableDoubleTest.ShouldBeGreaterThanOrEqualTo(1);
+            testModel.RangeNullableDoubleTest.ShouldBeLessThanOrEqualTo(10);
+        }
+
+        [Test]
         public void Should_Construct_List_Based_Top_Level_Models_With_Parameters()
         {
             // Arrange

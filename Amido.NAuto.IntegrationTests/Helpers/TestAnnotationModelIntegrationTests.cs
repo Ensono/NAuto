@@ -42,5 +42,8 @@ namespace Amido.NAuto.IntegrationTests.Helpers
 
         [Range(1, 10)]
         public double RangeDoubleTest { get; set; }
+
+        [Range(1, 10)]
+        public double? RangeNullableDoubleTest { get; set; }
     }
 }

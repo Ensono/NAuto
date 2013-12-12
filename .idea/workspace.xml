@@ -7,7 +7,8 @@
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386883833916" ignored="false" />
-    <file path="/index.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386889681007" ignored="false" />
+    <file path="/index.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891685818" ignored="false" />
+    <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,16 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="75" selection-start="3785" selection-end="3785" vertical-scroll-proportion="0.6398305">
+            <state line="26" column="54" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.26271185">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableOfContents.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TableOfContents.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="8" selection-start="1006" selection-end="1019" vertical-scroll-proportion="-5.230769">
               <folding />
             </state>
           </provider>
@@ -54,6 +64,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/TableOfContents.html" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -108,6 +119,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NAutoDocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NAutoDocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -115,6 +140,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="index.html" type="JavascriptDebugSession" factoryName="Local" singleton="true" temporary="true">
@@ -242,9 +268,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="1006" selection-end="1019" vertical-scroll-proportion="-5.230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="75" selection-start="3785" selection-end="3785" vertical-scroll-proportion="0.6398305">
+        <state line="26" column="54" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.26271185">
           <folding />
         </state>
       </provider>

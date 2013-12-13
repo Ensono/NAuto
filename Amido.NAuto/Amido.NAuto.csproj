@@ -97,6 +97,9 @@
     <Compile Include="Builders\Services\PopulateStringService.cs" />
     <Compile Include="Builders\Services\PropertyPopulationService.cs" />
     <Compile Include="Builders\Services\ServiceInstaller.cs" />
+    <Compile Include="Compare\CompareItem.cs" />
+    <Compile Include="Compare\CompareResult.cs" />
+    <Compile Include="Compare\ModelPropertyComparer.cs" />
     <Compile Include="NAuto.cs" />
     <Compile Include="Nject\NAutoContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

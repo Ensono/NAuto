@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
+using Amido.NAuto.Compare;
 using Amido.NAuto.Randomizers;
 
 namespace Amido.NAuto
@@ -210,6 +211,26 @@ namespace Amido.NAuto
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Compares the model properties.
+        /// </summary>
+        /// <param name="modelA">
+        /// Model A.
+        /// </param>
+        /// <param name="modelB">
+        /// Model B.
+        /// </param>
+        /// <param name="maxDepth">
+        /// The maximum depth.
+        /// </param>
+        /// <returns>
+        /// The <see cref="CompareResult"/>.
+        /// </returns>
+        public static CompareResult CompareModelProperties(object modelA, object modelB, int maxDepth = 5)
+        {
+            return ModelPropertyComparer.CompareModelsByPropertyName(modelA, modelB, maxDepth);
         }
     }
 }

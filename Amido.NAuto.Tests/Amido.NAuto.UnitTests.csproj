@@ -81,6 +81,7 @@
     <Compile Include="Builders\Services\PopulateIntServiceTests.cs" />
     <Compile Include="Builders\Services\PopulateStringServiceTests.cs" />
     <Compile Include="Builders\Services\PropertyPopulationServiceTests.cs" />
+    <Compile Include="Compare\ModelPropertyComparerTests.cs" />
     <Compile Include="Helpers\CustomBuilder.cs" />
     <Compile Include="Helpers\TestAnnotationModel.cs" />
     <Compile Include="Helpers\TestModel.cs" />

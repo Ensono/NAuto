@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Configuration.html" />
-      <change type="MOVED" beforePath="C:\Source\NAutoDocs\AutoBuild\Languages.html" afterPath="$PROJECT_DIR$/Languages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configuration.html" afterPath="$PROJECT_DIR$/Configuration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Languages.html" afterPath="$PROJECT_DIR$/Languages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TableOfContents.html" afterPath="$PROJECT_DIR$/TableOfContents.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template.html" afterPath="$PROJECT_DIR$/Template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomInteger.html" afterPath="$PROJECT_DIR$/getRandomInteger.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomList.html" afterPath="$PROJECT_DIR$/getRandomList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
@@ -46,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <file leaf-file-name="TableOfContents.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.65384614">
+            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-20.26923">
               <folding />
             </state>
           </provider>
@@ -82,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Template.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Template.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="1132" vertical-scroll-proportion="-0.0">
+            <state line="27" column="68" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.5694789">
               <folding />
             </state>
           </provider>
@@ -118,7 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/TableOfContents.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/AutoBuild/Configuration.html" />
         <option value="$PROJECT_DIR$/AutoBuild/Languages.html" />
@@ -129,6 +131,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/Languages.html" />
         <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/TableOfContents.html" />
       </list>
     </option>
   </component>
@@ -343,7 +346,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/TableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="64" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
           <folding />
@@ -367,13 +370,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="7" selection-start="96" selection-end="96" vertical-scroll-proportion="0.4006734" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1132" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Configuration.html">
@@ -411,9 +407,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/TableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.65384614">
+        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-20.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="68" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.5694789">
           <folding />
         </state>
       </provider>

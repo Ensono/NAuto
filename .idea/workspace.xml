@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="" />
+    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
+    </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387062068250" ignored="false" />
@@ -44,7 +46,7 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.5483871">
+            <state line="56" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="0.7444169">
               <folding />
             </state>
           </provider>
@@ -122,8 +124,8 @@
         <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/Languages.html" />
         <option value="$PROJECT_DIR$/TableOfContents.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
       </list>
     </option>
   </component>
@@ -408,7 +410,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.5483871">
+        <state line="56" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="0.7444169">
           <folding />
         </state>
       </provider>

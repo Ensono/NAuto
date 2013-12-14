@@ -166,28 +166,56 @@ namespace Amido.NAuto
         /// <summary>
         /// Gets the random list.
         /// </summary>
-        /// <typeparam name="TModel">The type of the model.</typeparam>
-        /// <param name="numberOfItems">The number of items.</param>
-        /// <param name="language">The language.</param>
-        /// <returns>Random list.</returns>
-        public static List<TModel> GetRandomList<TModel>(int numberOfItems = 2, Language language = Language.English) where TModel : class
+        /// <typeparam name="TModel">
+        /// The type of the model.
+        /// </typeparam>
+        /// <param name="numberOfItems">
+        /// The number of items.
+        /// </param>
+        /// <param name="autoBuilderConfiguration">
+        /// The auto Builder Configuration.
+        /// </param>
+        /// <param name="language">
+        /// The language.
+        /// </param>
+        /// <returns>
+        /// Random list.
+        /// </returns>
+        public static List<TModel> GetRandomList<TModel>(int numberOfItems = 2, AutoBuilderConfiguration autoBuilderConfiguration = null, Language language = Language.English) where TModel : class
         {
-            return RandomListGenerator.Get<TModel>(numberOfItems, language);
+            return RandomListGenerator.Get<TModel>(numberOfItems, autoBuilderConfiguration, language);
         }
 
         /// <summary>
         /// Gets the random list with a sequenced column.
         /// </summary>
-        /// <typeparam name="TModel">The type of the model.</typeparam>
-        /// <param name="identityProperty">The identity property.</param>
-        /// <param name="numberOfItems">The number of items.</param>
-        /// <param name="seed">The seed.</param>
-        /// <param name="increment">The increment.</param>
-        /// <param name="language">The language.</param>
-        /// <returns>Random list.</returns>
-        public static List<TModel> GetRandomList<TModel>(Expression<Func<TModel, int>> identityProperty, int numberOfItems = 2, int seed = 1, int increment = 1, Language language = Language.English) where TModel : class
+        /// <typeparam name="TModel">
+        /// The type of the model.
+        /// </typeparam>
+        /// <param name="identityProperty">
+        /// The identity property.
+        /// </param>
+        /// <param name="numberOfItems">
+        /// The number of items.
+        /// </param>
+        /// <param name="seed">
+        /// The seed.
+        /// </param>
+        /// <param name="increment">
+        /// The increment.
+        /// </param>
+        /// <param name="autoBuilderConfiguration">
+        /// The auto Builder Configuration.
+        /// </param>
+        /// <param name="language">
+        /// The language.
+        /// </param>
+        /// <returns>
+        /// Random list.
+        /// </returns>
+        public static List<TModel> GetRandomList<TModel>(Expression<Func<TModel, int>> identityProperty, int numberOfItems = 2, int seed = 1, int increment = 1, AutoBuilderConfiguration autoBuilderConfiguration = null, Language language = Language.English) where TModel : class
         {
-            return RandomListGenerator.Get(identityProperty, numberOfItems, seed, increment, language);
+            return RandomListGenerator.Get(identityProperty, numberOfItems, seed, increment, autoBuilderConfiguration, language);
         }
 
         /// <summary>

@@ -556,10 +556,12 @@ namespace Amido.NAuto.IntegrationTests
         [Test]
         public void Should_Generate_List_With_Specified_Number_Of_Arguments()
         {
-            var testModel = NAuto.AutoBuild<TestModel>()
+            var config = new AutoBuilderConfiguration(defaultLanguage: Language.Chinese);
+
+            var testModel = NAuto.AutoBuild<TestModel>(config)
                 .Configure(x => x.DefaultLanguage = Language.Chinese)
                 .Construct()
-                .With(x => x.FavouriteStringList = NAuto.GetRandomList<string>(5))
+                .With(x => x.FavouriteStringList = NAuto.GetRandomList<string>(5, autoBuilderConfiguration: config))
                 .Build();
 
             testModel.ShouldNotBeNull();
@@ -571,7 +573,7 @@ namespace Amido.NAuto.IntegrationTests
             var testModel = NAuto.AutoBuild<TestModel>()
                 .Configure(x => x.DefaultLanguage = Language.Chinese)
                 .Construct()
-                .With(x => x.Sequencing = NAuto.GetRandomList<ClassForSequencing>(s => s.Id, 10, 5, 10, Language.Chinese))
+                .With(x => x.Sequencing = NAuto.GetRandomList<ClassForSequencing>(s => s.Id, 10, 5, 10, language: Language.Chinese))
                 .Build();
 
             testModel.ShouldNotBeNull();

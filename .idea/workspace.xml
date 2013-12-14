@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Source\NAutoDocs\Configuration.html" afterPath="$PROJECT_DIR$/configuration.html" />
-      <change type="MOVED" beforePath="C:\Source\NAutoDocs\Languages.html" afterPath="$PROJECT_DIR$/languages.html" />
-      <change type="MOVED" beforePath="C:\Source\NAutoDocs\TableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template.html" afterPath="$PROJECT_DIR$/Template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomInteger.html" afterPath="$PROJECT_DIR$/getRandomInteger.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomList.html" afterPath="$PROJECT_DIR$/getRandomList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="" />
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387062068250" ignored="false" />
@@ -40,19 +32,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="8" selection-start="968" selection-end="968" vertical-scroll-proportion="0.5272953">
+            <state line="15" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="-9.807693">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="-17.0">
+            <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.5483871">
               <folding />
             </state>
           </provider>
@@ -61,7 +53,7 @@
       <file leaf-file-name="getRandomList.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getRandomList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-20.26923">
+            <state line="31" column="145" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-9.615385">
               <folding />
             </state>
           </provider>
@@ -386,13 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getRandomList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-20.26923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/languages.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-20.26923">
@@ -407,16 +392,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="-17.0">
+        <state line="15" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="-9.807693">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/getRandomList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="968" selection-end="968" vertical-scroll-proportion="0.5272953">
+        <state line="31" column="145" selection-start="1132" selection-end="1132" vertical-scroll-proportion="-9.615385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.5483871">
           <folding />
         </state>
       </provider>

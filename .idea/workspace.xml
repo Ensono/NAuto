@@ -11,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387141894179" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143534149" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -49,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="22" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-21.615385">
+            <state line="59" column="13" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.7394636">
               <folding />
             </state>
           </provider>
@@ -103,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conventions.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="conventions.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conventions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="0.9727273">
+            <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="-28.807692">
               <folding />
             </state>
           </provider>
@@ -162,8 +162,8 @@
         <option value="$PROJECT_DIR$/autoBuilder-Overview.html" />
         <option value="$PROJECT_DIR$/supported-Types.html" />
         <option value="$PROJECT_DIR$/languages.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/conventions.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
       </list>
     </option>
   </component>
@@ -468,16 +468,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/conventions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="22" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-21.615385">
+        <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="-28.807692">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conventions.html">
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="0.9727273">
+        <state line="59" column="13" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.7394636">
           <folding />
         </state>
       </provider>

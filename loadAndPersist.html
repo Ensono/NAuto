@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>NAuto by amido</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>NAuto</h1>
+        <h2>Automatic convention based population of test objects</h2>
+
+        <section id="downloads">
+            <a href="https://github.com/amido/NAuto/zipball/master" class="btn">Download as .zip</a>
+            <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
+            <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+        <a href="index.html">Home</a>
+        <a href="tableOfContents.html">Documentation</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main_content">
+        <h2>Using the Load and Persist operators</h2>
+        <p>NAuto provides support for the auto population of test data on an object from a JSON file stored on the file system.</p>
+
+        <p>For this scenario lets use the following simple User object.</p>
+
+        <pre>
+public class User
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
+
+    public string Email { get; set; }
+}
+        </pre>
+
+        <p>Now lets also assume we have a JSON file that is on the file system in the following location [SoltutionDirectory]\TestJsonModels\defaultUser.json, which will be used
+            in the next step of this example.</p>
+
+        <pre>
+{
+    "Name"  : "name",
+    "Age"   : "30",
+    "Email" : "a@b.com"
+}
+        </pre>
+
+        <p>You can then use the normal AutoBuild&lt;User&gt; command followed by the Load operator.  The Load operator takes one parameter, which specifies the path to the JSON file on disk.
+            NAuto will auto bind your model to the values from the JSON file.  Any properties that are not mapped from the JSON file will be populated automatically.  Of course as always
+            any value can be overriden using the With operator.</p>
+
+        <pre>
+var value = NAuto.AutoBuild&lt;User&gt;()
+                .Load(@"TestJsonModels\defaultUser.json")
+                .Build();
+        </pre>
+
+        <p>NAuto also provides a persist operator.  This can be used to take the output of the model and store it as JSON on disk. This can be particularly useful for generating
+            JSON data files, that can then be used for other things, such as the body in a fiddler request.</p>
+
+        <pre>
+var value = NAuto.AutoBuild&lt;User&gt;()
+                .Load(@"TestJsonModels\defaultUser.json")
+                .With(x => x.Name = "Bob")
+                .Persist(@"TestJsonModels\outputUser.json");
+        </pre>
+
+    </section>
+</div>
+
+
+</body>
+</html>

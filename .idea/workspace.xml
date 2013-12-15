@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAnnotationsSupport.html" afterPath="$PROJECT_DIR$/dataAnnotationsSupport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emptyOperator.html" afterPath="$PROJECT_DIR$/emptyOperator.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/withOperator.html" afterPath="$PROJECT_DIR$/withOperator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063459195" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387058917678" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387127342536" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387129682585" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063388591" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -26,6 +22,7 @@
     <file path="/emptyOperator.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387128404285" ignored="false" />
     <file path="/dataAnnotationsSupport.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387128450463" ignored="false" />
     <file path="/testDataBuilder.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387128329333" ignored="false" />
+    <file path="/loadAndPersist.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387129781615" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +42,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="testDataBuilder.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testDataBuilder.html">
+      <file leaf-file-name="loadAndPersist.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loadAndPersist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="75" selection-start="3002" selection-end="3002" vertical-scroll-proportion="-14.423077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="withOperator.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/withOperator.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="38" selection-start="2274" selection-end="2274" vertical-scroll-proportion="-9.538462">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="emptyOperator.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/emptyOperator.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="38" selection-start="2165" selection-end="2165" vertical-scroll-proportion="-10.807693">
+            <state line="77" column="14" selection-start="3014" selection-end="3014" vertical-scroll-proportion="2.2261906">
               <folding />
             </state>
           </provider>
@@ -75,16 +54,16 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="69" selection-start="2402" selection-end="2402" vertical-scroll-proportion="-14.346154">
+            <state line="43" column="76" selection-start="1638" selection-end="1638" vertical-scroll-proportion="-6.269231">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataAnnotationsSupport.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dataAnnotationsSupport.html">
+      <file leaf-file-name="emptyOperator.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/emptyOperator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="30" selection-start="2913" selection-end="2913" vertical-scroll-proportion="0.9013606">
+            <state line="11" column="33" selection-start="0" selection-end="2519" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -108,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AutoBuild/Languages.html" />
         <option value="$PROJECT_DIR$/Template.html" />
         <option value="$PROJECT_DIR$/Configuration.html" />
         <option value="$PROJECT_DIR$/getRandomInteger.html" />
@@ -119,11 +97,12 @@
         <option value="$PROJECT_DIR$/getRandomDouble.html" />
         <option value="$PROJECT_DIR$/stylesheets/stylesheet.css" />
         <option value="$PROJECT_DIR$/getRandomString.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/testDataBuilder.html" />
         <option value="$PROJECT_DIR$/withOperator.html" />
         <option value="$PROJECT_DIR$/emptyOperator.html" />
         <option value="$PROJECT_DIR$/dataAnnotationsSupport.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/loadAndPersist.html" />
       </list>
     </option>
   </component>
@@ -339,37 +318,23 @@
         <state line="14" column="7" selection-start="96" selection-end="96" vertical-scroll-proportion="0.4006734" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="69" selection-start="2402" selection-end="2402" vertical-scroll-proportion="-14.346154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testDataBuilder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="75" selection-start="3002" selection-end="3002" vertical-scroll-proportion="-14.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/withOperator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="38" selection-start="2274" selection-end="2274" vertical-scroll-proportion="-9.538462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/emptyOperator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="38" selection-start="2165" selection-end="2165" vertical-scroll-proportion="-10.807693">
+        <state line="11" column="33" selection-start="0" selection-end="2519" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataAnnotationsSupport.html">
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="30" selection-start="2913" selection-end="2913" vertical-scroll-proportion="0.9013606">
+        <state line="43" column="76" selection-start="1638" selection-end="1638" vertical-scroll-proportion="-6.269231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loadAndPersist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="14" selection-start="3014" selection-end="3014" vertical-scroll-proportion="2.2261906">
           <folding />
         </state>
       </provider>

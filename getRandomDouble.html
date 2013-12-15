@@ -24,39 +24,26 @@
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
         <a href="index.html">Home</a>
-        Documentation
+        <a href="tableOfContents.html">Documentation</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
-        <p>Table of contents</p>
+        <h2>Get Random Double</h2>
+        <p>NAuto allows you to easily acquire a random double value to use in your tests.</p>
+
+        <p>The GetRandomDouble operation accepts two parameters allowing you to specify the range in which NAuto should generate a random double by specifying the minimum and maximum allowed values to be returned:</p>
         <ul>
-            <li>AutoBuilder
-                <ul>
-                    <li>Overview</li>
-                    <li>Basic Usage Example</li>
-                    <li>With Overrides</li>
-                    <li>If - Then Conditions</li>
-                    <li><a href="configuration.html">Configuration</a></li>
-                    <li>Conventions</li>
-                    <li>Languages</li>
-                    <li>Load &amp; Persist</li>
-                    <li>Empty Objects</li>
-                    <li>Data Annotations C#/Mvc</li>
-                    <li>JSON Support</li>
-                    <li>Supported Property Types</li>
-                    <li>Examples</li>
-                </ul>
-            </li>
-            <li>GetRandomPropertyType</li>
-            <li>GetRandomString</li>
-            <li><a href="getRandomInteger.html">GetRandomInteger</a></li>
-            <li><a href="getRandomDouble.html">GetRandomDouble</a></li>
-            <li><a href="getRandomList.html">Get Random List</a></li>
-            <li>Get Random Sequenced List</li>
-            <li>Builder (Non Auto)</li>
+            <li>Passing Min & Max Integer</li>
         </ul>
+
+        <small><em>Generating a random double with a specified minimum and maximum value.</em></small>
+          <pre>
+var value = NAuto.GetRandomDouble(10.5, 5000.9);
+          </pre>
+
+
 
     </section>
 </div>

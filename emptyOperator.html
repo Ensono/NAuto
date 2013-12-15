@@ -52,7 +52,7 @@ public class User
         <p>If we simply wanted to initialise a new object and set only the email address and password, leaving the name and age property unset, you would do the following:</p>
 
         <pre>
-var user = NAuto.AutoBuild<User>()
+var user = NAuto.AutoBuild&lt;User&gt;()
             .Empty()
             .With(x => x.Email = "a@b.com")
             .With(x => x.Password = "pa55word")

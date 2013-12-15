@@ -52,7 +52,7 @@ public class User
 
         <p>We can simply use NAuto to auto generate the model test data with the following command:</p>
         <pre>
-var user = NAuto.AutoBuild<User>()
+var user = NAuto.AutoBuild&lt;User&gt;()
             .Construct()
             .Build();
         </pre>
@@ -61,7 +61,7 @@ var user = NAuto.AutoBuild<User>()
             With statement to override with specific values as follows:</p>
 
         <pre>
-var user = NAuto.AutoBuild<User>()
+var user = NAuto.AutoBuild&lt;User&gt;()
             .Construct()
             .With(x => x.Email = "a@b.com")
             .With(x => x.Password = "pa55word")

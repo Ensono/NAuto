@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>NAuto by amido</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>NAuto</h1>
+        <h2>Automatic convention based population of test objects</h2>
+
+        <section id="downloads">
+            <a href="https://github.com/amido/NAuto/zipball/master" class="btn">Download as .zip</a>
+            <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
+            <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+        <a href="index.html">Home</a>
+        <a href="tableOfContents.html">Documentation</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main_content">
+        <h2>Using NAuto with the Test Data Builder pattern</h2>
+        <p>In addition to generating test data for an object automatically, NAuto also supports the usage of the more traditional Test Data Builder pattern, which allows you to
+            set hard coded values for your objects opposed to automatically generating random values at run time.</p>
+        <p>More often than not in tests, test data that is used can 95% of the time be the same values.  Therefore it seems logical to be able to create test data that
+            is associated to a model that can easily be used to initialise an object and is also simple to maintain.</p>
+        <p>Lets show an example of the pattern in use with NAuto</p>
+
+        <p>Lets take the following standard user object as the class to initialise with test data:</p>
+        <pre>
+public class User
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
+
+    public string Email { get; set; }
+}
+</pre>
+
+        <p>To usee the Test Data Builder pattern with NAuto, you need to create a class that inherits from "Builder".  Builder takes two generic arguments.</p>
+        <ul>
+            <li>The first is the TestDataBuilder to use.  Typically this will be the same class</li>
+            <li>The second is the object to initialise with the test data.  In this scenario we are using the User object from the step above</li>
+        </ul>
+        <p>Within the TestDataBuilder class simply add a default constructor.  Within the constructor you can specify "Entity".  Entity represents an instance of the object to set the properties
+            upon.  In this case Entity is an instance of the User object.</p>
+        <p>You can then simply set the values of any property on the object, as shown below:</p>
+        <pre>
+public class UserTestDataBuilder : Builder&lt;UserTestDataBuilder, User&gt;
+{
+    public UserTestDataBuilder()
+    {
+        Entity.Name = "name";
+        Entity.Age = 30;
+        Entity.Email = "a@b.com";
+    }
+}
+        </pre>
+
+        <p>You may ask why go to the bother to generate this additional class?  Well this allows you to set hard coded test data in a single place in your solution, which can be consumed many times,
+            preventing your tests having to repeat the same initialisation of test data for the same object over and over again.</p>
+
+        <p>Finally to use the USerTestDataBuilder, simply use NAuto.Build specifying the type of Test Data Builder as a generic argument instead of using NAuto.AutoBuild. </p>
+        <p>You can simply just then call .Build() to generate an instance of your object with the values set in the UserTestDataBuilder</p>
+        <pre>
+var value = NAuto.Build&lt;UserTestDataBuilder&gt;()
+             .Build();
+        </pre>
+
+        <p>If for a given test you need to override a given value, then you can of course use the With operator as normal:</p>
+
+        <pre>
+var value = NAuto.Build&lt;UserTestDataBuilder&gt;()
+            .With(x => x.Email = "x@y.com")
+            .Build();
+        </pre>
+
+    </section>
+
+</div>
+
+
+</body>
+</html>

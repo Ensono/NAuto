@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages.html" afterPath="$PROJECT_DIR$/languages.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
     </list>
     <ignored path="NAutoDocs.iws" />
@@ -12,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387140605520" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387141894179" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -21,6 +20,7 @@
     <file path="/languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387140577059" ignored="false" />
     <file path="/AutoBuilder-Overview.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387109269825" ignored="false" />
     <file path="/supported-Types.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387139382552" ignored="false" />
+    <file path="/conventions.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143333757" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="47" selection-start="1648" selection-end="1648" vertical-scroll-proportion="-10.5">
+            <state line="59" column="22" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-21.615385">
               <folding />
             </state>
           </provider>
@@ -94,10 +94,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="languages.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/languages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.71647507">
+            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-21.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conventions.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/conventions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="0.9727273">
               <folding />
             </state>
           </provider>
@@ -115,16 +124,7 @@
       <file leaf-file-name="Template.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getRandomInteger.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="7" selection-start="1494" selection-end="1659" vertical-scroll-proportion="0.0">
+            <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
               <folding />
             </state>
           </provider>
@@ -148,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AutoBuild/Languages.html" />
         <option value="$PROJECT_DIR$/Configuration.html" />
         <option value="$PROJECT_DIR$/Languages.html" />
         <option value="$PROJECT_DIR$/TableOfContents.html" />
@@ -162,8 +161,9 @@
         <option value="$PROJECT_DIR$/autoBuilder-Supported-Types.html" />
         <option value="$PROJECT_DIR$/autoBuilder-Overview.html" />
         <option value="$PROJECT_DIR$/supported-Types.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/languages.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/conventions.html" />
       </list>
     </option>
   </component>
@@ -372,13 +372,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -447,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="29" selection-start="2164" selection-end="2164" vertical-scroll-proportion="-5.423077">
@@ -468,16 +454,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/languages.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="47" selection-start="1648" selection-end="1648" vertical-scroll-proportion="-10.5">
+        <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-21.576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/languages.html">
+    <entry file="file://$PROJECT_DIR$/Template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.71647507">
+        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="22" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-21.615385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conventions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="0.9727273">
           <folding />
         </state>
       </provider>

@@ -31,7 +31,53 @@
 <div class="container">
     <section id="main_content">
 
-        <h2>Coming Soon..</h2>
+        <h2>Supported Types</h2>
+        <p>NAuto will build most models/objects including custom objects.</p>
+        <p>Eventually most objects get down to built in .net types such as primitives, strings and arrays etc.</p>
+        <p>This page is here to document specific types we have tested.</p>
+        <p>Just to be clear, types can be complex and have complex properties, the following list is made up of built in types that are supported for use in your models.</p>
+        <ul>
+            <li>string</li>
+            <li>int</li>
+            <li>int?</li>
+            <li>double</li>
+            <li>double?</li>
+            <li>decimal</li>
+            <li>decimal?</li>
+            <li>bool</li>
+            <li>bool?</li>
+            <li>long</li>
+            <li>long?</li>
+            <li>char</li>
+            <li>char?</li>
+            <li>Guid</li>
+            <li>byte</li>
+            <li>byte?</li>
+            <li>DateTime</li>
+            <li>Enums</li>
+            <li>Array</li>
+            <li>List<></li>
+            <li>Dictionary<,></li>
+        </ul>
+
+        <p>So the following model would be perfectly fine:</p>
+        <pre>
+public class ComplexType
+{
+    public SubComplexType MySubComplexType { get; set; }
+    public Dictionary&lt;int, SubComplexType&gt; MyDictionary { get; set; }
+    public int MyInt { get; set; }
+    public bool IsABool { get; set; }
+    public List&lt;string&gt; SomeStrings { get; set; }
+}
+
+public class SubComplexType
+{
+    public decimal? MyNullableDecimal { get; set; }
+}
+
+        </pre>
+
 
     </section>
 </div>

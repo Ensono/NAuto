@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration.html" afterPath="$PROJECT_DIR$/configuration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supported-Types.html" afterPath="$PROJECT_DIR$/supported-Types.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
     </list>
     <ignored path="NAutoDocs.iws" />
@@ -16,10 +18,10 @@
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
     <file path="/getRandomPropertyType.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387106408630" ignored="false" />
-    <file path="/configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105819760" ignored="false" />
+    <file path="/configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387147105979" ignored="false" />
     <file path="/languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387140577059" ignored="false" />
     <file path="/AutoBuilder-Overview.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387109269825" ignored="false" />
-    <file path="/supported-Types.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387139382552" ignored="false" />
+    <file path="/supported-Types.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387145287553" ignored="false" />
     <file path="/conventions.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143333757" ignored="false" />
     <file path="/json.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387144578046" ignored="false" />
     <file path="/if-then.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387145086627" ignored="false" />
@@ -51,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="if-then.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="if-then.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/if-then.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="84" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.7816092">
+            <state line="36" column="8" selection-start="1297" selection-end="1386" vertical-scroll-proportion="-23.538462">
               <folding />
             </state>
           </provider>
@@ -63,7 +65,7 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="45" selection-start="1479" selection-end="1479" vertical-scroll-proportion="-10.846154">
+            <state line="36" column="77" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-8.884615">
               <folding />
             </state>
           </provider>
@@ -90,7 +92,7 @@
       <file leaf-file-name="supported-Types.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supported-Types.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="-27.5">
+            <state line="62" column="74" selection-start="2308" selection-end="2308" vertical-scroll-proportion="-22.26923">
               <folding />
             </state>
           </provider>
@@ -105,19 +107,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/languages.html">
+      <file leaf-file-name="configuration.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/configuration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-21.576923">
+            <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.6851852">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getRandomInteger.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
+      <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/languages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="8" selection-start="1669" selection-end="1765" vertical-scroll-proportion="-20.653847">
+            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-21.576923">
               <folding />
             </state>
           </provider>
@@ -152,7 +154,6 @@
       <list>
         <option value="$PROJECT_DIR$/TableOfContents.html" />
         <option value="$PROJECT_DIR$/Template.html" />
-        <option value="$PROJECT_DIR$/configuration.html" />
         <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/getRandomInteger.html" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -160,12 +161,13 @@
         <option value="$PROJECT_DIR$/AutoBuilder-Overview.html" />
         <option value="$PROJECT_DIR$/autoBuilder-Supported-Types.html" />
         <option value="$PROJECT_DIR$/autoBuilder-Overview.html" />
-        <option value="$PROJECT_DIR$/supported-Types.html" />
         <option value="$PROJECT_DIR$/languages.html" />
         <option value="$PROJECT_DIR$/conventions.html" />
         <option value="$PROJECT_DIR$/json.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/if-then.html" />
+        <option value="$PROJECT_DIR$/supported-Types.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/configuration.html" />
       </list>
     </option>
   </component>
@@ -386,13 +388,6 @@
         <state line="14" column="7" selection-start="96" selection-end="96" vertical-scroll-proportion="0.4006734" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configuration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="34" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="37" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
@@ -417,13 +412,6 @@
     <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="29" selection-start="2164" selection-end="2164" vertical-scroll-proportion="-5.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supported-Types.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="-27.5">
           <folding />
         </state>
       </provider>
@@ -463,13 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="45" selection-start="1479" selection-end="1479" vertical-scroll-proportion="-10.846154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="8" selection-start="1669" selection-end="1765" vertical-scroll-proportion="-20.653847">
@@ -477,9 +458,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/supported-Types.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="74" selection-start="2308" selection-end="2308" vertical-scroll-proportion="-22.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="77" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-8.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/if-then.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="84" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.7816092">
+        <state line="36" column="8" selection-start="1297" selection-end="1386" vertical-scroll-proportion="-23.538462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.6851852">
           <folding />
         </state>
       </provider>

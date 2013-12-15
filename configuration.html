@@ -30,7 +30,77 @@
 <div class="container">
     <section id="main_content">
 
-        <h2>Coming Soon..</h2>
+        <h2>Configuration</h2>
+        <p>You can configure NAuto.AutoBuild either inline as part of the fluent interface or by passing in an instance of AutoBuilderCOnfiguration.</p>
+        <small><em>Shows an AutoBuilderConfiguration class being passed into auto build.</em></small>
+        <pre>
+var config = new AutoBuilderConfiguration(
+            defaultLanguage: Language.Chinese);
+
+var myModel = NAuto.AutoBuild&lt;MyModel&gt;(config)
+    .Construct()
+    .Build();
+        </pre>
+
+        <small><em>Shows an example of inline configuration.</em></small>
+        <pre>
+var myModel = NAuto.AutoBuild&lt;MyModel&gt;()
+            .Configure(x => x.DefaultLanguage = Language.Russian)
+            .Construct()
+            .Build();
+        </pre>
+
+        <p>It is also perfectly valid to pass in an instance of AutoBuilderConfiguration and still use inline .Configure calls to override certain properties.</p>
+
+        <h3>Defaults</h3>
+        <p>Below shows how the default AutoBuilderConfiguration is instantiated and its default values.</p>
+        <ul>
+            <li>DateTime defaultDateTime = DateTime.UtcNow</li>
+            <li>CharacterSetType stringCharacterSetType = CharacterSetType.Alpha</li>
+            <li>Casing stringCasing = Casing.ProperCase</li>
+            <li>Spaces stringSpaces = Spaces.None</li>
+            <li>Language defaultLanguage = Language.English</li>
+            <li>int intMinimum = 1</li>
+            <li>int intMaximum = 10000</li>
+            <li>double doubleMinimum = 100</li>
+            <li>double doubleMaximum = 100000</li>
+            <li>short shortMinimum = 1</li>
+            <li>short shortMaximum = 32000</li>
+            <li>bool defaultBoolean = true</li>
+            <li>int stringMinLength = 5</li>
+            <li>int stringMaxLength = 25</li>
+            <li>int maxDepth = 5</li>
+            <li>int defaultCollectionItemCount = 2</li>
+        </ul>
+        <h3>Conventions</h3>
+        <p>Conventions can be configured inline or via the AutoBuilderConfiguration instance.</p>
+        <p>Typically it is a good idea to create a configuration class for a particular project/domain area which is shared between tests.</p>
+        <p>This shared configuration file would also have a set of conventions specific to the area.</p>
+        <p>The following is an example of this approach:</p>
+        <pre>
+var myModel = NAuto.AutoBuild<TestModel>(MyConfig.GetConfig())
+    .Construct()
+    .Build();
+       </pre>
+        <pre>
+public static class MyConfig
+{
+    public static AutoBuilderConfiguration GetConfig()
+    {
+        var autoBuilderConfiguration = new AutoBuilderConfiguration();
+        autoBuilderConfiguration.DefaultLanguage = Language.Chinese;
+
+        autoBuilderConfiguration.Conventions.Add(
+            new ConventionMap(
+                ConventionFilterType.Contains,
+                "Foo",
+                typeof(string),
+                config => "Bar"));
+
+        return autoBuilderConfiguration;
+    }
+}
+        </pre>
 
     </section>
 </div>

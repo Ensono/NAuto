@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>NAuto by Amido Development Ltd</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>NAuto</h1>
+        <h2>Automatic convention based population of test objects</h2>
+
+        <section id="downloads">
+            <a href="https://github.com/amido/NAuto/zipball/master" class="btn">Download as .zip</a>
+            <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
+            <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+        <a href="index.html">Home</a>
+        <a href="tableOfContents.html">Documentation</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main_content">
+
+        <h2>Get Random Sequenced List</h2>
+        <p>Get random sequenced list is actually just an override of GetRandomList.</p>
+        <p>Spinning up a random sequenced list is both very simple and also very powerful.</p>
+        <p>A property must be selected to be the sequenced property and must be of type int.</p>
+        <small><em>Generating a random sequenced list.</em></small>
+          <pre>
+var newList = NAuto.GetRandomList&lt;MyModel&gt;(seq => seq.Id)
+          </pre>
+        <p>The example will return a list with the id property sequenced starting from 1 and incrementing by 1</p>
+        <p>There are a few additional properties that can be used to configure the sequenced list for example:</p>
+        <pre>
+var newList = NAuto.GetRandomList&lt;MyModel&gt;(
+            seq => seq.Id,
+            numberOfItems: 10,
+            seed: 5,
+            increment: 5,
+            autoBuilderConfiguration: config,
+            language:Language.Chinese))
+        </pre>
+        <p>Each list item is created via NAuto.AutoBuild therefore each list item has access to the feature set available within AutoBuild such as Conventions and Multi-Language support.</p>
+        <h2>Configuration</h2>
+        <p>The GetRandomList method optionally accepts an AutoBuilderConfiguration object.</p>
+        <p>For more information on AutoBuilderConfiguration, please see the <a href="configuration.html">Configuration</a> section.</p>
+        <small><em>Generating a random list using customer configuration.</em></small>
+          <pre>
+var newList = NAuto.GetRandomList&lt;MyComplexType&gt;(
+              seq => seq.Id,
+              autoBuilderConfiguration: myCustomConfig);
+          </pre>
+        <h2>Language Support</h2>
+        <p>The GetRandomList method optionally accepts a language parameter.</p>
+        <p>For more information on languages, please see the <a href="languages.html">Languages</a> section.</p>
+        <small><em>Generating a random list in traditional Chinese.</em></small>
+          <pre>
+var newList = NAuto.GetRandomList&lt;MyComplexType&gt;(
+              seq => seq.Id,
+              language: Language.Chinese);
+          </pre>
+    </section>
+</div>
+
+
+</body>
+</html>l>

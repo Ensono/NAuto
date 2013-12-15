@@ -11,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387147591941" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387148863198" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -24,6 +24,7 @@
     <file path="/json.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387144578046" ignored="false" />
     <file path="/if-then.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387145086627" ignored="false" />
     <file path="/value-generation-order-of-precedence.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387148331568" ignored="false" />
+    <file path="/getRandomSequencedList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387149276604" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +62,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="getRandomList.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getRandomList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="14" selection-start="1225" selection-end="2808" vertical-scroll-proportion="-28.807692">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="83" selection-start="2160" selection-end="2160" vertical-scroll-proportion="-16.076923">
+            <state line="55" column="52" selection-start="2683" selection-end="2683" vertical-scroll-proportion="-21.961538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getRandomSequencedList.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/getRandomSequencedList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="28" selection-start="3262" selection-end="3262" vertical-scroll-proportion="0.8263091">
               <folding />
             </state>
           </provider>
@@ -106,28 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="property-value-generation-order-of-precedence.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="property-value-generation-order-of-precedence.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/property-value-generation-order-of-precedence.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="0.8659004">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/languages.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-21.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="conventions.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conventions.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="-28.807692">
+            <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="-26.076923">
               <folding />
             </state>
           </provider>
@@ -151,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/getRandomInteger.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/getRandomPropertyType.html" />
@@ -165,8 +165,9 @@
         <option value="$PROJECT_DIR$/supported-Types.html" />
         <option value="$PROJECT_DIR$/configuration.html" />
         <option value="$PROJECT_DIR$/value-generation-order-of-precedence.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/property-value-generation-order-of-precedence.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/getRandomSequencedList.html" />
       </list>
     </option>
   </component>
@@ -375,21 +376,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="7" selection-start="96" selection-end="96" vertical-scroll-proportion="0.4006734" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="37" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getRandomList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="46" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -464,6 +453,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/property-value-generation-order-of-precedence.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="-26.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
@@ -471,16 +467,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+    <entry file="file://$PROJECT_DIR$/getRandomList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="83" selection-start="2160" selection-end="2160" vertical-scroll-proportion="-16.076923">
+        <state line="65" column="14" selection-start="1225" selection-end="2808" vertical-scroll-proportion="-28.807692">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/property-value-generation-order-of-precedence.html">
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="0.8659004">
+        <state line="55" column="52" selection-start="2683" selection-end="2683" vertical-scroll-proportion="-21.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getRandomSequencedList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="28" selection-start="3262" selection-end="3262" vertical-scroll-proportion="0.8263091">
           <folding />
         </state>
       </provider>

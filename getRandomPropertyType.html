@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>How to configure NAuto by Amido Development Ltd</title>
+    <title>How to generate a random email, url, postal code or telephone number with NAuto by Amido Development Ltd</title>
 </head>
+
 <body>
 
 <header>
@@ -30,7 +31,28 @@
 <div class="container">
     <section id="main_content">
 
-        <h2>Coming Soon..</h2>
+        <h2>Get Random Property Type</h2>
+        <p>This method provides a shortcut for creating common property types, in this release the following types are supported:</p>
+        <ul>
+            <li>Email</li>
+            <li>Url</li>
+            <li>Postal Code</li>
+            <li>Telephone Number</li>
+        </ul>
+
+        <small><em>Generating a random email address.</em></small>
+          <pre>
+var email = NAuto.GetRandomPropertyType(PropertyType.Email);
+          </pre>
+
+        <p>Each property type can optionally be passed a language from the list of supported languages, for example this would allow an url to be created using a Russian character set:</p>
+
+        <small><em>Generating a random url with Russian character set.</em></small>
+          <pre>
+var url = NAuto.GetRandomPropertyType(
+              PropertyType.Url,
+              Language.Russian);
+          </pre>
 
     </section>
 </div>

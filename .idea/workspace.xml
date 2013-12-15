@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="" />
+    <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template.html" afterPath="$PROJECT_DIR$/Template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration.html" afterPath="$PROJECT_DIR$/configuration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomInteger.html" afterPath="$PROJECT_DIR$/getRandomInteger.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomList.html" afterPath="$PROJECT_DIR$/getRandomList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages.html" afterPath="$PROJECT_DIR$/languages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387065364772" ignored="false" />
-    <file path="/index.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387057931578" ignored="false" />
+    <file path="/Dummy.txt" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105552888" ignored="false" />
+    <file path="/index.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105914863" ignored="false" />
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
-    <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063459195" ignored="false" />
-    <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387058917678" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063242695" ignored="false" />
-    <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063388591" ignored="false" />
+    <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
+    <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387106998180" ignored="false" />
+    <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
+    <file path="/getRandomPropertyType.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387106408630" ignored="false" />
+    <file path="/configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105819760" ignored="false" />
+    <file path="/languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105935882" ignored="false" />
+    <file path="/AutoBuilder-Overview.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387109269825" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +48,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
+            <state line="10" column="37" selection-start="436" selection-end="436" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="0.68362284">
+            <state line="47" column="24" selection-start="1818" selection-end="1849" vertical-scroll-proportion="-26.307692">
               <folding />
             </state>
           </provider>
@@ -53,7 +66,34 @@
       <file leaf-file-name="getRandomList.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getRandomList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="145" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
+            <state line="10" column="46" selection-start="445" selection-end="445" vertical-scroll-proportion="8.884615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getRandomPropertyType.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getRandomPropertyType.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="14" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-25.923077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoBuilder-Overview.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="48" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.712987">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="supported-Types.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supported-Types.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="7" selection-start="1221" selection-end="1221" vertical-scroll-proportion="-26.153847">
               <folding />
             </state>
           </provider>
@@ -62,7 +102,7 @@
       <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/languages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
+            <state line="10" column="41" selection-start="440" selection-end="440" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
@@ -71,7 +111,7 @@
       <file leaf-file-name="configuration.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configuration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
+            <state line="10" column="34" selection-start="433" selection-end="433" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
@@ -80,7 +120,7 @@
       <file leaf-file-name="Template.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="10" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+            <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
               <folding />
             </state>
           </provider>
@@ -89,7 +129,7 @@
       <file leaf-file-name="getRandomInteger.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
+            <state line="41" column="7" selection-start="1494" selection-end="1659" vertical-scroll-proportion="-17.73077">
               <folding />
             </state>
           </provider>
@@ -113,17 +153,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/AutoBuild/Configuration.html" />
         <option value="$PROJECT_DIR$/AutoBuild/Languages.html" />
-        <option value="$PROJECT_DIR$/Template.html" />
         <option value="$PROJECT_DIR$/Configuration.html" />
-        <option value="$PROJECT_DIR$/getRandomInteger.html" />
-        <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/Languages.html" />
         <option value="$PROJECT_DIR$/TableOfContents.html" />
+        <option value="$PROJECT_DIR$/Template.html" />
+        <option value="$PROJECT_DIR$/configuration.html" />
+        <option value="$PROJECT_DIR$/getRandomList.html" />
+        <option value="$PROJECT_DIR$/getRandomInteger.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/languages.html" />
+        <option value="$PROJECT_DIR$/getRandomPropertyType.html" />
+        <option value="$PROJECT_DIR$/AutoBuilder-Overview.html" />
+        <option value="$PROJECT_DIR$/autoBuilder-Supported-Types.html" />
         <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/autoBuilder-Overview.html" />
       </list>
     </option>
   </component>
@@ -157,6 +202,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,13 +237,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
@@ -250,7 +296,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1032" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -331,27 +377,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/languages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
@@ -394,49 +419,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/languages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+        <state line="10" column="34" selection-start="433" selection-end="433" vertical-scroll-proportion="-6.5384617">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
+        <state line="10" column="37" selection-start="436" selection-end="436" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/languages.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="41" selection-start="440" selection-end="440" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="7" selection-start="1494" selection-end="1659" vertical-scroll-proportion="-17.73077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getRandomList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="145" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
+        <state line="10" column="46" selection-start="445" selection-end="445" vertical-scroll-proportion="8.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getRandomPropertyType.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="14" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-25.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supported-Types.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="7" selection-start="1221" selection-end="1221" vertical-scroll-proportion="-26.153847">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="41" selection-start="2150" selection-end="2150" vertical-scroll-proportion="0.68362284">
+        <state line="47" column="24" selection-start="1818" selection-end="1849" vertical-scroll-proportion="-26.307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="48" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.712987">
           <folding />
         </state>
       </provider>

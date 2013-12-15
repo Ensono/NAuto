@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration.html" afterPath="$PROJECT_DIR$/configuration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supported-Types.html" afterPath="$PROJECT_DIR$/supported-Types.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
     </list>
     <ignored path="NAutoDocs.iws" />
@@ -13,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387145016352" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387147591941" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -25,6 +23,7 @@
     <file path="/conventions.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143333757" ignored="false" />
     <file path="/json.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387144578046" ignored="false" />
     <file path="/if-then.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387145086627" ignored="false" />
+    <file path="/value-generation-order-of-precedence.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387148331568" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="77" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-8.884615">
+            <state line="47" column="83" selection-start="2160" selection-end="2160" vertical-scroll-proportion="-16.076923">
               <folding />
             </state>
           </provider>
@@ -75,15 +74,6 @@
         <entry file="file://$PROJECT_DIR$/loadAndPersist.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autoBuilder-Overview.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="29" selection-start="2164" selection-end="2164" vertical-scroll-proportion="-5.423077">
               <folding />
             </state>
           </provider>
@@ -107,10 +97,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="configuration.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="configuration.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configuration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.6851852">
+            <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="-9.773585">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="property-value-generation-order-of-precedence.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/property-value-generation-order-of-precedence.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="0.8659004">
               <folding />
             </state>
           </provider>
@@ -152,8 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/TableOfContents.html" />
-        <option value="$PROJECT_DIR$/Template.html" />
         <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/getRandomInteger.html" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -166,8 +163,10 @@
         <option value="$PROJECT_DIR$/json.html" />
         <option value="$PROJECT_DIR$/if-then.html" />
         <option value="$PROJECT_DIR$/supported-Types.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/configuration.html" />
+        <option value="$PROJECT_DIR$/value-generation-order-of-precedence.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/property-value-generation-order-of-precedence.html" />
       </list>
     </option>
   </component>
@@ -376,13 +375,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="45" selection-start="1773" selection-end="1773" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="7" selection-start="96" selection-end="96" vertical-scroll-proportion="0.4006734" />
@@ -444,13 +436,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="8" selection-start="1669" selection-end="1765" vertical-scroll-proportion="-20.653847">
@@ -465,13 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="77" selection-start="1308" selection-end="1308" vertical-scroll-proportion="-8.884615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/if-then.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="8" selection-start="1297" selection-end="1386" vertical-scroll-proportion="-23.538462">
@@ -481,7 +459,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.6851852">
+        <state line="84" column="13" selection-start="3657" selection-end="3657" vertical-scroll-proportion="-9.773585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="83" selection-start="2160" selection-end="2160" vertical-scroll-proportion="-16.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/property-value-generation-order-of-precedence.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="126" selection-start="2613" selection-end="2613" vertical-scroll-proportion="0.8659004">
           <folding />
         </state>
       </provider>

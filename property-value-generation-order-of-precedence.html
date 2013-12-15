@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>NAuto by Amido Development Ltd</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>NAuto</h1>
+        <h2>Automatic convention based population of test objects</h2>
+
+        <section id="downloads">
+            <a href="https://github.com/amido/NAuto/zipball/master" class="btn">Download as .zip</a>
+            <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
+            <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+        <a href="index.html">Home</a>
+        <a href="tableOfContents.html">Documentation</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main_content">
+
+        <h2>Property value generation - order of precedence</h2>
+        <p>Properties are generated according to a set order of precedence.</p>
+        <p>It is important to understand this as it may help diagnose an issue if the value generated does not match the expected.</p>
+        <h3>1. Check if property already has value</h3>
+        <p>This scenario happens when a constructor sets a class property.</p>
+        <p>In this case the set value is left unchanged.</p>
+        <h3>2. Check if convention exists for property name and type</h3>
+        <p>If a convention has been registered which matches the propety name and type, the convention result function is actioned with the value set to the property.</p>
+        <h3>3. Check if property has DataAnnotation condition that must be adhered to</h3>
+        <p>If a DataAnnotation has been added to the property, a random value for the specified type is created,
+            it will however adhere to the conditions specified in the property attribute rather than use the value from the AutoBuilderConfiguration settings.</p>
+        <p>For example if the property is decorated with a <strong><em>[Range(10, 15]</em></strong> attribute, the resulting integer will be between 10 and 15.</p>
+        <h3>4. Generate random value based on AutoBuilderconfiguration settings</h3>
+        <p>If this point is reached, a random property value we be set using the AutoBuilderConfiguration settings as a guide.</p>
+    </section>
+</div>
+
+
+</body>
+</html>

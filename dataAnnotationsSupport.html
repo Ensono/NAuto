@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>NAuto by amido</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>NAuto</h1>
+        <h2>Automatic convention based population of test objects</h2>
+
+        <section id="downloads">
+            <a href="https://github.com/amido/NAuto/zipball/master" class="btn">Download as .zip</a>
+            <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
+            <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+        <a href="index.html">Home</a>
+        <a href="tableOfContents.html">Documentation</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="main_content">
+        <h2>Data Annotations support in NAuto</h2>
+        <p>NAuto supports System.ComponentModel.DataAnnotations, allowing Data Annotations applied to properties to be read and used when auto generating test data.  This provides
+            a nice easy way to ensure that property values generated to conform to the validation placed on properties through the use of Data Annotations.</p>
+
+        <p>Currently the following Data Annotation attributes are supported:</p>
+        <ul>
+            <li>StringLength</li>
+            <li>MinLength</li>
+            <li>MaxLength</li>
+        </ul>
+
+        <p>Min and Max length attributes are supported for both integers and doubles</p>
+        <p>Take the following example object with data annotations included:</p>
+        <pre>
+public class User
+{
+        [StringLength(20)]
+        public string Name { get; set; }
+
+        [MinLength(10)]
+        [MaxLength(120)]
+        public int Age { get; set; }
+
+        [MinLength(1000)]
+        [MaxLength(120000000)]
+        public double BigNumber { get; set; }
+}
+        </pre>
+
+        <p>If we were to run the standard AutoBuild command as follows:</p>
+
+        <pre>
+var user = NAuto.AutoBuild&lt;User&gt;()
+            .Construct()
+            .Build();
+        </pre>
+
+        <p>The test data values that are generated will conform to the lengths specified within the data annotation, without doing anything different in the AutoBuild command</p>
+
+        <p>Of course any property that has a data annotation specified can have its value overridden using the standard With operator.</p>
+        <p>The following example overrides the data annotations on the Age property by specifying that the value must be between 5 and 50</p>
+
+         <pre>
+var user = NAuto.AutoBuild&lt;User&gt;()
+             .Construct()
+             .With(x => x.Age, 5, 50)
+             .Build();
+        </pre>
+
+    </section>
+
+</div>
+
+
+</body>
+</html>

@@ -11,7 +11,7 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143947538" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387144528426" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
@@ -21,6 +21,7 @@
     <file path="/AutoBuilder-Overview.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387109269825" ignored="false" />
     <file path="/supported-Types.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387139382552" ignored="false" />
     <file path="/conventions.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387143333757" ignored="false" />
+    <file path="/json.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387144578046" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +41,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tableOfContents.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="json.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/json.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="65" selection-start="1342" selection-end="1342" vertical-scroll-proportion="0.7598978">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="81" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.41379312">
+            <state line="46" column="42" selection-start="1995" selection-end="1995" vertical-scroll-proportion="-15.423077">
               <folding />
             </state>
           </provider>
@@ -121,15 +131,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Template.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -148,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Configuration.html" />
         <option value="$PROJECT_DIR$/Languages.html" />
         <option value="$PROJECT_DIR$/TableOfContents.html" />
         <option value="$PROJECT_DIR$/Template.html" />
@@ -164,6 +164,7 @@
         <option value="$PROJECT_DIR$/languages.html" />
         <option value="$PROJECT_DIR$/conventions.html" />
         <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/json.html" />
       </list>
     </option>
   </component>
@@ -372,13 +373,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="64" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="1204" vertical-scroll-proportion="0.0">
@@ -454,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conventions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="-28.807692">
@@ -475,9 +462,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="18" selection-start="0" selection-end="1221" vertical-scroll-proportion="-15.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="81" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.41379312">
+        <state line="46" column="42" selection-start="1995" selection-end="1995" vertical-scroll-proportion="-15.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="65" selection-start="1342" selection-end="1342" vertical-scroll-proportion="0.7598978">
           <folding />
         </state>
       </provider>

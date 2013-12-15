@@ -39,6 +39,7 @@
             <li>StringLength</li>
             <li>MinLength</li>
             <li>MaxLength</li>
+            <li>Range</li>
         </ul>
 
         <p>Min and Max length attributes are supported for both integers and doubles</p>
@@ -56,6 +57,9 @@ public class User
         [MinLength(1000)]
         [MaxLength(120000000)]
         public double BigNumber { get; set; }
+
+        [Range(10, 20)]
+        public int MyRange { get; set; }
 }
         </pre>
 

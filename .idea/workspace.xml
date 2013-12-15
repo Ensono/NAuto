@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autoBuilder-Overview.html" afterPath="$PROJECT_DIR$/autoBuilder-Overview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supported-Types.html" afterPath="$PROJECT_DIR$/supported-Types.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages.html" afterPath="$PROJECT_DIR$/languages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
     </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -12,13 +12,13 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105709384" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105855298" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387106998180" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387140605520" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105846751" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
     <file path="/getRandomPropertyType.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387106408630" ignored="false" />
     <file path="/configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105819760" ignored="false" />
-    <file path="/languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387105935882" ignored="false" />
+    <file path="/languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387140577059" ignored="false" />
     <file path="/AutoBuilder-Overview.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387109269825" ignored="false" />
     <file path="/supported-Types.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387139382552" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +52,7 @@
       <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tableOfContents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="24" selection-start="1818" selection-end="1849" vertical-scroll-proportion="0.0">
+            <state line="42" column="47" selection-start="1648" selection-end="1648" vertical-scroll-proportion="-10.5">
               <folding />
             </state>
           </provider>
@@ -85,19 +85,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="supported-Types.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="supported-Types.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supported-Types.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.91315454">
+            <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="-27.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="languages.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="languages.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/languages.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="41" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+            <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.71647507">
               <folding />
             </state>
           </provider>
@@ -157,13 +157,13 @@
         <option value="$PROJECT_DIR$/getRandomList.html" />
         <option value="$PROJECT_DIR$/getRandomInteger.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/languages.html" />
         <option value="$PROJECT_DIR$/getRandomPropertyType.html" />
         <option value="$PROJECT_DIR$/AutoBuilder-Overview.html" />
         <option value="$PROJECT_DIR$/autoBuilder-Supported-Types.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/autoBuilder-Overview.html" />
         <option value="$PROJECT_DIR$/supported-Types.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/languages.html" />
       </list>
     </option>
   </component>
@@ -426,13 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/languages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="41" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="7" selection-start="1494" selection-end="1659" vertical-scroll-proportion="0.0">
@@ -461,13 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="24" selection-start="1818" selection-end="1849" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/autoBuilder-Overview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="29" selection-start="2164" selection-end="2164" vertical-scroll-proportion="-5.423077">
@@ -477,7 +463,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supported-Types.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.91315454">
+        <state line="70" column="41" selection-start="2585" selection-end="2585" vertical-scroll-proportion="-27.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="47" selection-start="1648" selection-end="1648" vertical-scroll-proportion="-10.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/languages.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="59" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.71647507">
           <folding />
         </state>
       </provider>

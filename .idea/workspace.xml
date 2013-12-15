@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/stylesheet.css" afterPath="$PROJECT_DIR$/stylesheets/stylesheet.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -13,13 +11,15 @@
     <file path="/TableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1386891932683" ignored="false" />
     <file path="/Template.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063459195" ignored="false" />
     <file path="/getRandomInteger.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387058917678" ignored="false" />
-    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387121701672" ignored="false" />
+    <file path="/tableOfContents.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387124867983" ignored="false" />
     <file path="/getRandomList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063388591" ignored="false" />
     <file path="/Configuration.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063220473" ignored="false" />
     <file path="/Languages.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387063445215" ignored="false" />
     <file path="/getRandomDouble.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387121394571" ignored="false" />
     <file path="/getRandomString.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387123291481" ignored="false" />
     <file path="/stylesheet.css" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387122387512" ignored="false" />
+    <file path="/withOperator.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387124525253" ignored="false" />
+    <file path="/emptyOperator.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387125088880" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +39,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getRandomString.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="getRandomString.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getRandomString.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="93" selection-start="6091" selection-end="6091" vertical-scroll-proportion="0.7930435">
+            <state line="169" column="93" selection-start="6091" selection-end="6091" vertical-scroll-proportion="-17.538462">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tableOfContents.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="51" selection-start="1661" selection-end="1661" vertical-scroll-proportion="-5.9615383">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getRandomDouble.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getRandomDouble.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="16" selection-start="0" selection-end="1783" vertical-scroll-proportion="-13.307693">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="withOperator.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/withOperator.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="16" selection-start="1492" selection-end="1745" vertical-scroll-proportion="-18.846153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emptyOperator.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/emptyOperator.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="155" selection-start="2468" selection-end="2468" vertical-scroll-proportion="0.88435376">
               <folding />
             </state>
           </provider>
@@ -86,9 +122,11 @@
         <option value="$PROJECT_DIR$/TableOfContents.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/getRandomDouble.html" />
-        <option value="$PROJECT_DIR$/tableOfContents.html" />
         <option value="$PROJECT_DIR$/stylesheets/stylesheet.css" />
         <option value="$PROJECT_DIR$/getRandomString.html" />
+        <option value="$PROJECT_DIR$/withOperator.html" />
+        <option value="$PROJECT_DIR$/tableOfContents.html" />
+        <option value="$PROJECT_DIR$/emptyOperator.html" />
       </list>
     </option>
   </component>
@@ -313,20 +351,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/getRandomInteger.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tableOfContents.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="64" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
@@ -395,20 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getRandomDouble.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="16" selection-start="0" selection-end="1783" vertical-scroll-proportion="-20.807692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="57" selection-start="1948" selection-end="1948" vertical-scroll-proportion="-16.923077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stylesheets/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="176" column="43" selection-start="2960" selection-end="2960" vertical-scroll-proportion="0.0">
@@ -418,7 +428,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getRandomString.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="93" selection-start="6091" selection-end="6091" vertical-scroll-proportion="0.7930435">
+        <state line="169" column="93" selection-start="6091" selection-end="6091" vertical-scroll-proportion="-17.538462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getRandomDouble.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="16" selection-start="0" selection-end="1783" vertical-scroll-proportion="-13.307693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/withOperator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="16" selection-start="1492" selection-end="1745" vertical-scroll-proportion="-18.846153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tableOfContents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="51" selection-start="1661" selection-end="1661" vertical-scroll-proportion="-5.9615383">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emptyOperator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="155" selection-start="2468" selection-end="2468" vertical-scroll-proportion="0.88435376">
           <folding />
         </state>
       </provider>

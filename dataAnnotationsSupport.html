@@ -37,26 +37,15 @@
         <p>Currently the following Data Annotation attributes are supported:</p>
         <ul>
             <li>StringLength</li>
-            <li>MinLength</li>
-            <li>MaxLength</li>
             <li>Range</li>
         </ul>
 
-        <p>Min and Max length attributes are supported for both integers and doubles</p>
         <p>Take the following example object with data annotations included:</p>
         <pre>
 public class User
 {
         [StringLength(20)]
         public string Name { get; set; }
-
-        [MinLength(10)]
-        [MaxLength(120)]
-        public int Age { get; set; }
-
-        [MinLength(1000)]
-        [MaxLength(120000000)]
-        public double BigNumber { get; set; }
 
         [Range(10, 20)]
         public int MyRange { get; set; }

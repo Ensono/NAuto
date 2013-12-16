@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105192f0-aa86-47a7-bbee-f6f1ed1c9436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Template.html" afterPath="$PROJECT_DIR$/Template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/autoBuilder-Overview.html" afterPath="$PROJECT_DIR$/autoBuilder-Overview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration.html" afterPath="$PROJECT_DIR$/configuration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conventions.html" afterPath="$PROJECT_DIR$/conventions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAnnotationsSupport.html" afterPath="$PROJECT_DIR$/dataAnnotationsSupport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emptyOperator.html" afterPath="$PROJECT_DIR$/emptyOperator.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomDouble.html" afterPath="$PROJECT_DIR$/getRandomDouble.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomInteger.html" afterPath="$PROJECT_DIR$/getRandomInteger.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomList.html" afterPath="$PROJECT_DIR$/getRandomList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomPropertyType.html" afterPath="$PROJECT_DIR$/getRandomPropertyType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomSequencedList.html" afterPath="$PROJECT_DIR$/getRandomSequencedList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getRandomString.html" afterPath="$PROJECT_DIR$/getRandomString.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/if-then.html" afterPath="$PROJECT_DIR$/if-then.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json.html" afterPath="$PROJECT_DIR$/json.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages.html" afterPath="$PROJECT_DIR$/languages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadAndPersist.html" afterPath="$PROJECT_DIR$/loadAndPersist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/property-value-generation-order-of-precedence.html" afterPath="$PROJECT_DIR$/property-value-generation-order-of-precedence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supported-Types.html" afterPath="$PROJECT_DIR$/supported-Types.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tableOfContents.html" afterPath="$PROJECT_DIR$/tableOfContents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testDataBuilder.html" afterPath="$PROJECT_DIR$/testDataBuilder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/withOperator.html" afterPath="$PROJECT_DIR$/withOperator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.html" afterPath="$PROJECT_DIR$/contact.html" />
     </list>
     <ignored path="NAutoDocs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +26,7 @@
     <file path="/value-generation-order-of-precedence.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387148331568" ignored="false" />
     <file path="/getRandomSequencedList.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387149276604" ignored="false" />
     <file path="/dataAnnotationsSupport.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387149638584" ignored="false" />
-    <file path="/contact.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387207961173" ignored="false" />
+    <file path="/contact.html" changelist="105192f0-aa86-47a7-bbee-f6f1ed1c9436" time="1387208053601" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +103,7 @@
       <file leaf-file-name="contact.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="70" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.86845464">
+            <state line="36" column="90" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.7816092">
               <folding />
             </state>
           </provider>
@@ -506,7 +485,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="70" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.86845464">
+        <state line="36" column="90" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.7816092">
           <folding />
         </state>
       </provider>

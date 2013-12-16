@@ -33,7 +33,7 @@ namespace Amido.NAuto.Builders.Services
 
             for (var i = 0; i < AutoBuilderConfiguration.DefaultCollectionItemCount; i++)
             {
-                newDictionary.Add(populateKey(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null, null), populateValue(depth + 1, propertyName, propertyType.GenericTypeArguments[1], null, null));
+                newDictionary.Add(populateKey(depth + 1, propertyName, propertyType.GetGenericArguments()[0], null, null), populateValue(depth + 1, propertyName, propertyType.GetGenericArguments()[1], null, null));
             }
 
             return newDictionary;

@@ -48,7 +48,7 @@ namespace Amido.NAuto.Randomizers
                 var instanceToUpdate = model;
                 if (property != null)
                 {
-                    property.SetValue(instanceToUpdate, id);
+                    property.SetValue(instanceToUpdate, id, null);
                 }
 
                 id += increment;

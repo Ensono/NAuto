@@ -162,7 +162,7 @@ namespace Amido.NAuto.Builders.Services
                     {
                         propertyInfo.SetValue(
                             objectToPopulate,
-                            Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate), propertyInfo));
+                            Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate, null), propertyInfo), null);
                     }
                 } 
             }

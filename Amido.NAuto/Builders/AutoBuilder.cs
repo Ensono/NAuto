@@ -518,7 +518,7 @@ namespace Amido.NAuto.Builders
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
-                property.SetValue(instanceToUpdate, getRandomStringFunction());
+                property.SetValue(instanceToUpdate, getRandomStringFunction(), null);
             }
         }
 
@@ -531,7 +531,7 @@ namespace Amido.NAuto.Builders
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
-                property.SetValue(instanceToUpdate, getRandomIntegerFunction());
+                property.SetValue(instanceToUpdate, getRandomIntegerFunction(), null);
             }
         }
 
@@ -544,7 +544,7 @@ namespace Amido.NAuto.Builders
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
-                property.SetValue(instanceToUpdate, getRandomIntegerFunction());
+                property.SetValue(instanceToUpdate, getRandomIntegerFunction(), null);
             }
         }
 
@@ -557,7 +557,7 @@ namespace Amido.NAuto.Builders
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
-                property.SetValue(instanceToUpdate, getRandomDoubleFunction());
+                property.SetValue(instanceToUpdate, getRandomDoubleFunction(), null);
             }
         }
 
@@ -570,7 +570,7 @@ namespace Amido.NAuto.Builders
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
-                property.SetValue(instanceToUpdate, getRandomDoubleFunction());
+                property.SetValue(instanceToUpdate, getRandomDoubleFunction(), null);
             }
         }
 
@@ -586,7 +586,7 @@ namespace Amido.NAuto.Builders
             var property = (expression.Expression as MemberExpression).Member as PropertyInfo;
             if (property != null)
             {
-                var nextLevelInstance = property.GetValue(body);
+                var nextLevelInstance = property.GetValue(body, null);
                 return nextLevelInstance;
             }
 

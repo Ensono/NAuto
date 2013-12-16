@@ -32,7 +32,7 @@ namespace Amido.NAuto.Compare
 
                 var propertyName = modelAProperty.Name;
 
-                var modelAPropertyValue = modelAProperty.GetValue(modelA);
+                var modelAPropertyValue = modelAProperty.GetValue(modelA, null);
 
                 bool hasPropertyCorrespondingValue;
 
@@ -47,7 +47,7 @@ namespace Amido.NAuto.Compare
                 
                 if (hasPropertyCorrespondingValue)
                 {
-                    var modelBPropertyValue = modelB.GetType().GetProperty(propertyName).GetValue(modelB);
+                    var modelBPropertyValue = modelB.GetType().GetProperty(propertyName).GetValue(modelB, null);
 
                     if (modelAProperty.PropertyType.GetInterfaces().Any(x => x == typeof(IList)))
                     {

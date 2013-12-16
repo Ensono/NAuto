@@ -21,46 +21,46 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
         public class TryGetValue : DataAnnotationConventionMapperTests
         {
-            [Test]
-            public void Should_Return_String_With_LessThanOrEqual_To_Max_Length_Attribute()
-            {
-                // Arrange
-                var property = typeof (TestAnnotationModel).GetProperty("MaxLengthTest");
+            //[Test]
+            //public void Should_Return_String_With_LessThanOrEqual_To_Max_Length_Attribute()
+            //{
+            //    // Arrange
+            //    var property = typeof (TestAnnotationModel).GetProperty("MaxLengthTest");
 
-                // Act
-                var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof (string), property, autoBuilderConfiguration);
+            //    // Act
+            //    var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof (string), property, autoBuilderConfiguration);
 
-                // Assert
-                result.Length.ShouldBeLessThanOrEqualTo(10);
-            }
+            //    // Assert
+            //    result.Length.ShouldBeLessThanOrEqualTo(10);
+            //}
 
-            [Test]
-            public void Should_Return_String_With_GreaterThanOrEqual_To_Min_Length_Attribute()
-            {
-                // Arrange
-                var property = typeof(TestAnnotationModel).GetProperty("MinLengthTest");
-                autoBuilderConfiguration.StringMaxLength = 600;
+            //[Test]
+            //public void Should_Return_String_With_GreaterThanOrEqual_To_Min_Length_Attribute()
+            //{
+            //    // Arrange
+            //    var property = typeof(TestAnnotationModel).GetProperty("MinLengthTest");
+            //    autoBuilderConfiguration.StringMaxLength = 600;
 
-                // Act
-                var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
+            //    // Act
+            //    var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
 
-                // Assert
-                result.Length.ShouldBeGreaterThanOrEqualTo(500);
-            }
+            //    // Assert
+            //    result.Length.ShouldBeGreaterThanOrEqualTo(500);
+            //}
 
-            [Test]
-            public void Should_Return_String_Which_Conforms_To_Min_And_Max_Length_Attributes()
-            {
-                // Arrange
-                var property = typeof(TestAnnotationModel).GetProperty("MinMaxLengthTest");
+            //[Test]
+            //public void Should_Return_String_Which_Conforms_To_Min_And_Max_Length_Attributes()
+            //{
+            //    // Arrange
+            //    var property = typeof(TestAnnotationModel).GetProperty("MinMaxLengthTest");
 
-                // Act
-                var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
+            //    // Act
+            //    var result = (string)dataAnnotationConventionMapper.TryGetValue(typeof(string), property, autoBuilderConfiguration);
 
-                // Assert
-                result.Length.ShouldBeGreaterThanOrEqualTo(50);
-                result.Length.ShouldBeLessThanOrEqualTo(55);
-            }
+            //    // Assert
+            //    result.Length.ShouldBeGreaterThanOrEqualTo(50);
+            //    result.Length.ShouldBeLessThanOrEqualTo(55);
+            //}
 
             [Test]
             public void Should_Return_String_LessThanOrEqualTo_Max_StringLengthAttribute()

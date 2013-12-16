@@ -11,7 +11,7 @@ namespace Amido.NAuto.Builders.Services
         {
             if (propertyInfo != null)
             {
-                var dataTypeAttribute = propertyInfo.GetCustomAttributes(typeof(DataTypeAttribute)).FirstOrDefault();
+                var dataTypeAttribute = propertyInfo.GetCustomAttributes(typeof(DataTypeAttribute), true).FirstOrDefault();
                 if (dataTypeAttribute != null)
                 {
                     var dataType = ((DataTypeAttribute)dataTypeAttribute).DataType;
@@ -20,11 +20,6 @@ namespace Amido.NAuto.Builders.Services
                         if (dataType == DataType.EmailAddress)
                         {
                             return NAuto.GetRandomPropertyType(PropertyType.Email);
-                        }
-
-                        if (dataType == DataType.PostalCode)
-                        {
-                            return NAuto.GetRandomPropertyType(PropertyType.PostalCode);
                         }
 
                         if (dataType == DataType.PhoneNumber)
@@ -63,7 +58,7 @@ namespace Amido.NAuto.Builders.Services
             var min = autoBuilderConfiguration.DoubleMinimum;
             var max = autoBuilderConfiguration.DoubleMaximum;
 
-            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute)).FirstOrDefault();
+            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute), false).FirstOrDefault();
             if (rangeAttribute != null)
             {
                 min = double.Parse(((RangeAttribute)rangeAttribute).Minimum.ToString());
@@ -78,7 +73,7 @@ namespace Amido.NAuto.Builders.Services
             var min = autoBuilderConfiguration.IntMinimum;
             var max = autoBuilderConfiguration.IntMaximum;
 
-            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute)).FirstOrDefault();
+            var rangeAttribute = propertyInfo.GetCustomAttributes(typeof(RangeAttribute), false).FirstOrDefault();
             if (rangeAttribute != null)
             {
                 min = (int)((RangeAttribute)rangeAttribute).Minimum;
@@ -93,32 +88,32 @@ namespace Amido.NAuto.Builders.Services
             var minLength = autoBuilderConfiguration.StringMinLength;
             var maxLength = autoBuilderConfiguration.StringMaxLength;
 
-            var minLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MinLengthAttribute)).FirstOrDefault();
-            if (minLengthAttribute != null)
-            {
-                minLength = ((MinLengthAttribute)minLengthAttribute).Length;
-            }
+            //var minLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MinLengthAttribute), false).FirstOrDefault();
+            //if (minLengthAttribute != null)
+            //{
+            //    minLength = ((MinLengthAttribute)minLengthAttribute).Length;
+            //}
 
-            var maxLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MaxLengthAttribute)).FirstOrDefault();
-            if (maxLengthAttribute != null)
-            {
-                maxLength = ((MaxLengthAttribute)maxLengthAttribute).Length;
-            }
+            //var maxLengthAttribute = propertyInfo.GetCustomAttributes(typeof(MaxLengthAttribute), false).FirstOrDefault();
+            //if (maxLengthAttribute != null)
+            //{
+            //    maxLength = ((MaxLengthAttribute)maxLengthAttribute).Length;
+            //}
 
-            if (minLengthAttribute != null || maxLengthAttribute != null)
-            {
-                {
-                    return NAuto.GetRandomString(
-                        minLength,
-                        maxLength,
-                        autoBuilderConfiguration.DefaultStringCharacterSetType,
-                        autoBuilderConfiguration.DefaultStringSpaces,
-                        autoBuilderConfiguration.DefaultStringCasing,
-                        autoBuilderConfiguration.DefaultLanguage);
-                }
-            }
+            //if (minLengthAttribute != null || maxLengthAttribute != null)
+            //{
+            //    {
+            //        return NAuto.GetRandomString(
+            //            minLength,
+            //            maxLength,
+            //            autoBuilderConfiguration.DefaultStringCharacterSetType,
+            //            autoBuilderConfiguration.DefaultStringSpaces,
+            //            autoBuilderConfiguration.DefaultStringCasing,
+            //            autoBuilderConfiguration.DefaultLanguage);
+            //    }
+            //}
 
-            var stringLengthAttribute = propertyInfo.GetCustomAttributes(typeof(StringLengthAttribute)).FirstOrDefault();
+            var stringLengthAttribute = propertyInfo.GetCustomAttributes(typeof(StringLengthAttribute), false).FirstOrDefault();
 
             if (stringLengthAttribute != null)
             {

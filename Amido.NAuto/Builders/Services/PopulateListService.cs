@@ -38,7 +38,7 @@ namespace Amido.NAuto.Builders.Services
 
             for (var i = 0; i < AutoBuilderConfiguration.DefaultCollectionItemCount; i++)
             {
-                newList.Add(populate(depth + 1, propertyName, propertyType.GenericTypeArguments[0], null, null));
+                newList.Add(populate(depth + 1, propertyName, propertyType.GetGenericArguments()[0], null, null));
             }
 
             return newList;

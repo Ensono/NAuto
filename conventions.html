@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>Convention based data generation for NAuto by Amido Development Ltd</title>
+    <title>AutoBuild - Overview for NAuto by Amido Development Ltd</title>
 </head>
 
 <body>
@@ -23,90 +23,12 @@
             <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
-        <a href="index.html">Home</a>
-        <a href="tableOfContents.html">Documentation</a>
-        <a href="contact.html">Contact</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
-
-        <h2>Conventions</h2>
-
-        <p>Before any property value is generated within an object graph, the conventions api is called to see if a convention exists and should be used instead.</p>
-        <p>Adding a convention can be done in a few different ways:</p>
-        <ul>
-            <li>Added to Conventions list on an instance of AutoBuilderConfiguration</li>
-            <li>Added directly to AutoBuild method before Construct is called.</li>
-        </ul>
-
-        <p>For a more detailed explanation of how to configure NAuto and conventions, please refer to the <a href="configuration.html">configuration</a> section.</p>
-
-        <p>Conventions require the following data:</p>
-        <h3>ConventionFilterType</h3>
-
-        <p>This enumeration tells NAuto how to check if the convention filter string matches a property name</p>
-
-        <p>The enumeration options are:</p>
-                <ul>
-                    <li>StartsWith</li>
-                    <li>EndsWith</li>
-                    <li>Contains</li>
-                    <li>Equals</li>
-                </ul>
-        <h3>ConventionFilter</h3>
-        <p>The convention filter is just a simple string which is used to match against a property name.</p>
-        <h3>Type</h3>
-        <p>Type is literally the property type the convention will match with.</p>
-        <p>For example, if you create a convention for generating datetimes, you would pass typeof(DateTime).</p>
-        <h3>Result</h3>
-        <p>Result requires a Func which is to be called when a convention condition is matched.</p>
-        <p>The Func must accept a parameter of AutoBuilderConfiguration and return the created value.</p>
-
-        <h2>Example</h2>
-        <p>The following example shows a convention that states for any string that starts with Foo, Bar should be returned:</p>
-        <pre>
-var myModel = NAuto.AutoBuild&lt;MyModel&gt;()
-    .AddConvention(
-            ConventionFilterType.StartsWith,
-            "Foo",
-            typeof(string),
-            config => "Bar")
-    .Construct()
-    .Build();
-        </pre>
-
-        <h2>Build in conventions</h2>
-        <p>There are a number of conventions built into NAuto, this can be easily cleared if necessary.</p>
-        <p>Below is the current list:</p>
-        <pre>
-
-ConventionFilterType.Contains, "email", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Email, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "postcode", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.PostalCode, configuration.DefaultLanguage)));
-ConventionFilterType.EndsWith, "url", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
-ConventionFilterType.EndsWith, "uri", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "website", typeof(string), configuration => NAuto.GetRandomPropertyType(PropertyType.Url, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "username", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.None, Casing.Lowered, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "firstname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "lastname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "forename", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "surname", typeof(string), configuration => NAuto.GetRandomString(3, 10, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "dateofbirth", typeof(DateTime), configuration => DateTime.Now.AddYears(-20)));
-ConventionFilterType.Contains, "dateofbirth", typeof(DateTime?), configuration => DateTime.Now.AddYears(-20)));
-ConventionFilterType.Contains, "age", typeof(int), configuration => NAuto.GetRandomInteger(10, 70)));
-ConventionFilterType.Contains, "age", typeof(int?), configuration => NAuto.GetRandomInteger(10, 70)));
-ConventionFilterType.Contains, "housename", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.AlphaNumeric, Spaces.Middle, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "houseno", typeof(string), configuration => NAuto.GetRandomString(1, 5, CharacterSetType.AlphaNumeric, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "addressline", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.Middle, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "street", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "town", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "city", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "county", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-ConventionFilterType.Contains, "country", typeof(string), configuration => NAuto.GetRandomString(3, 15, CharacterSetType.Alpha, Spaces.None, Casing.ProperCase, configuration.DefaultLanguage)));
-
-        </pre>
-
+        <p>Our documentation has moved, please visit <a href="http://www.amido.com/labs/nauto/">NAutos new home</a>.</p>
     </section>
 </div>
 

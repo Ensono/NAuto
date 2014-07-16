@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>NAuto by amido</title>
+    <title>AutoBuild - Overview for NAuto by Amido Development Ltd</title>
 </head>
 
 <body>
@@ -23,54 +23,12 @@
             <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
-        <a href="index.html">Home</a>
-        <a href="tableOfContents.html">Documentation</a>
-        <a href="contact.html">Contact</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
-        <h2>Using the With operator</h2>
-        <p>NAuto allows any object to have its test data auto generated based on conventions.  However there will always be the need to override
-            some of the values auto generated with specific values.  NAuto provides this through the With operator.</p>
-
-        <p>Lets start with an example:</p>
-
-        <p>If we had the a very simple object as below</p>
-        <pre>
-public class User
-{
-    public string Name { get; set; }
-
-    public int Age { get; set; }
-
-    public string Email { get; set; }
-
-    public string Password { get; set; }
-}
-        </pre>
-
-        <p>We can simply use NAuto to auto generate the model test data with the following command:</p>
-        <pre>
-var user = NAuto.AutoBuild&lt;User&gt;()
-            .Construct()
-            .Build();
-        </pre>
-
-        <p>However say we had the scenario where we wanted to auto generate everything except for in this case the email address and password properties.  You can then use the
-            With statement to override with specific values as follows:</p>
-
-        <pre>
-var user = NAuto.AutoBuild&lt;User&gt;()
-            .Construct()
-            .With(x => x.Email = "a@b.com")
-            .With(x => x.Password = "pa55word")
-            .Build();
-        </pre>
-
-        <p>The With statement takes a Func to allow you to write flexible lamda expressions</p>
-
+        <p>Our documentation has moved, please visit <a href="http://www.amido.com/labs/nauto/">NAutos new home</a>.</p>
     </section>
 </div>
 

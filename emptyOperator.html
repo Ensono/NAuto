@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>NAuto by amido</title>
+    <title>AutoBuild - Overview for NAuto by Amido Development Ltd</title>
 </head>
 
 <body>
@@ -23,45 +23,12 @@
             <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
-        <a href="index.html">Home</a>
-        <a href="tableOfContents.html">Documentation</a>
-        <a href="contact.html">Contact</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
-        <h2>Using the Empty operator</h2>
-        <p>As well as auto generating model data, NAuto allows you to use the same syntax to create an instance of an object and specify only the values you want to set.
-            This allows you to use a consistent approach for generating test data for your objects in tests, even when you have no need to auto generate test data.</p>
-
-        <p>The Empty operator is simply used instead of the Construct operator to prevent any test data being auto generated.  Take the following example:</p>
-        <p>If we had the a very simple object as below</p>
-        <pre>
-public class User
-{
-    public string Name { get; set; }
-
-    public int Age { get; set; }
-
-    public string Email { get; set; }
-
-    public string Password { get; set; }
-}
-        </pre>
-
-        <p>If we simply wanted to initialise a new object and set only the email address and password, leaving the name and age property unset, you would do the following:</p>
-
-        <pre>
-var user = NAuto.AutoBuild&lt;User&gt;()
-            .Empty()
-            .With(x => x.Email = "a@b.com")
-            .With(x => x.Password = "pa55word")
-            .Build();
-        </pre>
-
-        <p>This results in Email being set to "a@b.com", Password set to "pa55word" with Name set to the default string.empty and Age set to the default 0.</p>
-
+        <p>Our documentation has moved, please visit <a href="http://www.amido.com/labs/nauto/">NAutos new home</a>.</p>
     </section>
 </div>
 

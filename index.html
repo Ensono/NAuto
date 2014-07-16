@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>Test Data Generation with NAuto by Amido Development Ltd</title>
+    <title>AutoBuild - Overview for NAuto by Amido Development Ltd</title>
 </head>
 
 <body>
@@ -23,87 +23,15 @@
             <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
-        Home
-        <a href="tableOfContents.html">Documentation</a>
-        <a href="contact.html">Contact</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
+        <p>Our documentation has moved, please visit <a href="http://www.amido.com/labs/nauto/">NAutos new home</a>.</p>
+    </section>
+</div>
 
 
-        <h2>What is it?</h2>
-        <p><strong>NAuto is a .Net library for generating test data</strong></p>
-        <h2>Why use it?</h2>
-        <p>Multi language support and convention based data generation makes it a very powerful tool for both unit testing and generating integration test data.</p>
-        <p>It's very easy to use and in most cases very little code needs to be written.</p>
-        <p>Instead of generating unstructured nonsense data, NAutos conventions and property types ensure data is well structured and semi-realistic.</p>
-        <p>Happily works with NUnit and MS Test and will work fine with any mocking container such as Moq or Rhino Mocks.</p>
-        <h2>What can it do?</h2>
-        <ul>
-            <li>Create large complex object graphs with hardly any code</li>
-            <li>Create realistic data using extendable conventions</li>
-            <li>Create Multi-Language data i.e Chinese/Russian/German/etc.</li>
-            <li>Randomization Helpers for:
-                <ul>
-                    <li>Lists</li>
-                    <li>Strings</li>
-                    <li>Integers</li>
-                    <li>Doubles</li>
-                    <li>etc.</li>
-                </ul>
-            </li>
-            <li>Random property type generation for:
-                <ul>
-                    <li>Emails</li>
-                    <li>Urls</li>
-                    <li>Postal Codes</li>
-                    <li>Phone Numbers</li>
-                    <li>etc.</li>
-                </ul>
-            </li>
-            <li>Built in optional persistence for repeatable test data</li>
-            <li>Respects .NET/MVC data annotations such as StringLength/Range/MinLength/MaxLength etc.</li>
-            <li>And a load of other features that you can find out about throughout this site</li>
-            </ul>
-
-
-               <h2>What does it look like?</h2>
-
-
-          <small><em>Generating a model with the Id property overridden</em></small>
-          <pre>
-var productViewModel = NAuto.AutoBuild&lt;ProductViewModel&gt;()
-    .Construct()
-    .With(x => x.Id = 1234)
-    .Build();
-          </pre>
-
-          <small><em>Overriding a property when the specified condition is met</em></small>
-          <pre>
-var model = NAuto.AutoBuild&lt;ProductViewModel&gt;()
-    .Construct()
-    .If(x => x.Stock == 0)
-    .Then(x => x.OutOfStock = true)
-    .Build();
-          </pre>
-        <small><em>Generating a valid email address format using the Russian character set</em></small>
-          <pre>
-var email = NAuto.GetRandomPropertyType(
-              PropertyType.Email,
-              Language.Russian);
-          </pre>
-
-          <small><em>Generating a alphanumeric string with a specified length</em></small>
-          <pre>
-var productCode = NAuto.GetRandomString(
-              length,
-              CharacterSetType.AlphaNumeric);
-          </pre>
-      </section>
-    </div>
-
-    
-  </body>
+</body>
 </html>

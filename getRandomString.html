@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>NAuto by amido</title>
+    <title>AutoBuild - Overview for NAuto by Amido Development Ltd</title>
 </head>
 
 <body>
@@ -23,159 +23,12 @@
             <a href="https://github.com/amido/NAuto/tarball/master" class="btn">Download as .tar.gz</a>
             <a href="https://github.com/amido/NAuto" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
-        <a href="index.html">Home</a>
-        <a href="tableOfContents.html">Documentation</a>
-        <a href="contact.html">Contact</a>
     </div>
 </header>
 
 <div class="container">
     <section id="main_content">
-        <h2>Get Random String</h2>
-        <p>NAuto allows you to easily acquire a random string value to use in your tests.  The default overload allows you to specify the number of characters the string should contain.</p>
-
-        <small><em>Generating a random double with a specified minimum and maximum value.</em></small>
-          <pre>
-var randomStringOfTwentyCharacters = NAuto.GetRandomString(20);
-          </pre>
-
-        <p>In addition to be able to specify the length of the string, NAuto provides a number of additional overloads on the GetRandomString operation to allow you to generate a more precise random string.</p>
-        <p>These are:</p>
-        <h3>CharacterSetType</h3>
-
-        <small><em>Allows you to specify whether the string should contain:</em></small>
-        <table class="parameters">
-            <tr>
-                <td>CharacterSetType.Alpha</td>
-                <td>Contains only letters [A-Z]</td>
-            </tr>
-            <tr>
-                <td>CharacterSetType.AlphaNumeric</td>
-                <td>Contains letters and numbers [A-Z][0-9]</td>
-            </tr>
-            <tr>
-                <td>CharacterSetType.Numeric</td>
-                <td>Contains only numbers [0-9]</td>
-            </tr>
-            <tr>
-                <td>CharacterSetType.Anything</td>
-                <td>Contains letters, numbers and special characters</td>
-            </tr>
-        </table>
-
-        <p>Example usage:</p>
-        <pre>
-var value = NAuto.GetRandomString(20, CharacterSetType.AlphaNumeric);
-        </pre>
-
-
-        <h3>Language</h3>
-
-        <small><em>Allows you to get a random string in the specified language.  The languages that are supported are:</em></small>
-        <table class="parameters">
-            <tr>
-                <td>Language.English</td>
-            </tr>
-            <tr>
-                <td>Language.Chinese</td>
-            </tr>
-            <tr>
-                <td>Language.German</td>
-            </tr>
-            <tr>
-                <td>Language.Italian</td>
-            </tr>
-            <tr>
-                <td>Language.Pinyin</td>
-            </tr>
-            <tr>
-                <td>Language.Russian</td>
-            </tr>
-            <tr>
-                <td>Language.Spanish</td>
-            </tr>
-        </table>
-        <p>If a language is not specified, then English is used by default</p>
-
-        <p>Example usage:</p>
-        <pre>
-var value = NAuto.GetRandomString(20, CharacterSetType.AlphaNumeric,
-                                      Language.German);
-        </pre>
-
-
-        <h3>Spaces</h3>
-
-        <small><em>Allows you to specify whether any spaces should be included within the random string value.  Spaces allow you to specify at what position in the string spaces are included. The available options are as follows:</em></small>
-        <table class="parameters">
-            <tr>
-                <td>Spaces.Any</td>
-            </tr>
-            <tr>
-                <td>Spaces.Start</td>
-            </tr>
-            <tr>
-                <td>Spaces.Middle</td>
-            </tr>
-            <tr>
-                <td>Spaces.End</td>
-            </tr>
-            <tr>
-                <td>Spaces.StartAndEnd</td>
-            </tr>
-            <tr>
-                <td>Spaces.None</td>
-            </tr>
-        </table>
-        <p>If Spaces are not specified then the random string will not contain any spaces</p>
-
-        <p>Example usage:</p>
-        <pre>
-var value = NAuto.GetRandomString(20, CharacterSetType.AlphaNumeric,
-                                      Spaces.Middle);
-        </pre>
-
-        <h3>Casing</h3>
-
-        <small><em>Casing allows you to specify what case should be applied to the string:</em></small>
-        <table class="parameters">
-            <tr>
-                <td>Casing.Any</td>
-                <td>Applies random casing to the string</td>
-            </tr>
-            <tr>
-                <td>Casing.Lowered</td>
-                <td>The string generated will be all lower case</td>
-            </tr>
-            <tr>
-                <td>Casing.Uppered</td>
-                <td>The string generated will be all upper case</td>
-            </tr>
-            <tr>
-                <td>Casing.ProperCase</td>
-                <td>The first letter of each word separated by a space in the string is in upper case</td>
-            </tr>
-        </table>
-
-        <p>Example usage:</p>
-        <pre>
-var value = NAuto.GetRandomString(20, CharacterSetType.AlphaNumeric,
-                                      Spaces.Middle,
-                                      Casing.ProperCase);
-        </pre>
-
-        <h3>Min and Max Length range</h3>
-
-        <small><em>GetRandomString provides the option to specify a length range for which the length of the random string will be within.</em></small>
-        <p>Example usage:</p>
-        <small><em>The following random string will be between 10 and 20 characters in length.</em></small>
-        <pre>
-var value = NAuto.GetRandomString(10, 20, CharacterSetType.AlphaNumeric,
-                                          Spaces.Middle,
-                                          Casing.ProperCase,
-                                          Language.German);
-        </pre>
-
+        <p>Our documentation has moved, please visit <a href="http://www.amido.com/labs/nauto/">NAutos new home</a>.</p>
     </section>
 </div>
 

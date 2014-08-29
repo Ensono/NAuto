@@ -81,6 +81,7 @@ namespace Amido.NAuto.IntegrationTests
             // Assert
             testModel.RangeIntTest.ShouldBeGreaterThanOrEqualTo(1);
             testModel.RangeIntTest.ShouldBeLessThanOrEqualTo(10);
+
         }
 
         [Test]

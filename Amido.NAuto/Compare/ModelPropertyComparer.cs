@@ -98,6 +98,16 @@ namespace Amido.NAuto.Compare
                         compareResult.ModelValueA = modelAPropertyValue;
                         compareResult.ModelValueB = modelBPropertyValue;
                     }
+                    else if (modelAProperty.PropertyType == typeof(decimal))
+                    {
+                        compareResult.ModelValueA = modelAPropertyValue;
+                        compareResult.ModelValueB = modelBPropertyValue;
+                    }
+                    else if (modelAProperty.PropertyType == typeof(DateTime))
+                    {
+                        compareResult.ModelValueA = modelAPropertyValue;
+                        compareResult.ModelValueB = modelBPropertyValue;
+                    }
                     else if (modelAProperty.PropertyType.FullName.StartsWith("System.Nullable"))
                     {
                         try

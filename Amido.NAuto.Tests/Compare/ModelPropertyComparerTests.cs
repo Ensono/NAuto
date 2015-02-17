@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -55,6 +56,10 @@ namespace Amido.NAuto.UnitTests.Compare
             public Dictionary<string, SubClass> MyDictionary { get; set; }
 
             public TestEnum TestEnum { get; set; }
+
+            public Decimal TestDecimal { get; set; }
+
+            public DateTime TestDateTime { get; set; }
         }
 
         public class ModelBTestClass
@@ -72,6 +77,10 @@ namespace Amido.NAuto.UnitTests.Compare
             public Dictionary<string, SubClass> MyDictionary { get; set; }
 
             public TestEnum TestEnum { get; set; }
+
+            public Decimal TestDecimal { get; set; }
+
+            public DateTime TestDateTime { get; set; }
         }
 
         public enum TestEnum

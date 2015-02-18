@@ -83,21 +83,16 @@ namespace Amido.NAuto.Compare
                             }
                         }
                     }
-                    else if (modelAProperty.PropertyType == typeof(Dictionary<,>.KeyCollection))
+                    else if (modelAProperty.PropertyType == typeof(Dictionary<,>.KeyCollection) 
+                        || modelAProperty.PropertyType == typeof(string)                       
+                        || modelAProperty.PropertyType == typeof(decimal)
+                        || modelAProperty.PropertyType == typeof(DateTime)
+                        || modelAProperty.PropertyType.IsEnum
+                        || modelAProperty.PropertyType.IsPrimitive)
                     {
                         compareResult.ModelValueA = modelAPropertyValue;
                         compareResult.ModelValueB = modelBPropertyValue;
-                    }
-                    else if (modelAProperty.PropertyType.IsPrimitive || modelAProperty.PropertyType == typeof(string))
-                    {
-                        compareResult.ModelValueA = modelAPropertyValue;
-                        compareResult.ModelValueB = modelBPropertyValue;
-                    }
-                    else if (modelAProperty.PropertyType.IsEnum)
-                    {
-                        compareResult.ModelValueA = modelAPropertyValue;
-                        compareResult.ModelValueB = modelBPropertyValue;
-                    }
+                    }                    
                     else if (modelAProperty.PropertyType.FullName.StartsWith("System.Nullable"))
                     {
                         try

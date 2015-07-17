@@ -45,7 +45,7 @@ namespace Amido.NAuto.IntegrationTests
         public void Should_Load_Json_Representation()
         {
             var testModel = NAuto.AutoBuild<TestModel>()
-                    .Load(@"TestJsonModels\testModel1.json")
+                    .Load(@"TestJsonModels\testModel3.json")
                     .Build();
         }
 
@@ -55,7 +55,7 @@ namespace Amido.NAuto.IntegrationTests
             var testModel =
                 NAuto.AutoBuild<TestModel>()
                     .Load(@"TestJsonModels\testModel3.json")
-                    .Persist(@"TestJsonModels\testModel4.json");
+                    .Persist(@"testModel4.json", true);
         }
 
         [Test]

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace Amido.NAuto.Nject
 {
     public class NAutoContainer
     {
-        public static readonly Dictionary<Type, Type> Mappings = new Dictionary<Type, Type>();
+        public static readonly ConcurrentDictionary<Type, Type> Mappings = new ConcurrentDictionary<Type, Type>();
 
         public static void ClearMappings()
         {
@@ -14,13 +15,13 @@ namespace Amido.NAuto.Nject
 
         public NAutoContainer Register<TInteface, TImplementation>() where TImplementation : TInteface
         {
-            Mappings.Add(typeof(TInteface), typeof(TImplementation));
+            Mappings.AddOrUpdate(typeof(TInteface), typeof(TImplementation), (k, v) => v);
             return this;
         }
 
         public NAutoContainer Register(Type interfaceType, Type implementationType)
         {
-            Mappings.Add(interfaceType, implementationType);
+            Mappings.AddOrUpdate(interfaceType, implementationType, (k, v) => v);
             return this;
         }
 
@@ -42,7 +43,7 @@ namespace Amido.NAuto.Nject
 
             var constructorParameters = constructors[0].GetParameters();
             var parameterObjects = new List<object>();
-                
+
             if (constructorParameters.Length > 0)
             {
                 foreach (var parameter in constructors[0].GetParameters())

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Amido.NAuto.Nject;
 using NUnit.Framework;
 using Should;
@@ -29,6 +30,15 @@ namespace Amido.NAuto.UnitTests.Nject
 
                 NAutoContainer.Mappings.Count.ShouldEqual(1);
                 NAutoContainer.Mappings.First().Key.ShouldEqual(typeof (IList<string>));
+                NAutoContainer.Mappings.First().Value.ShouldEqual(typeof(List<string>));
+            }
+
+            [Test]
+            public void Should_Successfully_Add_Entry_To_Mapping_Dictionary_Across_Multiple_Threads()
+            {
+                Parallel.ForEach(Enumerable.Range(1, 1000), x => nAutoContainer.Register<IList<string>, List<string>>());
+                NAutoContainer.Mappings.Count.ShouldEqual(1);
+                NAutoContainer.Mappings.First().Key.ShouldEqual(typeof(IList<string>));
                 NAutoContainer.Mappings.First().Value.ShouldEqual(typeof(List<string>));
             }
         }

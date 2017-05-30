@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NAuto</id>
+    <version>$version$</version>
+    <title>NAuto</title>
+    <authors>Sean McAlinden &amp; Andrew Jutton</authors>
+    <owners>Amido Development Ltd</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>http://www.amido.com/labs/nauto/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Automatic convention based population of test objects.
+
+Also includes a number of useful helper methods such as generating random strings, ints, doubles, generic lists &amp; property types such as email, urls, postalcodes, telephone numbers etc.
+
+Multi Language data generation including English, Traditional Chinese, Pinyin, Russian, German, Spanish &amp; Italian character sets.</description>
+    <summary>NAuto provides automatic convention based population of test objects.</summary>
+    <copyright>Amido Development Ltd © 2013</copyright>
+    <tags>Test Data Builder Data Helpers Auto Build Generation Unit Testing TDD BDD NUnit MSTest Multi Language</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="5.0.8" />
+    </dependencies>
+  </metadata>
+</package>

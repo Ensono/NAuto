@@ -9,6 +9,7 @@ using Should;
 namespace Amido.NAuto.UnitTests.Nject
 {
     [TestFixture]
+    [Parallelizable(ParallelScope.None)]
     public class NAutoContainerTests
     {
         private NAutoContainer nAutoContainer;

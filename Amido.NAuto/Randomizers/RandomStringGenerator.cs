@@ -5,14 +5,15 @@ using System.Text;
 
 namespace Amido.NAuto.Randomizers
 {
-    public static class RandomStringGenerator
+    public class RandomStringGenerator
     {
-        private static readonly Random Random = new Random();
+        private readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
+        private readonly List<string> _lowercase = new List<string>();
+        private readonly List<string> _uppercase = new List<string>();
+        private readonly List<string> _numbers = new List<string>();
+
         private static readonly List<string> EnglishNumbers = new List<string> { "0", "1", "2", "3", "4", "5", "6", "8", "9" };
         private static readonly List<string> SpecialCharacters = new List<string> { "!", "£", "$", "%", "^", "&", "*", "(", ")", "+", "{", "}", "[", "]", "@", "<", ">", "?", ":", ";", "~", "#", "|", "\\", "/", ",", "." };
-        private static readonly List<string> Lowercase = new List<string>();
-        private static readonly List<string> Uppercase = new List<string>();
-        private static readonly List<string> Numbers = new List<string>();
 
         private static readonly List<string> EnglishLowercase = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         private static readonly List<string> EnglishUppercase = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
@@ -34,7 +35,7 @@ namespace Amido.NAuto.Randomizers
         private static readonly List<string> Chinese = new List<string> { "安", "吧", "爸", "八", "百", "北", "不", "大", "岛", "的", "弟", "地", "东", "都", "对", "多", "儿", "二", "方", "港", "哥", "个", "关", "贵", "国", "过", "海", "好", "很", "会", "家", "见", "叫", "姐", "京", "九", "可", "老", "李", "零", "六", "吗", "妈", "么", "没", "美", "妹", "们", "明", "名", "哪", "那", "南", "你", "您", "朋", "七", "起", "千", "去", "人", "认", "日", "三", "上", "谁", "什", "生", "师", "识", "十", "是", "四", "他", "她", "台", "天", "湾", "万", "王", "我", "五", "西", "息", "系", "先", "香", "想", "小", "谢", "姓", "休", "学", "也", "一", "亿", "英", "友", "月", "再", "张", "这", "中", "字" };
         private static readonly List<string> ChineseNumbers = new List<string> { "〇", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" };
 
-        public static string Get(
+        public string Get(
             int length,
             CharacterSetType characterSetType,
             Spaces spaces,
@@ -50,72 +51,72 @@ namespace Amido.NAuto.Randomizers
             return ConvertToProperCaseIfRequired(sb.ToString(), casing);
         }
 
-        public static string Get(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
+        public string Get(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
         {
             SetLanguageCharacterSets(language);
             SetLanguageNumbers(language);
             var characters = GetCharacterSet(characterSetType, casing);
 
-            var length = Random.Next(minLength, maxLength);
+            var length = _random.Next(minLength, maxLength);
 
             var sb = BuildRandomString(length, spaces, characters);
 
             return ConvertToProperCaseIfRequired(sb.ToString(), casing);
         }
 
-        private static void SetLanguageNumbers(Language language)
+        private void SetLanguageNumbers(Language language)
         {
-            Numbers.Clear();
+            _numbers.Clear();
             if (language == Language.Chinese)
             {
-                Numbers.AddRange(ChineseNumbers);
+                _numbers.AddRange(ChineseNumbers);
             }
             else
             {
-                Numbers.AddRange(EnglishNumbers);
+                _numbers.AddRange(EnglishNumbers);
             }
         }
 
-        private static void SetLanguageCharacterSets(Language language)
+        private void SetLanguageCharacterSets(Language language)
         {
-            Lowercase.Clear();
-            Uppercase.Clear();
+            _lowercase.Clear();
+            _uppercase.Clear();
             switch (language)
             {
                     case Language.Russian:
-                    Lowercase.AddRange(CyrillicLowercase);
-                    Uppercase.AddRange(CyrillicUppercase);
+                    _lowercase.AddRange(CyrillicLowercase);
+                    _uppercase.AddRange(CyrillicUppercase);
                     break;
                     case Language.Chinese:
-                    Lowercase.AddRange(Chinese);
-                    Uppercase.AddRange(Chinese);
+                    _lowercase.AddRange(Chinese);
+                    _uppercase.AddRange(Chinese);
                     break;
                     case Language.German:
-                    Lowercase.AddRange(GermanLowercase);
-                    Uppercase.AddRange(GermanUppercase);
+                    _lowercase.AddRange(GermanLowercase);
+                    _uppercase.AddRange(GermanUppercase);
                     break;
                     case Language.Spanish:
-                    Lowercase.AddRange(SpanishLowercase);
-                    Uppercase.AddRange(SpanishUppercase);
+                    _lowercase.AddRange(SpanishLowercase);
+                    _uppercase.AddRange(SpanishUppercase);
                     break;
                     case Language.Italian:
-                    Lowercase.AddRange(ItalianLowercase);
-                    Uppercase.AddRange(ItalianUppercase);
+                    _lowercase.AddRange(ItalianLowercase);
+                    _uppercase.AddRange(ItalianUppercase);
                     break;
                     case Language.Pinyin:
-                    Lowercase.AddRange(Pinyin);
-                    Uppercase.AddRange(Pinyin);
+                    _lowercase.AddRange(Pinyin);
+                    _uppercase.AddRange(Pinyin);
                     break;
                 default:
-                    Lowercase.AddRange(EnglishLowercase);
-                    Uppercase.AddRange(EnglishUppercase);
+                    _lowercase.AddRange(EnglishLowercase);
+                    _uppercase.AddRange(EnglishUppercase);
                     break;
             }
         }
 
-        private static int GetRandomNumber(int maxNumber)
+        private int GetRandomNumber(int maxNumber)
         {
-            return Random.Next(1, maxNumber);
+            return _random.Next(1, maxNumber);
         }
 
         private static string ConvertToProperCaseIfRequired(string text, Casing casing)
@@ -129,7 +130,7 @@ namespace Amido.NAuto.Randomizers
             return text;
         }
 
-        private static StringBuilder BuildRandomString(int length, Spaces spaces, List<string> characters)
+        private StringBuilder BuildRandomString(int length, Spaces spaces, List<string> characters)
         {
             switch (spaces)
             {
@@ -143,7 +144,7 @@ namespace Amido.NAuto.Randomizers
 
             if (length - 2 > 0)
             {
-                randomMiddleSpaceLocation = Random.Next(1, length - 2);
+                randomMiddleSpaceLocation = _random.Next(1, length - 2);
             }
 
             for (var i = 0; i < length; i++)
@@ -172,7 +173,7 @@ namespace Amido.NAuto.Randomizers
             return sb;
         }
 
-        private static List<string> GetCharacterSet(CharacterSetType characterSetType, Casing casing)
+        private List<string> GetCharacterSet(CharacterSetType characterSetType, Casing casing)
         {
             var characters = new List<string>();
 
@@ -195,69 +196,69 @@ namespace Amido.NAuto.Randomizers
             return characters;
         }
 
-        private static void GetNumericCharacterSet(List<string> characters)
+        private void GetNumericCharacterSet(List<string> characters)
         {
-            characters.AddRange(Numbers);
+            characters.AddRange(_numbers);
         }
 
-        private static void GetAnythingCharacterSet(Casing casing, List<string> characters)
+        private void GetAnythingCharacterSet(Casing casing, List<string> characters)
         {
             switch (casing)
             {
                 case Casing.Lowered:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Lowercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_lowercase);
                     characters.AddRange(SpecialCharacters);
                     break;
                 case Casing.Uppered:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_uppercase);
                     characters.AddRange(SpecialCharacters);
                     break;
                 default:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Lowercase);
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_lowercase);
+                    characters.AddRange(_uppercase);
                     characters.AddRange(SpecialCharacters);
                     break;
             }
         }
 
-        private static void GetAlphaNumericCharacterSet(Casing casing, List<string> characters)
+        private void GetAlphaNumericCharacterSet(Casing casing, List<string> characters)
         {
             switch (casing)
             {
                 case Casing.Lowered:
                 case Casing.ProperCase:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Lowercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_lowercase);
                     break;
                 case Casing.Uppered:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_uppercase);
                     break;
                 default:
-                    characters.AddRange(Numbers);
-                    characters.AddRange(Lowercase);
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_numbers);
+                    characters.AddRange(_lowercase);
+                    characters.AddRange(_uppercase);
                     break;
             }
         }
 
-        private static void GetAlphaCharacterSet(Casing casing, List<string> characters)
+        private void GetAlphaCharacterSet(Casing casing, List<string> characters)
         {
             switch (casing)
             {
                 case Casing.Lowered:
                 case Casing.ProperCase:
-                    characters.AddRange(Lowercase);
+                    characters.AddRange(_lowercase);
                     break;
                 case Casing.Uppered:
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_uppercase);
                     break;
                 default:
-                    characters.AddRange(Lowercase);
-                    characters.AddRange(Uppercase);
+                    characters.AddRange(_lowercase);
+                    characters.AddRange(_uppercase);
                     break;
             }
         }

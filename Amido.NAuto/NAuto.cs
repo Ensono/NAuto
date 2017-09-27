@@ -60,7 +60,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int length, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any, language);
+            return new RandomStringGenerator().Get(length, CharacterSetType.Anything, Spaces.Any, Casing.Any, language);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int length, CharacterSetType characterSetType, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, Spaces.Any, Casing.Any, language);
+            return new RandomStringGenerator().Get(length, characterSetType, Spaces.Any, Casing.Any, language);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, spaces, Casing.Any, language);
+            return new RandomStringGenerator().Get(length, characterSetType, spaces, Casing.Any, language);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int length, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(length, characterSetType, spaces, casing, language);
+            return new RandomStringGenerator().Get(length, characterSetType, spaces, casing, language);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, Casing.Any, language);
+            return new RandomStringGenerator().Get(minLength, maxLength, characterSetType, spaces, Casing.Any, language);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Amido.NAuto
         /// <returns>Random string.</returns>
         public static string GetRandomString(int minLength, int maxLength, CharacterSetType characterSetType, Spaces spaces, Casing casing, Language language = Language.English)
         {
-            return RandomStringGenerator.Get(minLength, maxLength, characterSetType, spaces, casing, language);
+            return new RandomStringGenerator().Get(minLength, maxLength, characterSetType, spaces, casing, language);
         }
 
         /// <summary>

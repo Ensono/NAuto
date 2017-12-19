@@ -53,6 +53,8 @@ namespace Amido.NAuto.UnitTests.Compare
 
             public List<SubClass> SubClassList { get; set; }
 
+            public IEnumerable<SubClass> SubClassEnumerable { get; set; }
+
             public Dictionary<string, SubClass> MyDictionary { get; set; }
 
             public TestEnum TestEnum { get; set; }
@@ -73,6 +75,7 @@ namespace Amido.NAuto.UnitTests.Compare
             public SubClass SubClass { get; set; }
 
             public List<SubClass> SubClassList { get; set; }
+            public IEnumerable<SubClass> SubClassEnumerable { get; set; }
 
             public Dictionary<string, SubClass> MyDictionary { get; set; }
 
@@ -94,5 +97,4 @@ namespace Amido.NAuto.UnitTests.Compare
             public string SubString { get; set; }
         }
     }
-
 }

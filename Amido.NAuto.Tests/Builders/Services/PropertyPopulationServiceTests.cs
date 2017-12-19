@@ -41,7 +41,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
         private Mock<IPopulateDictionaryService> populateDictionaryService;
         private Mock<IPopulateArrayService> populateArrayService;
         private AutoBuilderConfiguration autoBuilderConfiguration;
-            
+
         [SetUp]
         public void SetUp()
         {
@@ -221,6 +221,16 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 public List<string> Test { get; set; }
 
                 public ListTest()
+                {
+                    Test = new List<string>();
+                }
+            }
+
+            private class IEnumerableTest
+            {
+                public IEnumerable<string> Test { get; set; }
+
+                public IEnumerableTest()
                 {
                     Test = new List<string>();
                 }
@@ -533,11 +543,11 @@ namespace Amido.NAuto.UnitTests.Builders.Services
             {
                 // Arrange
                 populateComplexObjectService.Setup(x => x.Populate(
-                    It.IsAny<string>(), 
-                    typeof(StringTest), 
-                    null, 
+                    It.IsAny<string>(),
+                    typeof(StringTest),
+                    null,
                     0,
-                    It.IsAny<Func<ConstructorInfo[], int, Func<int, string, Type, object, PropertyInfo, object>, object[]>>(), 
+                    It.IsAny<Func<ConstructorInfo[], int, Func<int, string, Type, object, PropertyInfo, object>, object[]>>(),
                     It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>(),
                     It.IsAny<Func<object, int, object>>())).Returns(null);
 
@@ -562,6 +572,25 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
                 // Act
                 propertyPopulationService.PopulateProperties(new ListTest(), 0);
+
+                // Assert
+                populateListService.VerifyAll();
+            }
+
+            [Test]
+            public void Should_Call_Correct_Populate_Service_When_Passed_An_IEnumerable()
+            {
+                // Arrange
+                populateListService.Setup(x => x.Populate(
+                        It.IsAny<string>(),
+                        typeof(IEnumerable<string>),
+                        It.IsAny<IEnumerable<string>>(),
+                        0,
+                        It.IsAny<Func<int, string, Type, object, PropertyInfo, object>>()))
+                    .Returns(null);
+
+                // Act
+                propertyPopulationService.PopulateProperties(new IEnumerableTest(), 0);
 
                 // Assert
                 populateListService.VerifyAll();

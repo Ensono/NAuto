@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -36,7 +37,7 @@ namespace Amido.NAuto.Builders.Services
         private AutoBuilderConfiguration configuration;
 
         public PropertyPopulationService(
-            PopulateProperty<string> populateStringService, 
+            PopulateProperty<string> populateStringService,
             PopulateProperty<int> populateIntService,
             PopulateProperty<int?> populateNullableIntProperty,
             PopulateProperty<double> populateDoubleService,
@@ -130,9 +131,9 @@ namespace Amido.NAuto.Builders.Services
 
             var objectToPopulateType = objectToPopulate.GetType();
 
-            if (objectToPopulateType.GetInterfaces().Any(x => x == typeof(IList)))
+            if (objectToPopulateType.GetInterfaces().Any(x => x == typeof(IList) || x == typeof(IEnumerable)))
             {
-                if (objectToPopulateType.FullName.Contains("System.Collections.Generic.List`1"))
+                if (objectToPopulateType.FullName.Contains("System.Collections.Generic.List`1") || objectToPopulateType.FullName.Contains("System.Collections.Generic.IEnumerable`1"))
                 {
                     populateListService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
@@ -164,7 +165,7 @@ namespace Amido.NAuto.Builders.Services
                             objectToPopulate,
                             Populate(depth, propertyInfo.Name, propertyInfo.PropertyType, propertyInfo.GetValue(objectToPopulate, null), propertyInfo), null);
                     }
-                } 
+                }
             }
 
             return objectToPopulate;
@@ -187,12 +188,12 @@ namespace Amido.NAuto.Builders.Services
                 if (!propertyInfo.CanWrite)
                 {
                     return value;
-                }    
+                }
             }
 
-            if (propertyType.GetInterfaces().Any(x => x == typeof(IList)))
+            if (propertyType.GetInterfaces().Any(x => x == typeof(IList) || x == typeof(IEnumerable)))
             {
-                if (propertyType.FullName.Contains("System.Collections.Generic.List`1"))
+                if (propertyType.FullName.Contains("System.Collections.Generic.List`1") || propertyType.FullName.Contains("System.Collections.Generic.IEnumerable`1"))
                 {
                     return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
                 }
@@ -322,7 +323,7 @@ namespace Amido.NAuto.Builders.Services
             {
                 return populateEnumService.Populate(propertyName, propertyType, value);
             }
-            
+
             if (IsPotentialComplexType(propertyType))
             {
                 return populateComplexObjectService.Populate(

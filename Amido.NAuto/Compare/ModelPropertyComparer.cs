@@ -18,6 +18,11 @@ namespace Amido.NAuto.Compare
 
         private static void PopulateComparisons(string path, object modelA, object modelB, List<CompareItem> results, int maxDepth, int depth)
         {
+            if (modelA == null)
+            {
+                return;
+            }
+
             if (depth >= maxDepth)
             {
                 return;
@@ -44,27 +49,20 @@ namespace Amido.NAuto.Compare
                 {
                     hasPropertyCorrespondingValue = modelB.GetType().GetProperty(propertyName) != null;
                 }
-                
+
                 if (hasPropertyCorrespondingValue)
                 {
                     var modelBPropertyValue = modelB.GetType().GetProperty(propertyName).GetValue(modelB, null);
 
-                    if (modelAProperty.PropertyType.GetInterfaces().Any(x => x == typeof(IList)))
+                    if (modelAProperty.PropertyType == typeof(Dictionary<,>.KeyCollection)
+                             || modelAProperty.PropertyType == typeof(string)
+                             || modelAProperty.PropertyType == typeof(decimal)
+                             || modelAProperty.PropertyType == typeof(DateTime)
+                             || modelAProperty.PropertyType.IsEnum
+                             || modelAProperty.PropertyType.IsPrimitive)
                     {
-                        if (((IList)modelAPropertyValue).Count != ((IList)modelBPropertyValue).Count)
-                        {
-                            compareResult.ModelValueA = ((IList)modelAPropertyValue).Count;
-                            compareResult.ModelValueB = ((IList)modelBPropertyValue).Count;
-                        }
-                        else
-                        {
-                            isComplex = true;
-                         
-                            for (var i = 0; i < ((IList)modelAPropertyValue).Count; i++)
-                            {
-                                PopulateComparisons(string.IsNullOrWhiteSpace(path) ? string.Format("{0}[{1}]", propertyName, i) : string.Format("{0}.{1}[{2}]", path, propertyName, i), ((IList)modelAPropertyValue)[i], ((IList)modelBPropertyValue)[i], results, maxDepth, depth + 1);
-                            }
-                        }
+                        compareResult.ModelValueA = modelAPropertyValue;
+                        compareResult.ModelValueB = modelBPropertyValue;
                     }
                     else if (modelAProperty.PropertyType.GetInterfaces().Any(x => x == typeof(IDictionary)))
                     {
@@ -83,16 +81,28 @@ namespace Amido.NAuto.Compare
                             }
                         }
                     }
-                    else if (modelAProperty.PropertyType == typeof(Dictionary<,>.KeyCollection) 
-                        || modelAProperty.PropertyType == typeof(string)                       
-                        || modelAProperty.PropertyType == typeof(decimal)
-                        || modelAProperty.PropertyType == typeof(DateTime)
-                        || modelAProperty.PropertyType.IsEnum
-                        || modelAProperty.PropertyType.IsPrimitive)
+                    else if (modelAProperty.PropertyType.GetInterfaces().Any(x => x == typeof(IEnumerable) || x == typeof(IList)))
                     {
-                        compareResult.ModelValueA = modelAPropertyValue;
-                        compareResult.ModelValueB = modelBPropertyValue;
-                    }                    
+                        var listTypeA = modelAPropertyValue.GetType().GetGenericArguments()[0];
+                        var listTypeB = modelBPropertyValue.GetType().GetGenericArguments()[0];
+                        var generatedListA = Convert.ChangeType(modelAPropertyValue, typeof(List<>).MakeGenericType(listTypeA)) as IList;
+                        var generatedListB = Convert.ChangeType(modelBPropertyValue, typeof(List<>).MakeGenericType(listTypeB)) as IList;
+
+                        if (generatedListA.Count != generatedListB.Count)
+                        {
+                            compareResult.ModelValueA = generatedListA.Count;
+                            compareResult.ModelValueB = generatedListB.Count;
+                        }
+                        else
+                        {
+                            isComplex = true;
+
+                            for (var i = 0; i < ((IList)modelAPropertyValue).Count; i++)
+                            {
+                                PopulateComparisons(string.IsNullOrWhiteSpace(path) ? string.Format("{0}[{1}]", propertyName, i) : string.Format("{0}.{1}[{2}]", path, propertyName, i), ((IList)modelAPropertyValue)[i], ((IList)modelBPropertyValue)[i], results, maxDepth, depth + 1);
+                            }
+                        }
+                    }
                     else if (modelAProperty.PropertyType.FullName.StartsWith("System.Nullable"))
                     {
                         try

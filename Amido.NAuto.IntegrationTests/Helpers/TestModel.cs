@@ -16,6 +16,13 @@ namespace Amido.NAuto.IntegrationTests.Helpers
         }
     }
 
+    public class ClassWithEnumList
+    {
+        public string TestString { get; set; }
+
+        public List<TestEnum> TestEnums { get; set; }
+    }
+
     public class ClassForSequencing
     {
         public int Id { get; set; }

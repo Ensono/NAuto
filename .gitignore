@@ -108,3 +108,6 @@ Backup*/
 UpgradeLog*.XML
 /Amido.NAuto.IntegrationTests/testModel4.json
 /.vs/config/applicationhost.config
+
+# .vs
+.vs

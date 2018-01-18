@@ -319,7 +319,7 @@ namespace Amido.NAuto.Builders.Services
                 return populateNullableDecimalService.Populate(propertyName, (decimal?)value);
             }
 
-            if (propertyType.BaseType == typeof(Enum) && value != null)
+            if (propertyType.BaseType == typeof(Enum))
             {
                 return populateEnumService.Populate(propertyName, propertyType, value);
             }

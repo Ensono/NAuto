@@ -512,6 +512,15 @@ namespace Amido.NAuto.IntegrationTests
         }
 
         [Test]
+        public void Should_Select_Random_Enum_Values_For_List_Of_Enums()
+        {
+            var model = NAuto.AutoBuild<ClassWithEnumList>()
+                .Construct()
+                .Build();
+
+            model.TestEnums.Count.ShouldEqual(2);
+        }
+        [Test]
         public void Should_Throw_Exception_If_Interface_Used_As_Type_Argument()
         {
             var exception = Assert.Throws<ArgumentException>(() => NAuto.AutoBuild<IMyInterface>()

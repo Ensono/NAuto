@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Compare
 {

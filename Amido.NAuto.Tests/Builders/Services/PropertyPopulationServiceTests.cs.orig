@@ -6,7 +6,7 @@ using Amido.NAuto.Builders.Services;
 using Amido.NAuto.UnitTests.Helpers;
 using Moq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -278,7 +278,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
                 // Assert
                 populateStringService.VerifyAll();
-                objectToPopulate.Test.ShouldEqual(resultString);
+                objectToPopulate.Test.ShouldBe(resultString);
             }
 
             [Test]

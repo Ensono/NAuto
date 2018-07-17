@@ -1,12 +1,11 @@
 ﻿using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
+using Moq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
-    using Moq;
-
     [TestFixture]
     public class PopulateDoubleServiceTests
     {
@@ -36,7 +35,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDoubleService.Populate(propertyName, currentValue);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -51,7 +50,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDoubleService.Populate(propertyName, 0);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]

@@ -3,7 +3,7 @@ using System.Reflection;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -39,7 +39,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateComplexObjectService.Populate(propertyName, typeof(TestClass), currentValue, 1, TestBuildContructor, TestPopulateSingleProperty, TestPopulateProperties);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -54,7 +54,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateComplexObjectService.Populate(propertyName, typeof(TestClass), null, 1, TestBuildContructor, TestPopulateSingleProperty, TestPopulateProperties);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]

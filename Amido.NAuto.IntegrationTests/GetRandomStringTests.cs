@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Amido.NAuto.Randomizers;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.IntegrationTests
 {
@@ -22,9 +22,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.Anything);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Amido.NAuto.IntegrationTests
             // Assert
             result1.Length.ShouldBeGreaterThanOrEqualTo(minLength);
             result2.Length.ShouldBeLessThanOrEqualTo(maxLength);
-            result1.ShouldNotEqual(result2);
+            result1.ShouldNotBe(result2);
         }
 
         [Test]
@@ -57,9 +57,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             regexForFalse.IsMatch(result1).ShouldBeFalse("Should only contain lower or upper case letters " + result1);
             regexForFalse.IsMatch(result2).ShouldBeFalse("Should only contain lower or upper case letters " + result2);
             regexForTrue.IsMatch(result1).ShouldBeTrue("Should only contain lower or upper case letters " + result1);
@@ -79,9 +79,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Lowered);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             regexForFalse.IsMatch(result1).ShouldBeFalse("Should only contain lower case letters: " + result1);
             regexForFalse.IsMatch(result2).ShouldBeFalse("Should only contain lower case letters: " + result2);
             regexForTrue.IsMatch(result1).ShouldBeTrue("Should only contain lower case letters: " + result1);
@@ -101,9 +101,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.Alpha, Spaces.Any, Casing.Uppered);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             regexForFalse.IsMatch(result1).ShouldBeFalse("Should only contain upper case letters " + result1);
             regexForFalse.IsMatch(result2).ShouldBeFalse("Should only contain upper case letters " + result2);
             regexForTrue.IsMatch(result1).ShouldBeTrue("Should only contain upper case letters " + result1);
@@ -123,9 +123,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.Numeric);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             regexForFalse.IsMatch(result1).ShouldBeFalse("Should only contain numbers " + result1);
             regexForFalse.IsMatch(result2).ShouldBeFalse("Should only contain numbers " + result2);
             regexForTrue.IsMatch(result1).ShouldBeTrue("Should only contain numbers " + result1);
@@ -144,9 +144,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Any, Casing.Any);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             regexForTrue.IsMatch(result1).ShouldBeTrue("Can contain spaces " + result1);
             regexForTrue.IsMatch(result2).ShouldBeTrue("Can contain spaces " + result2);
         }
@@ -162,9 +162,9 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.Start, Casing.Any);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             result1.ShouldStartWith(" ");
             result2.ShouldStartWith(" ");
         }
@@ -180,11 +180,11 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.End, Casing.Any);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
-            result1[length - 1].ShouldEqual(' ');
-            result2[length - 1].ShouldEqual(' ');
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
+            result1[length - 1].ShouldBe(' ');
+            result2[length - 1].ShouldBe(' ');
         }
 
         [Test]
@@ -198,13 +198,13 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomString(length, CharacterSetType.AlphaNumeric, Spaces.StartAndEnd, Casing.Any);
 
             // Assert
-            result1.Length.ShouldEqual(length);
-            result2.Length.ShouldEqual(length);
-            result1.ShouldNotEqual(result2);
+            result1.Length.ShouldBe(length);
+            result2.Length.ShouldBe(length);
+            result1.ShouldNotBe(result2);
             result1.ShouldStartWith(" ");
             result2.ShouldStartWith(" ");
-            result1[length - 1].ShouldEqual(' ');
-            result2[length - 1].ShouldEqual(' ');
+            result1[length - 1].ShouldBe(' ');
+            result2[length - 1].ShouldBe(' ');
         } 
     }
 }

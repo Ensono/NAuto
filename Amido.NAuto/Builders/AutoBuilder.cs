@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
-
 using Amido.NAuto.Builders.Services;
+using Amido.NAuto.MultiTargeting;
 using Amido.NAuto.Randomizers;
-
 using Amido.NAuto.Serializers;
 
 namespace Amido.NAuto.Builders
@@ -44,8 +42,8 @@ namespace Amido.NAuto.Builders
             this.propertyPopulationService = propertyPopulationService;
             this.configuration = configuration;
 
-            this.Actions = new List<Action>();
-            this.hasInstance = false;
+            Actions = new List<Action>();
+            hasInstance = false;
         }
 
         internal TModel Entity { get; set; }
@@ -139,17 +137,17 @@ namespace Amido.NAuto.Builders
         /// </exception>
         public IAutoBuilderOverrides<TModel> Construct(params object[] constructorArguments)
         {
-            if (typeof(TModel).IsInterface)
+            if (typeof(TModel).IsInterface())
             {
                 throw new ArgumentException("Can't instantiate interfaces");
             }
 
-            if (typeof(TModel).IsAbstract)
+            if (typeof(TModel).IsAbstract())
             {
                 throw new ArgumentException("Can't instantiate abstract classes");
             }
 
-            this.constructorParameters = constructorArguments;
+            constructorParameters = constructorArguments;
 
             propertyPopulationService.AddConfiguration(configuration);
            
@@ -178,13 +176,13 @@ namespace Amido.NAuto.Builders
         public IAutoBuilderOverrides<TModel> Load(string relativeFilePath)
         {
             propertyPopulationService.AddConfiguration(configuration);
-            var currentDirectory = Path.Combine(new Uri(Assembly.GetAssembly(typeof(AutoBuilder<>)).CodeBase).LocalPath, @"..\..\..\");
+            var currentDirectory = Path.Combine(ReflectionHelper.GetAssemblyPath(typeof(AutoBuilder<>)), @"..\..\..\");
             var fullPath = currentDirectory + relativeFilePath;
 
             if (File.Exists(fullPath))
             {
                 Entity = JsonSerializer.FromJsonString<TModel>(File.ReadAllText(fullPath));
-                this.hasInstance = true;
+                hasInstance = true;
             }
             else
             {
@@ -201,7 +199,7 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns this.</returns>
         public IAutoBuilderOverrides<TModel> With(Action<TModel> expression)
         {
-            this.Actions.Add(() => expression(this.Entity));
+            Actions.Add(() => expression(Entity));
             return this;
         }
 
@@ -215,7 +213,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, string>> expression,
             PropertyType propertyType)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomPropertyType(propertyType), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomPropertyType(propertyType), expression));
             return this;
         }
 
@@ -229,7 +227,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, string>> expression,
             int length)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length), expression));
             return this;
         }
 
@@ -245,7 +243,7 @@ namespace Amido.NAuto.Builders
             int length,
             CharacterSetType characterSetType)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType), expression));
             return this;
         }
 
@@ -263,7 +261,7 @@ namespace Amido.NAuto.Builders
             CharacterSetType characterSetType,
             Spaces spaces)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces), expression));
             return this;
         }
 
@@ -283,7 +281,7 @@ namespace Amido.NAuto.Builders
             Spaces spaces, 
             Casing casing)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces, casing), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(length, characterSetType, spaces, casing), expression));
             return this;
         }
 
@@ -305,7 +303,7 @@ namespace Amido.NAuto.Builders
             Spaces spaces, 
             Casing casing)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces, casing), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces, casing), expression));
             return this;
         }
 
@@ -325,7 +323,7 @@ namespace Amido.NAuto.Builders
             CharacterSetType characterSetType,
             Spaces spaces)
         {
-            this.Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces), expression));
+            Actions.Add(() => SetStringPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomString(minLength, minLength, characterSetType, spaces), expression));
             return this;
         }
 
@@ -339,7 +337,7 @@ namespace Amido.NAuto.Builders
            Expression<Func<TModel, int>> expression,
            int max)
         {
-            this.Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(max), expression));
+            Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(max), expression));
             return this;
         }
 
@@ -355,7 +353,7 @@ namespace Amido.NAuto.Builders
             int min,
             int max)
         {
-            this.Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(min, max), expression));
+            Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(min, max), expression));
             return this;
         }
 
@@ -369,7 +367,7 @@ namespace Amido.NAuto.Builders
            Expression<Func<TModel, int?>> expression,
            int max)
         {
-            this.Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(max), expression));
+            Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(max), expression));
             return this;
         }
 
@@ -385,7 +383,7 @@ namespace Amido.NAuto.Builders
            int min,
            int max)
         {
-            this.Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(min, max), expression));
+            Actions.Add(() => SetIntegerPropertyUsingNewRandomizerSetting(() => NAuto.GetRandomInteger(min, max), expression));
             return this;
         }
 
@@ -401,7 +399,7 @@ namespace Amido.NAuto.Builders
            double min,
            double max)
         {
-            this.Actions.Add(() => SetDoublePropertyUsingNewRandomizerSetting(() => NAuto.GetRandomDouble(min, max), expression));
+            Actions.Add(() => SetDoublePropertyUsingNewRandomizerSetting(() => NAuto.GetRandomDouble(min, max), expression));
             return this;
         }
 
@@ -417,7 +415,7 @@ namespace Amido.NAuto.Builders
            double min,
            double max)
         {
-            this.Actions.Add(() => SetDoublePropertyUsingNewRandomizerSetting(() => NAuto.GetRandomDouble(min, max), expression));
+            Actions.Add(() => SetDoublePropertyUsingNewRandomizerSetting(() => NAuto.GetRandomDouble(min, max), expression));
             return this;
         }
 
@@ -428,7 +426,7 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns this.</returns>
         public IConditionalResult<TModel> If(Func<TModel, bool> expression)
         {
-            return new ConditionalResult<TModel>(this, this.Entity, b => expression(this.Entity));
+            return new ConditionalResult<TModel>(this, Entity, b => expression(Entity));
         }
 
         /// <summary>
@@ -437,18 +435,18 @@ namespace Amido.NAuto.Builders
         /// <returns>Returns the populated model.</returns>
         public TModel Build()
         {
-            if (!this.hasInstance)
+            if (!hasInstance)
             {
                 if (this.constructorParameters != null && this.constructorParameters.Length > 0)
                 {
-                    this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), this.constructorParameters);
+                    Entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
                 }
                 else
                 {
                     var constructors = typeof(TModel).GetConstructors();
-                    if (typeof(TModel).BaseType == typeof(Array))
+                    if (typeof(TModel).BaseType() == typeof(Array))
                     {
-                        this.Entity =
+                        Entity =
                             (TModel)Activator.CreateInstance(typeof(TModel), configuration.DefaultCollectionItemCount);
                     }
                     else if (constructors.All(x => x.GetParameters().Count() != 0))
@@ -456,29 +454,29 @@ namespace Amido.NAuto.Builders
                         var constructorParameters = propertyPopulationService.BuildConstructorParameters(
                             constructors,
                             1);
-                        this.Entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
+                        Entity = (TModel)Activator.CreateInstance(typeof(TModel), constructorParameters);
                     }
                     else
                     {
-                        this.Entity = (TModel)Activator.CreateInstance(typeof(TModel));
+                        Entity = (TModel)Activator.CreateInstance(typeof(TModel));
                     }
                 }
 
-                this.Entity = (TModel)propertyPopulationService.PopulateProperties(this.Entity, 1);
+                Entity = (TModel)propertyPopulationService.PopulateProperties(Entity, 1);
             }
 
-            foreach (var action in this.Actions)
+            foreach (var action in Actions)
             {
                 action();
             }
 
-            return this.Entity;
+            return Entity;
         }
 
         public TModel Persist(string relativeFilePath, bool overWrite = false)
         {
-            var json = this.ToJson();
-            var currentDirectory = Path.Combine(new Uri(Assembly.GetAssembly(typeof(AutoBuilder<>)).CodeBase).LocalPath, @"..\..\..\");
+            var json = ToJson();
+            var currentDirectory = Path.Combine(new Uri(ReflectionHelper.GetAssemblyPath(typeof(AutoBuilder<>))).LocalPath, @"..\..\..\");
             var fullPath = currentDirectory + relativeFilePath;
             if (!File.Exists(fullPath) || overWrite)
             {
@@ -505,8 +503,8 @@ namespace Amido.NAuto.Builders
         /// </returns>
         public string ToJson(bool useCamelCase = true, bool ignoreNulls = true, bool indentJson = true)
         {
-            this.Build();
-            return JsonSerializer.ToIndentedJsonString(this.Entity, useCamelCase, ignoreNulls, indentJson);
+            Build();
+            return JsonSerializer.ToIndentedJsonString(Entity, useCamelCase, ignoreNulls, indentJson);
         }
 
         private void SetStringPropertyUsingNewRandomizerSetting(
@@ -514,7 +512,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, string>> expression)
         {
             var memberExpression = (MemberExpression)expression.Body;
-            var property = memberExpression.Member as PropertyInfo;
+            var property = memberExpression.Member as System.Reflection.PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
@@ -527,7 +525,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, int>> expression)
         {
             var memberExpression = (MemberExpression)expression.Body;
-            var property = memberExpression.Member as PropertyInfo;
+            var property = memberExpression.Member as System.Reflection.PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
@@ -540,7 +538,7 @@ namespace Amido.NAuto.Builders
            Expression<Func<TModel, int?>> expression)
         {
             var memberExpression = (MemberExpression)expression.Body;
-            var property = memberExpression.Member as PropertyInfo;
+            var property = memberExpression.Member as System.Reflection.PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
@@ -553,7 +551,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, double>> expression)
         {
             var memberExpression = (MemberExpression)expression.Body;
-            var property = memberExpression.Member as PropertyInfo;
+            var property = memberExpression.Member as System.Reflection.PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
@@ -566,7 +564,7 @@ namespace Amido.NAuto.Builders
             Expression<Func<TModel, double?>> expression)
         {
             var memberExpression = (MemberExpression)expression.Body;
-            var property = memberExpression.Member as PropertyInfo;
+            var property = memberExpression.Member as System.Reflection.PropertyInfo;
             var instanceToUpdate = GetInstance(memberExpression);
             if (property != null)
             {
@@ -578,12 +576,12 @@ namespace Amido.NAuto.Builders
         {
             if (expression.Expression as MemberExpression == null)
             {
-                return this.Entity;
+                return Entity;
             }
 
             var body = GetInstance(expression.Expression as MemberExpression);
 
-            var property = (expression.Expression as MemberExpression).Member as PropertyInfo;
+            var property = (expression.Expression as MemberExpression).Member as System.Reflection.PropertyInfo;
             if (property != null)
             {
                 var nextLevelInstance = property.GetValue(body, null);

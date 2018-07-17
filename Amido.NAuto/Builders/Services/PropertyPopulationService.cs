@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Builders.Services
 {
@@ -141,7 +140,7 @@ namespace Amido.NAuto.Builders.Services
                 {
                     populateDictionaryService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate, Populate);
                 }
-                else if (objectToPopulateType.BaseType == typeof(Array))
+                else if (objectToPopulateType.BaseType() == typeof(Array))
                 {
                     objectToPopulate = populateArrayService.Populate(string.Empty, objectToPopulateType, objectToPopulate, depth - 1, Populate);
                 }
@@ -155,7 +154,7 @@ namespace Amido.NAuto.Builders.Services
             }
             else
             {
-                var properties = objectToPopulate.GetType().GetProperties();
+                var properties = ReflectionHelper.GetProperties(objectToPopulate.GetType());
 
                 foreach (var propertyInfo in properties)
                 {
@@ -171,17 +170,17 @@ namespace Amido.NAuto.Builders.Services
             return objectToPopulate;
         }
 
-        public object[] BuildConstructorParameters(ConstructorInfo[] constructors, int depth)
+        public object[] BuildConstructorParameters(System.Reflection.ConstructorInfo[] constructors, int depth)
         {
             return buildConstructorParametersService.Build(constructors, depth, Populate);
         }
 
         private static bool IsPotentialComplexType(Type propertyType)
         {
-            return propertyType.BaseType != typeof(ValueType) && !propertyType.IsPrimitive && propertyType != typeof(string) && propertyType != typeof(Uri);
+            return propertyType.BaseType() != typeof(ValueType) && !propertyType.IsPrimitive() && propertyType != typeof(string) && propertyType != typeof(Uri);
         }
 
-        private object Populate(int depth, string propertyName, Type propertyType, object value, PropertyInfo propertyInfo = null)
+        private object Populate(int depth, string propertyName, Type propertyType, object value, System.Reflection.PropertyInfo propertyInfo = null)
         {
             if (propertyInfo != null)
             {
@@ -198,7 +197,7 @@ namespace Amido.NAuto.Builders.Services
                     return populateListService.Populate(propertyName, propertyType, value, depth, Populate);
                 }
 
-                if (propertyType.BaseType == typeof(Array) && value == null)
+                if (propertyType.BaseType() == typeof(Array) && value == null)
                 {
                     return populateArrayService.Populate(propertyName, propertyType, null, depth, Populate);
                 }
@@ -319,7 +318,7 @@ namespace Amido.NAuto.Builders.Services
                 return populateNullableDecimalService.Populate(propertyName, (decimal?)value);
             }
 
-            if (propertyType.BaseType == typeof(Enum))
+            if (propertyType.BaseType() == typeof(Enum))
             {
                 return populateEnumService.Populate(propertyName, propertyType, value);
             }

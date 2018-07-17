@@ -1,6 +1,6 @@
 ﻿using Amido.NAuto.Builders;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.IntegrationTests
 {

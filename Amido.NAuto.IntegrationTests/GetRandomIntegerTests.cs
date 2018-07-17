@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.IntegrationTests
 {
@@ -20,7 +20,7 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomInteger(max);
 
             // Assert
-            result1.ShouldNotEqual(result2);
+            result1.ShouldNotBe(result2);
             result1.ShouldBeLessThanOrEqualTo(max);
             result2.ShouldBeLessThanOrEqualTo(max);
         }
@@ -37,7 +37,7 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomInteger(min, max);
 
             // Assert
-            result1.ShouldNotEqual(result2);
+            result1.ShouldNotBe(result2);
             result1.ShouldBeGreaterThanOrEqualTo(min);
             result1.ShouldBeLessThanOrEqualTo(max);
             result2.ShouldBeGreaterThanOrEqualTo(min);
@@ -56,7 +56,7 @@ namespace Amido.NAuto.IntegrationTests
             var result2 = NAuto.GetRandomDouble(min, max);
 
             // Assert
-            result1.ShouldNotEqual(result2);
+            result1.ShouldNotBe(result2);
             result1.ShouldBeGreaterThanOrEqualTo(min);
             result1.ShouldBeLessThanOrEqualTo(max);
             result2.ShouldBeGreaterThanOrEqualTo(min);

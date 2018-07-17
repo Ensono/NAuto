@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Reflection;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Builders.Services
 {
@@ -17,8 +17,8 @@ namespace Amido.NAuto.Builders.Services
             Type propertyType, 
             object currentValue, 
             int depth,
-            Func<ConstructorInfo[], int, Func<int, string, Type, object, PropertyInfo, object>, object[]> buildConstructorParametersFunction,
-            Func<int, string, Type, object, PropertyInfo, object> populate,
+            Func<System.Reflection.ConstructorInfo[], int, Func<int, string, Type, object, System.Reflection.PropertyInfo, object>, object[]> buildConstructorParametersFunction,
+            Func<int, string, Type, object, System.Reflection.PropertyInfo, object> populate,
             Func<object, int, object> populateProperties)
         {
             if (currentValue != null)

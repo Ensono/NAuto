@@ -2,7 +2,7 @@
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -34,7 +34,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateUriService.Populate(propertyName, null);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Amido.NAuto.Nject;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Nject
 {
@@ -29,18 +29,18 @@ namespace Amido.NAuto.UnitTests.Nject
             {
                 nAutoContainer.Register<IList<string>, List<string>>();
 
-                NAutoContainer.Mappings.Count.ShouldEqual(1);
-                NAutoContainer.Mappings.First().Key.ShouldEqual(typeof (IList<string>));
-                NAutoContainer.Mappings.First().Value.ShouldEqual(typeof(List<string>));
+                NAutoContainer.Mappings.Count.ShouldBe(1);
+                NAutoContainer.Mappings.First().Key.ShouldBe(typeof (IList<string>));
+                NAutoContainer.Mappings.First().Value.ShouldBe(typeof(List<string>));
             }
 
             [Test]
             public void Should_Successfully_Add_Entry_To_Mapping_Dictionary_Across_Multiple_Threads()
             {
                 Parallel.ForEach(Enumerable.Range(1, 1000), x => nAutoContainer.Register<IList<string>, List<string>>());
-                NAutoContainer.Mappings.Count.ShouldEqual(1);
-                NAutoContainer.Mappings.First().Key.ShouldEqual(typeof(IList<string>));
-                NAutoContainer.Mappings.First().Value.ShouldEqual(typeof(List<string>));
+                NAutoContainer.Mappings.Count.ShouldBe(1);
+                NAutoContainer.Mappings.First().Key.ShouldBe(typeof(IList<string>));
+                NAutoContainer.Mappings.First().Value.ShouldBe(typeof(List<string>));
             }
         }
 
@@ -54,14 +54,14 @@ namespace Amido.NAuto.UnitTests.Nject
                 var instance = nAutoContainer.Resolve<IList<string>>();
 
                 instance.ShouldNotBeNull();
-                instance.GetType().ShouldEqual(typeof(List<string>));
+                instance.GetType().ShouldBe(typeof(List<string>));
             }
 
             [Test]
             public void Should_Throw_Argument_Exception_When_Interface_Not_Registered()
             {
                 var argumentException = Assert.Throws<ArgumentException>(() => nAutoContainer.Resolve<IList<string>>());
-                argumentException.Message.ShouldEqual("Type not registered");
+                argumentException.Message.ShouldBe("Type not registered");
             }
 
             [Test]

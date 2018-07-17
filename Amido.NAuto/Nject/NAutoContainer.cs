@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Nject
 {

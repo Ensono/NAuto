@@ -1,6 +1,6 @@
 ﻿using Amido.NAuto.IntegrationTests.Helpers;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.IntegrationTests
 {
@@ -17,7 +17,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.FirstName.ShouldEqual(overridden);
+            testModel.FirstName.ShouldBe(overridden);
         } 
     }
 }

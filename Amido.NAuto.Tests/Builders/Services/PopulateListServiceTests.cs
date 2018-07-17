@@ -5,7 +5,7 @@ using System.Reflection;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -38,9 +38,9 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateListService.Populate(propertyName, type, null, depth, populate) as List<string>;
 
                 result.ShouldNotBeNull();
-                result.Count.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result.First().ShouldEqual(listValue);
-                result.Last().ShouldEqual(listValue);
+                result.Count.ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result.First().ShouldBe(listValue);
+                result.Last().ShouldBe(listValue);
             }
 
             [Test]
@@ -55,9 +55,9 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateListService.Populate(propertyName, type, null, depth, populate) as IEnumerable<string>;
 
                 result.ShouldNotBeNull();
-                result.Count().ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result.First().ShouldEqual(listValue);
-                result.Last().ShouldEqual(listValue);
+                result.Count().ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result.First().ShouldBe(listValue);
+                result.Last().ShouldBe(listValue);
             }
 
             [Test]
@@ -73,10 +73,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateListService.Populate(propertyName, type, list, depth, populate) as List<string>;
 
                 result.ShouldNotBeNull();
-                result.ShouldEqual(list);
-                result.Count.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result.First().ShouldEqual(listValue);
-                result.Last().ShouldEqual(listValue);
+                result.ShouldBe(list);
+                result.Count.ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result.First().ShouldBe(listValue);
+                result.Last().ShouldBe(listValue);
             }
 
             [Test]
@@ -92,10 +92,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateListService.Populate(propertyName, type, list, depth, populate) as IEnumerable<string>;
 
                 result.ShouldNotBeNull();
-                result.ShouldEqual(list);
-                result.Count().ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result.First().ShouldEqual(listValue);
-                result.Last().ShouldEqual(listValue);
+                result.ShouldBe(list);
+                result.Count().ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result.First().ShouldBe(listValue);
+                result.Last().ShouldBe(listValue);
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Compare
 {
@@ -58,8 +59,8 @@ namespace Amido.NAuto.Compare
                              || modelAProperty.PropertyType == typeof(string)
                              || modelAProperty.PropertyType == typeof(decimal)
                              || modelAProperty.PropertyType == typeof(DateTime)
-                             || modelAProperty.PropertyType.IsEnum
-                             || modelAProperty.PropertyType.IsPrimitive)
+                             || modelAProperty.PropertyType.IsEnum()
+                             || modelAProperty.PropertyType.IsPrimitive())
                     {
                         compareResult.ModelValueA = modelAPropertyValue;
                         compareResult.ModelValueB = modelBPropertyValue;

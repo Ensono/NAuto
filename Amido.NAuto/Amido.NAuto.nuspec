@@ -18,7 +18,13 @@ Multi Language data generation including English, Traditional Chinese, Pinyin, R
     <copyright>Amido Development Ltd © 2013</copyright>
     <tags>Test Data Builder Data Helpers Auto Build Generation Unit Testing TDD BDD NUnit MSTest Multi Language</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="5.0.8" />
+      <group targetFramework="net40">
+        <dependency id="Newtonsoft.Json" version="5.0.8" />
+      </group>
+      <group targetFramework="netstandard1.3">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.ComponentModel.Annotations" version="4.4.0" />
+      </group>
     </dependencies>
   </metadata>
 </package>

@@ -4,7 +4,7 @@ using System.Reflection;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -37,9 +37,9 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateArrayService.Populate(propertyName, type, null, depth, populate) as string[];
 
                 result.ShouldNotBeNull();
-                result.Length.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result.First().ShouldEqual(arrayValue);
-                result.Last().ShouldEqual(arrayValue);
+                result.Length.ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result.First().ShouldBe(arrayValue);
+                result.Last().ShouldBe(arrayValue);
             }
         }
     }

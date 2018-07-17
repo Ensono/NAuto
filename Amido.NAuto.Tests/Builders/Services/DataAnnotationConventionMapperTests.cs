@@ -1,8 +1,10 @@
-﻿using Amido.NAuto.Builders;
+﻿using System.Reflection;
+using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
+using Amido.NAuto.MultiTargeting;
 using Amido.NAuto.UnitTests.Helpers;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {

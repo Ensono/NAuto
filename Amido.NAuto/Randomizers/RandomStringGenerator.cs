@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Randomizers
 {
@@ -31,7 +32,7 @@ namespace Amido.NAuto.Randomizers
         private static readonly List<string> GermanUppercase = new List<string> { "ä", "ö", "ü", "ß", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
         private static readonly List<string> Pinyin = new List<string> { "ēi", "bǐ", "xī", "dí", "yī", "ài fú", "jí", "ài chǐ", "ài", "jié", "kāi", "ài lè", "ài mǎ", "ài nà", "ó", "pì", "jí wú", "ài ér", "ài sī", "tí", "yī wú", "wéi", "dòu bèi ěr wéi", "yī kè sī", "wú ài", "zéi dé" };
-     
+
         private static readonly List<string> Chinese = new List<string> { "安", "吧", "爸", "八", "百", "北", "不", "大", "岛", "的", "弟", "地", "东", "都", "对", "多", "儿", "二", "方", "港", "哥", "个", "关", "贵", "国", "过", "海", "好", "很", "会", "家", "见", "叫", "姐", "京", "九", "可", "老", "李", "零", "六", "吗", "妈", "么", "没", "美", "妹", "们", "明", "名", "哪", "那", "南", "你", "您", "朋", "七", "起", "千", "去", "人", "认", "日", "三", "上", "谁", "什", "生", "师", "识", "十", "是", "四", "他", "她", "台", "天", "湾", "万", "王", "我", "五", "西", "息", "系", "先", "香", "想", "小", "谢", "姓", "休", "学", "也", "一", "亿", "英", "友", "月", "再", "张", "这", "中", "字" };
         private static readonly List<string> ChineseNumbers = new List<string> { "〇", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" };
 
@@ -83,27 +84,27 @@ namespace Amido.NAuto.Randomizers
             _uppercase.Clear();
             switch (language)
             {
-                    case Language.Russian:
+                case Language.Russian:
                     _lowercase.AddRange(CyrillicLowercase);
                     _uppercase.AddRange(CyrillicUppercase);
                     break;
-                    case Language.Chinese:
+                case Language.Chinese:
                     _lowercase.AddRange(Chinese);
                     _uppercase.AddRange(Chinese);
                     break;
-                    case Language.German:
+                case Language.German:
                     _lowercase.AddRange(GermanLowercase);
                     _uppercase.AddRange(GermanUppercase);
                     break;
-                    case Language.Spanish:
+                case Language.Spanish:
                     _lowercase.AddRange(SpanishLowercase);
                     _uppercase.AddRange(SpanishUppercase);
                     break;
-                    case Language.Italian:
+                case Language.Italian:
                     _lowercase.AddRange(ItalianLowercase);
                     _uppercase.AddRange(ItalianUppercase);
                     break;
-                    case Language.Pinyin:
+                case Language.Pinyin:
                     _lowercase.AddRange(Pinyin);
                     _uppercase.AddRange(Pinyin);
                     break;
@@ -123,8 +124,7 @@ namespace Amido.NAuto.Randomizers
         {
             if (casing == Casing.ProperCase)
             {
-                var textInfo = new CultureInfo("en-GB", false).TextInfo;
-                return textInfo.ToTitleCase(text.ToLower());
+                text.ToLower().ToTitleCase();
             }
 
             return text;

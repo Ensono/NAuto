@@ -2,7 +2,7 @@
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -39,7 +39,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateEnumService.Populate(propertyName, typeof(TestEnum), currentValue);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -54,7 +54,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateEnumService.Populate(propertyName, typeof(TestEnum), null);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]
@@ -68,7 +68,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateEnumService.Populate(propertyName, typeof(TestEnum), null);
 
                 // Assert
-                result.GetType().ShouldEqual(typeof(TestEnum));
+                result.GetType().ShouldBe(typeof(TestEnum));
             }
         }
     }

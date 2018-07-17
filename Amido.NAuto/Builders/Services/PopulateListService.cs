@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Builders.Services
 {
@@ -19,7 +19,7 @@ namespace Amido.NAuto.Builders.Services
             Type propertyType,
             object currentValue,
             int depth,
-            Func<int, string, Type, object, PropertyInfo, object> populate)
+            Func<int, string, Type, object, System.Reflection.PropertyInfo, object> populate)
         {
             if (currentValue != null && ((IList)currentValue).Count > 0)
             {

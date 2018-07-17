@@ -1,7 +1,7 @@
 ﻿using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -32,7 +32,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDecimalService.Populate(propertyName, currentValue);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -47,7 +47,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDecimalService.Populate(propertyName, null);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]
@@ -61,8 +61,10 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDecimalService.Populate(propertyName, null);
 
                 // Assert
-                result.ShouldBeGreaterThanOrEqualTo((decimal?)autoBuilderConfiguration.DoubleMinimum);
-                result.ShouldBeLessThanOrEqualTo((decimal?)autoBuilderConfiguration.DoubleMaximum);
+
+                Assert.IsTrue(result.HasValue);
+                result.Value.ShouldBeGreaterThanOrEqualTo((decimal)autoBuilderConfiguration.DoubleMinimum);
+                result.Value.ShouldBeLessThanOrEqualTo((decimal)autoBuilderConfiguration.DoubleMaximum);
             }
         }
     }

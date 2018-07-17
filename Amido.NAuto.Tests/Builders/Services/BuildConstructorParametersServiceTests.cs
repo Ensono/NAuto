@@ -2,7 +2,7 @@
 using System.Reflection;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -43,7 +43,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
 
             private object TestPopulateFunction(int depth, string parameterName, Type parameterType, object currentValue, PropertyInfo propertyInfo)
             {
-                depth.ShouldEqual(2);
+                depth.ShouldBe(2);
                 Assert.That(parameterName == "testString" || parameterName == "testInt");
                 Assert.That(parameterType == typeof(string) || parameterType == typeof(int));
                 return null;

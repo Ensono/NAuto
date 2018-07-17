@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net40</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard1.3</TargetFrameworks>
     <AssemblyName>Amido.NAuto</AssemblyName>
     <PackageId>Amido.NAuto</PackageId>
   </PropertyGroup>
@@ -14,4 +14,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
 </Project>

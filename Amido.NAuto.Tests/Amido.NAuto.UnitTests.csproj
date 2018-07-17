@@ -4,16 +4,25 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net40</TargetFrameworks>
+    <TargetFrameworks>net40;netcoreapp1.0</TargetFrameworks>
     <AssemblyName>Amido.NAuto.UnitTests</AssemblyName>
     <PackageId>Amido.NAuto.UnitTests</PackageId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Shouldly" Version="3.0.0" />
+    <PackageReference Include="NUnit" Version="3.9.0" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
     <PackageReference Include="Moq" Version="4.1.1311.0615" />
-    <PackageReference Include="NUnit" Version="3.8.1.0" />
-    <PackageReference Include="Should" Version="1.1.20" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.0'">
+    <PackageReference Include="Moq" Version="4.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
   </ItemGroup>
 
   <ItemGroup>

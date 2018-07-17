@@ -2,7 +2,7 @@
 using Amido.NAuto.Builders.Services;
 using Moq;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -35,7 +35,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDoubleService.Populate(propertyName, currentValue);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -50,7 +50,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDoubleService.Populate(propertyName, null);
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]
@@ -64,8 +64,8 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateNullableDoubleService.Populate(propertyName, null);
 
                 // Assert
-                result.ShouldBeGreaterThanOrEqualTo(autoBuilderConfiguration.DoubleMinimum);
-                result.ShouldBeLessThanOrEqualTo(autoBuilderConfiguration.DoubleMaximum);
+                Assert.That(result, Is.GreaterThanOrEqualTo(autoBuilderConfiguration.DoubleMinimum));
+                Assert.That(result, Is.LessThanOrEqualTo(autoBuilderConfiguration.DoubleMaximum));
             }
         }
     }

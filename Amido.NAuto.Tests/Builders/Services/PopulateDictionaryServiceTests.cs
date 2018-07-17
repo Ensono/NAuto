@@ -4,7 +4,7 @@ using System.Reflection;
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -40,8 +40,8 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDictionaryService.Populate(propertyName, type, null, depth, populateKey, populateValue) as Dictionary<string, string>;
 
                 result.ShouldNotBeNull();
-                result.Count.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result[key].ShouldEqual(value);
+                result.Count.ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result[key].ShouldBe(value);
             }
 
             [Test]
@@ -59,9 +59,9 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDictionaryService.Populate(propertyName, type, dictionary, depth, populateKey, populateValue) as Dictionary<int, string>;
 
                 result.ShouldNotBeNull();
-                result.ShouldEqual(dictionary);
-                result.Count.ShouldEqual(autoBuilderConfiguration.DefaultCollectionItemCount);
-                result[key].ShouldEqual(value);
+                result.ShouldBe(dictionary);
+                result.Count.ShouldBe(autoBuilderConfiguration.DefaultCollectionItemCount);
+                result[key].ShouldBe(value);
             }
         }
     }

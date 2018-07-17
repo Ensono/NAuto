@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Reflection;
+using Amido.NAuto.MultiTargeting;
 
 namespace Amido.NAuto.Builders.Services
 {
@@ -13,7 +13,7 @@ namespace Amido.NAuto.Builders.Services
             AutoBuilderConfiguration = autoBuilderConfiguration;
         }
 
-        public object Populate(string propertyName, Type propertyType, object currentValue, int depth, Func<int, string, Type, object, PropertyInfo, object> populateKey, Func<int, string, Type, object, PropertyInfo, object> populateValue)
+        public object Populate(string propertyName, Type propertyType, object currentValue, int depth, Func<int, string, Type, object, System.Reflection.PropertyInfo, object> populateKey, Func<int, string, Type, object, System.Reflection.PropertyInfo, object> populateValue)
         {
             if (currentValue != null && ((IDictionary)currentValue).Count > 0)
             {

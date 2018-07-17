@@ -2,7 +2,7 @@
 using Amido.NAuto.Builders;
 using Amido.NAuto.Builders.Services;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.UnitTests.Builders.Services
 {
@@ -33,7 +33,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDateTimeService.Populate(propertyName, currentValue);
 
                 // Assert
-                result.ShouldEqual(currentValue);
+                result.ShouldBe(currentValue);
             }
 
             [Test]
@@ -48,7 +48,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDateTimeService.Populate(propertyName, default(DateTime));
 
                 // Assert
-                result.ShouldEqual(testConventionResult);
+                result.ShouldBe(testConventionResult);
             }
 
             [Test]
@@ -62,7 +62,7 @@ namespace Amido.NAuto.UnitTests.Builders.Services
                 var result = populateDateTimeService.Populate(propertyName, default(DateTime));
 
                 // Assert
-                result.ShouldEqual(autoBuilderConfiguration.DefaultDateTime);
+                result.ShouldBe(autoBuilderConfiguration.DefaultDateTime);
             }
         }
     }

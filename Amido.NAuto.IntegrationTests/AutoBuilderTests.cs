@@ -4,7 +4,7 @@ using Amido.NAuto.Builders;
 using Amido.NAuto.IntegrationTests.Helpers;
 using Amido.NAuto.Randomizers;
 using NUnit.Framework;
-using Should;
+using Shouldly;
 
 namespace Amido.NAuto.IntegrationTests
 {
@@ -24,7 +24,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             testModel.ShouldNotBeNull();
-            testModel.Email.ShouldEqual(Email);
+            testModel.Email.ShouldBe(Email);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace Amido.NAuto.IntegrationTests
         public void Should_Use_Data_Annotation_Email_Type_As_Convention()
         {
             var testModel = NAuto.AutoBuild<TestAnnotationModelIntegrationTests>()
-                .ClearConventions()                
+                .ClearConventions()
                 .Construct()
                 .Build();
 
@@ -106,8 +106,9 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.RangeNullableIntTest.ShouldBeGreaterThanOrEqualTo(1);
-            testModel.RangeNullableIntTest.ShouldBeLessThanOrEqualTo(10);
+            Assert.IsTrue(testModel.RangeNullableIntTest.HasValue);
+            testModel.RangeNullableIntTest.Value.ShouldBeGreaterThanOrEqualTo(1);
+            testModel.RangeNullableIntTest.Value.ShouldBeLessThanOrEqualTo(10);
         }
 
         [Test]
@@ -119,8 +120,9 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.RangeNullableDoubleTest.ShouldBeGreaterThanOrEqualTo(1);
-            testModel.RangeNullableDoubleTest.ShouldBeLessThanOrEqualTo(10);
+            Assert.IsTrue(testModel.RangeNullableDoubleTest.HasValue);
+            testModel.RangeNullableDoubleTest.Value.ShouldBeGreaterThanOrEqualTo(1);
+            testModel.RangeNullableDoubleTest.Value.ShouldBeLessThanOrEqualTo(10);
         }
 
         [Test]
@@ -128,7 +130,7 @@ namespace Amido.NAuto.IntegrationTests
         {
             // Arrange
             var testListParameter = new List<TestModel>();
-            testListParameter.Add(new TestModel{FirstName = "Sean"});
+            testListParameter.Add(new TestModel { FirstName = "Sean" });
             // Act
             var testList = NAuto.AutoBuild<List<TestModel>>()
               .Construct(testListParameter)
@@ -175,16 +177,18 @@ namespace Amido.NAuto.IntegrationTests
             testModel.FirstName.ShouldNotBeEmpty();
             testModel.LastName.ShouldNotBeEmpty();
             testModel.Byte.ShouldBeGreaterThan((byte)0);
-            testModel.NullableByte.ShouldBeGreaterThan((byte)0);
-            testModel.Bytes.Length.ShouldEqual(configuration.DefaultCollectionItemCount);
-            testModel.NullableBytes.Length.ShouldEqual(configuration.DefaultCollectionItemCount);
-            testModel.FavouriteInteger.ShouldNotEqual(default(int));
-            testModel.FavouriteDouble.ShouldNotEqual(default(double));
-            testModel.FavouriteDateTime.ShouldNotEqual(default(DateTime));
-            testModel.SubTestModel.SubDateTime.ShouldNotEqual(default(DateTime));
-            testModel.SubTestModel.SubDouble.ShouldNotEqual(default(double));
-            testModel.SubTestModel.SubInteger.ShouldNotEqual(default(int));
+            Assert.IsTrue(testModel.NullableByte.HasValue);
+            testModel.NullableByte.Value.ShouldBeGreaterThan((byte)0);
+            testModel.Bytes.Length.ShouldBe(configuration.DefaultCollectionItemCount);
+            testModel.NullableBytes.Length.ShouldBe(configuration.DefaultCollectionItemCount);
+            testModel.FavouriteInteger.ShouldNotBe(default(int));
+            testModel.FavouriteDouble.ShouldNotBe(default(double));
+            testModel.FavouriteDateTime.ShouldNotBe(default(DateTime));
+            testModel.SubTestModel.SubDateTime.ShouldNotBe(default(DateTime));
+            testModel.SubTestModel.SubDouble.ShouldNotBe(default(double));
+            testModel.SubTestModel.SubInteger.ShouldNotBe(default(int));
             testModel.SubTestModel.SubString.ShouldNotBeEmpty();
+            Assert.IsTrue(testModel.SubTestModel.SubBool.HasValue);
             testModel.SubTestModel.SubBool.Value.ShouldBeTrue();
         }
 
@@ -200,16 +204,17 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubString.ShouldEqual(overridden);
+            testModel.SubTestModel.SubString.ShouldBe(overridden);
 
             testModel.FirstName.ShouldNotBeEmpty();
             testModel.LastName.ShouldNotBeEmpty();
-            testModel.FavouriteInteger.ShouldNotEqual(default(int));
-            testModel.FavouriteDouble.ShouldNotEqual(default(double));
-            testModel.FavouriteDateTime.ShouldNotEqual(default(DateTime));
-            testModel.SubTestModel.SubDateTime.ShouldNotEqual(default(DateTime));
-            testModel.SubTestModel.SubDouble.ShouldNotEqual(default(double));
-            testModel.SubTestModel.SubInteger.ShouldNotEqual(default(int));
+            testModel.FavouriteInteger.ShouldNotBe(default(int));
+            testModel.FavouriteDouble.ShouldNotBe(default(double));
+            testModel.FavouriteDateTime.ShouldNotBe(default(DateTime));
+            testModel.SubTestModel.SubDateTime.ShouldNotBe(default(DateTime));
+            testModel.SubTestModel.SubDouble.ShouldNotBe(default(double));
+            testModel.SubTestModel.SubInteger.ShouldNotBe(default(int));
+            Assert.IsTrue(testModel.SubTestModel.SubBool.HasValue);
             testModel.SubTestModel.SubBool.Value.ShouldBeTrue();
         }
 
@@ -223,7 +228,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.FirstName.Length.ShouldEqual(9);
+            testModel.FirstName.Length.ShouldBe(9);
         }
 
         [Test]
@@ -236,7 +241,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubString.Length.ShouldEqual(7);
+            testModel.SubTestModel.SubString.Length.ShouldBe(7);
         }
 
         [Test]
@@ -250,8 +255,8 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubSubTestModel.SubSubString.Length.ShouldEqual(5);
-            testModel.SubTestModel.SubString.Length.ShouldEqual(12);
+            testModel.SubTestModel.SubSubTestModel.SubSubString.Length.ShouldBe(5);
+            testModel.SubTestModel.SubString.Length.ShouldBe(12);
         }
 
 
@@ -279,8 +284,9 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubInteger.ShouldBeGreaterThanOrEqualTo(100);
-            testModel.SubTestModel.SubInteger.ShouldBeLessThanOrEqualTo(103);
+            Assert.IsTrue(testModel.SubTestModel.SubInteger.HasValue);
+            testModel.SubTestModel.SubInteger.Value.ShouldBeGreaterThanOrEqualTo(100);
+            testModel.SubTestModel.SubInteger.Value.ShouldBeLessThanOrEqualTo(103);
         }
 
         [Test]
@@ -321,8 +327,9 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SubDouble.ShouldBeGreaterThanOrEqualTo(100);
-            testModel.SubTestModel.SubDouble.ShouldBeLessThanOrEqualTo(103);
+            Assert.IsTrue(testModel.SubTestModel.SubDouble.HasValue);
+            testModel.SubTestModel.SubDouble.Value.ShouldBeGreaterThanOrEqualTo(100);
+            testModel.SubTestModel.SubDouble.Value.ShouldBeLessThanOrEqualTo(103);
         }
 
         [Test]
@@ -345,7 +352,7 @@ namespace Amido.NAuto.IntegrationTests
             // Arrange
             const int minLength = 5;
             const int maxLength = 50;
-            var config = new AutoBuilderConfiguration(stringMinLength:minLength, stringMaxLength:maxLength);
+            var config = new AutoBuilderConfiguration(stringMinLength: minLength, stringMaxLength: maxLength);
 
             // Act
             var testModel = NAuto.AutoBuild<TestModel>(config)
@@ -373,7 +380,7 @@ namespace Amido.NAuto.IntegrationTests
             testModel.SubTestModel.SubEmail.ShouldContain("@");
             testModel.SubTestModel.SubSubTestModel.SubSubEmail.ShouldContain("@");
         }
-        
+
         [Test]
         public void Should_Not_Exceed_Max_Depth_Default()
         {
@@ -390,7 +397,7 @@ namespace Amido.NAuto.IntegrationTests
         public void Should_Not_Exceed_Max_Depth_Default_Of_Override_Depth_Of_4()
         {
             // Act
-            var testModel = NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration(maxDepth:4))
+            var testModel = NAuto.AutoBuild<TestModel>(new AutoBuilderConfiguration(maxDepth: 4))
                 .Construct()
                 .Build();
 
@@ -407,7 +414,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.SubTestModel.SimpleArray.Length.ShouldEqual(configuration.DefaultCollectionItemCount);
+            testModel.SubTestModel.SimpleArray.Length.ShouldBe(configuration.DefaultCollectionItemCount);
         }
 
         [Test]
@@ -419,7 +426,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.FavouriteComplexArray.Length.ShouldEqual(configuration.DefaultCollectionItemCount);
+            testModel.FavouriteComplexArray.Length.ShouldBe(configuration.DefaultCollectionItemCount);
         }
 
         [Test]
@@ -440,7 +447,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            testModel.FavouriteStrings.Count.ShouldEqual(configuration.DefaultCollectionItemCount);
+            testModel.FavouriteStrings.Count.ShouldBe(configuration.DefaultCollectionItemCount);
         }
 
         [Test]
@@ -471,14 +478,14 @@ namespace Amido.NAuto.IntegrationTests
             var autoTestBuilderConfiguration = new AutoBuilderConfiguration();
 
             autoTestBuilderConfiguration.Conventions.Add(new ConventionMap(ConventionFilterType.Contains, "PetName", typeof(string), config => "Rex"));
-            
+
             var conventionsTestModel = NAuto.AutoBuild<ConventionsModel>(autoTestBuilderConfiguration)
                 .Construct()
                 .Build();
 
             // Assert
-            conventionsTestModel.PetName.ShouldEqual("Rex");
-            conventionsTestModel.SubConventionsModel.PetName.ShouldEqual("Rex");
+            conventionsTestModel.PetName.ShouldBe("Rex");
+            conventionsTestModel.SubConventionsModel.PetName.ShouldBe("Rex");
         }
 
         [Test]
@@ -489,7 +496,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Build();
 
             // Assert
-            noDefautConstructor.FirstName.ShouldEqual("Blah");
+            noDefautConstructor.FirstName.ShouldBe("Blah");
         }
 
         [Test]
@@ -527,7 +534,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Construct()
                 .Build());
 
-            exception.Message.ShouldEqual("Can't instantiate interfaces");
+            exception.Message.ShouldBe("Can't instantiate interfaces");
         }
 
         [Test]
@@ -537,7 +544,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Construct()
                 .Build());
 
-            exception.Message.ShouldEqual("Can't instantiate abstract classes");
+            exception.Message.ShouldBe("Can't instantiate abstract classes");
         }
 
         [Test]
@@ -560,7 +567,7 @@ namespace Amido.NAuto.IntegrationTests
                 .Construct()
                 .Build();
 
-            testModel.ShouldNotBeNull();   
+            testModel.ShouldNotBeNull();
         }
 
         [Test]
@@ -598,10 +605,10 @@ namespace Amido.NAuto.IntegrationTests
                 .Then(x => x.LastName = "Blah")
                 .Build();
 
-            model.LastName.ShouldEqual("Blah");
+            model.LastName.ShouldBe("Blah");
         }
 
-        public interface IMyInterface{}
+        public interface IMyInterface { }
 
         public abstract class MyAbstractClass
         {
